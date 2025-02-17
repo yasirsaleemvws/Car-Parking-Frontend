@@ -24,7 +24,7 @@ export default function ParkingInfo() {
               type="text"
               value={area.name}
               onChange={(e) => handleChange(index, 'name', e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-purple-600"
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
               placeholder="Enter Area Name"
             />
           </div>
@@ -55,7 +55,7 @@ export default function ParkingInfo() {
               type="number"
               value={area.capacity}
               onChange={(e) => handleChange(index, 'capacity', e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-purple-600"
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
               placeholder="Enter Parking Capacity"
             />
           </div>
@@ -66,7 +66,7 @@ export default function ParkingInfo() {
               type="number"
               value={area.cameras}
               onChange={(e) => handleChange(index, 'cameras', e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-purple-600"
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
               placeholder="Enter Number of Cameras"
             />
           </div>

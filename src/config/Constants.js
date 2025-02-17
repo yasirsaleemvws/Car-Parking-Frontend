@@ -10,7 +10,7 @@ export const CONSTANTS = {
 };
 
 export const APP_ROUTES = {
-  LOGIN: "/",
+  LOGIN: "/login",
   SIGN_UP: "/sign-up",
 
 };
