@@ -1,33 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { APP_ROUTES } from "../../../config/Constants";
+import { Link, useNavigate } from "react-router-dom";
+import { ADMIN_ROUTES, APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useMutation } from "react-query";
-import axios from "axios";
+import { useUser } from "../../../Context/UserContext";
 
-// Validation schema
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email format").required("Email is required"),
   password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { loginMutation } = useUser()
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const mutation = useMutation((data) =>
-    axios.post("/api/login", data)
-  );
 
-  const onSubmit = (data) => {
-    mutation.mutate(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await loginMutation.mutateAsync(data);
+      if (response.success ) {
+        navigate(ADMIN_ROUTES.DASHBOARD);
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
@@ -71,13 +71,13 @@ const Login = () => {
             <button
               type="submit"
               className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
-              disabled={mutation.isLoading}
+              disabled={loginMutation.isLoading}
             >
-              {mutation.isLoading ? "Signing in..." : "Sign in"}
+              {loginMutation.isLoading ? "Signing in..." : "Sign in"}
             </button>
 
-            {mutation.isError && (
-              <p className="text-red-500 text-xs mt-1">Login failed: {mutation.error.response.data.message}</p>
+            {loginMutation.isError && (
+              <p className="text-red-500 text-xs mt-1">Login failed: {loginMutation.error.response.data.message}</p>
             )}
 
             <div className="flex items-center my-4">

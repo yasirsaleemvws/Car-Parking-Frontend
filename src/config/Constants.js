@@ -16,14 +16,6 @@ export const APP_ROUTES = {
 };
 
 export const ADMIN_ROUTES = {
-  EVENT: "/admin/event",
-  SPONSER: "/admin/sponser",
-  SETTINGS: "/admin/settings",
-  CREATE_EVENT: "/admin/create-event",
-  VIEW_EVENT: "/admin/view/event/:id",
-  EDIT_EVENT: "/admin/edit/event/:id",
-  VIEW_SPONSER: "/admin/view-sponser/:id",
-  DASHBOARED: "/admin/dashboard",
-  ORGANIZER: "/admin/organizers",
+  DASHBOARD: "/dashboard",
 };
 

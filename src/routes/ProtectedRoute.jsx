@@ -7,15 +7,11 @@ import { useAxiosInterceptors } from "../config/axios";
 const ProtectedRoute = ({ children }) => {
   useAxiosInterceptors();
 
-  const { user, loading } = useUser();
+  const { user } = useUser();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user) {
-    return <Navigate to={APP_ROUTES?.LOGIN} />;
-  }
+  // if (!user) {
+  //   return <Navigate to={APP_ROUTES?.LOGIN} />;
+  // }
 
   return children;
 };
