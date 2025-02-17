@@ -26,24 +26,8 @@ function MainAdminLayout() {
 
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname.includes(ADMIN_ROUTES?.SPONSER)) {
-      setHeaderlabel("Sponsors");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.EVENT)) {
-      setHeaderlabel("Your Event’s");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.CREATE_EVENT)) {
-      setHeaderlabel("Create Event");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.DASHBOARED)) {
+    if (location.pathname.includes(ADMIN_ROUTES?.DASHBOARD)) {
       setHeaderlabel("Dashboared");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.SPONSER)) {
-      setHeaderlabel("Find Sponsor");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.SETTINGS)) {
-      setHeaderlabel("Setting");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.VIEW_SPONSER)) {
-      setHeaderlabel("About Sponsor");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.VIEW_EVENT)) {
-      setHeaderlabel("About Event");
-    } else if (location.pathname.includes(ADMIN_ROUTES?.ORGANIZER)) {
-      setHeaderlabel("Organizers");
     }
   }, [location]);
 
