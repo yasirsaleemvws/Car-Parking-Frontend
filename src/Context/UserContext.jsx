@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useQueryClient, useMutation } from "react-query";
-import { API_POST__FORGET_PASSWORD, API_POST__LOGIN, API_POST__REGISTER, API_POST__RESET_PASSWORD, API_POST__VERIFY_OTP, } from "../api/AuthenticationApi";
+import { API_POST__FORGET_PASSWORD, API_POST__LOGIN, API_POST__REGISTER, API_POST__RESET_PASSWORD, API_POST__VERIFY_OTP, } from "../api/PublicApi";
 
 // Create the User context
 const UserContext = createContext();
