@@ -99,7 +99,7 @@ const Login = () => {
       </div>
 
       <div className="hidden md:block md:w-1/2">
-        <img src="/login.png" alt="Parking" className="w-full h-full object-cover" />
+        <img src="/images/login.png" alt="Parking" className="w-full h-full object-cover" />
       </div>
     </div>
   );

@@ -1,11 +1,77 @@
 import React, { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import SignupBanner from "../../../components/SignupBanner";
 import BasicInfo from "./BasicInfo";
 import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
+import axios from "axios";
 
 const Signup = () => {
     const [activeTab, setActiveTab] = useState("basic");
+
+    const [formData, setFormData] = useState({
+        basicInfo: { companyName: "", email: "", regNumber: "", businessType: "" },
+        address: { country: "", city: "", state: "", zip: "", address: "", street: "", apartment: "" },
+        parkingInfo: [
+            { areaName: "", length: "", width: "", capacity: "", cameras: "" },
+        ],
+    });
+
+    const [errors, setErrors] = useState({});
+
+    // const mutation = useMutation({
+    //     mutationFn: async (data) => axios.post("https://api.example.com/register", data),
+    //     onSuccess: (response) => alert("Registration successful!"),
+    //     onError: (error) => alert("Failed to register!"),
+    // });
+
+    const validateField = (step, field, value) => {
+        let errorMsg = "";
+
+        if (!value) {
+            errorMsg = `${field.replace(/([A-Z])/g, " $1")} is required`;
+        }
+
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [step]: { ...prevErrors[step], [field]: errorMsg },
+        }));
+    };
+
+    const handleChange = (step, field, value) => {
+        setFormData((prev) => ({
+            ...prev,
+            [step]: { ...prev[step], [field]: value },
+        }));
+
+        validateField(step, field, value);
+    };
+
+    const validateStep = (step) => {
+        let newErrors = {};
+        let isValid = true;
+        Object.keys(formData[step]).forEach((field) => {
+            if (!formData[step][field]) {
+                newErrors[field] = `${field.replace(/([A-Z])/g, " $1")} is required`;
+                isValid = false;
+            }
+        });
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [step]: newErrors,
+        }));
+        return isValid;
+    };
+
+    const handleNext = (step) => {
+        if (validateStep(step)) {
+            if (step === "basicInfo") setActiveTab("address");
+            if (step === "address") setActiveTab("parking");
+            if (step === "parking") {
+
+            }
+        }
+    };
 
     return (
         <>
@@ -13,17 +79,14 @@ const Signup = () => {
             <div className="flex items-center justify-center mt-16">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white">
-
-                        {/* Left - Form Section */}
                         <div className="p-0 lg:p-8 w-full lg:w-[70%]">
                             <h2 className="text-2xl font-bold text-gray-800">Register Company</h2>
 
-                            {/* Tab Navigation */}
                             <div className="flex space-x-4 mt-4 border-b">
                                 {["basic", "address", "parking"].map((tab) => (
                                     <button
                                         key={tab}
-                                        onClick={() => setActiveTab(tab)}
+                                        disabled={tab !== "basic" && tab !== activeTab}
                                         className={`pb-2 text-gray-600 border-b-2 transition py-1 px-4 rounded ${activeTab === tab ? "bg-purple-700 text-white font-medium" : "border-transparent"
                                             }`}
                                     >
@@ -32,16 +95,14 @@ const Signup = () => {
                                 ))}
                             </div>
 
-                            {activeTab === "basic" && <BasicInfo setActiveTab={setActiveTab} />}
-                            {activeTab === "address" && <Address setActiveTab={setActiveTab} />}
-                            {activeTab === "parking" && <ParkingInfo />}
+                            {activeTab === "basic" && <BasicInfo formData={formData} handleChange={handleChange} errors={errors.basicInfo} handleNext={handleNext} />}
+                            {activeTab === "address" && <Address formData={formData} handleChange={handleChange} errors={errors.address} handleNext={handleNext} />}
+                            {activeTab === "parking" && <ParkingInfo formData={formData} handleChange={handleChange} errors={errors.parking} handleNext={handleNext} />}
                         </div>
 
-                        {/* Right - Image Section */}
-                        <div className="hidden md:flex items-center justify-center ">
-                            <img src="/signup.png" alt="Register Company" className="w-3/5" />
+                        <div className="hidden md:flex items-center justify-center mb-6">
+                            <img src="/images/reg-card.png" alt="Register Company" className="w-3/6" />
                         </div>
-
                     </div>
                 </div>
             </div>

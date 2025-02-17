@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
-export default function ParkingInfo() {
+export default function ParkingInfo({ formData, errors, handleNext }) {
   const [parkingAreas, setParkingAreas] = useState([{ name: '', length: '', width: '', capacity: '', cameras: '' }]);
-
-  const handleAddMore = () => {
-    setParkingAreas([...parkingAreas, { name: '', length: '', width: '', capacity: '', cameras: '' }]);
-  };
 
   const handleChange = (index, field, value) => {
     const updatedAreas = [...parkingAreas];
     updatedAreas[index][field] = value;
     setParkingAreas(updatedAreas);
   };
+
+  const handleAddMore = () => {
+    setParkingAreas([...parkingAreas, { name: '', length: '', width: '', capacity: '', cameras: '' }]);
+  };
+
 
   return (
     <form className="mt-6 space-y-4">
@@ -22,49 +23,57 @@ export default function ParkingInfo() {
             <label className="block text-gray-700">Parking Area Name*</label>
             <input
               type="text"
-              value={area.name}
-              onChange={(e) => handleChange(index, 'name', e.target.value)}
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
+              value={formData.parking[index].areaName}
+              onChange={(e) => handleChange("parking", "areaName", e.target.value)}
               placeholder="Enter Area Name"
             />
+            {errors?.areaName && <p className="text-red-600">{errors.areaName}</p>}
           </div>
 
           <div>
             <label className="block text-gray-700">Parking Area*</label>
             <div className="flex space-x-4">
-              <input
-                type="number"
-                value={area.length}
-                onChange={(e) => handleChange(index, 'length', e.target.value)}
-                className="w-1/2 p-2 border rounded-md focus:ring-2 focus:ring-purple-600"
-                placeholder="Length"
-              />
-              <input
-                type="number"
-                value={area.width}
-                onChange={(e) => handleChange(index, 'width', e.target.value)}
-                className="w-1/2 p-2 border rounded-md focus:ring-2 focus:ring-purple-600"
-                placeholder="Width"
-              />
+              <div>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
+                  value={formData.parking[index].length}
+                  onChange={(e) => handleChange("parking", "length", e.target.value)}
+                  placeholder="Enter Length"
+                />
+                {errors?.length && <p className="text-red-600">{errors.length}</p>}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
+                  value={formData.parking[index].width}
+                  onChange={(e) => handleChange("parking", "width", e.target.value)}
+                  placeholder="Enter Width"
+                />
+                {errors?.width && <p className="text-red-600">{errors.width}</p>}
+              </div>
             </div>
           </div>
 
           <div>
             <label className="block text-gray-700">Parking Capacity*</label>
             <input
-              type="number"
-              value={area.capacity}
-              onChange={(e) => handleChange(index, 'capacity', e.target.value)}
+              type="text"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
-              placeholder="Enter Parking Capacity"
+              value={formData.parking[index].capacity}
+              onChange={(e) => handleChange("parking", "capacity", e.target.value)}
+              placeholder="Enter Capacity"
             />
+            {errors?.capacity && <p className="text-red-600">{errors.capacity}</p>}
           </div>
 
           <div>
             <label className="block text-gray-700">Installed Cameras*</label>
             <input
               type="number"
-              value={area.cameras}
+              value={formData.parking[index].cameras}
               onChange={(e) => handleChange(index, 'cameras', e.target.value)}
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-none border-gray-300"
               placeholder="Enter Number of Cameras"
@@ -84,7 +93,7 @@ export default function ParkingInfo() {
         </div>
       ))}
 
-      <button type="submit" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition">
+      <button type="submit" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition" onClick={() => handleNext('parking')}>
         Next
       </button>
     </form>
