@@ -18,5 +18,11 @@ export const APP_ROUTES = {
 
 export const ADMIN_ROUTES = {
   PARKING: "/parking",
+  PARKING_OVERVIEW: "/parking-overview",
+  PARKING_ANALYTICS: "/parking-analytics",
+  PARKING_SECTION: "/parking-section",
+  ACCESS_RULE: "/access-rule",
+  FINANCE: "/finance",
+  TEAM: "/team",
 };
 

@@ -6,6 +6,12 @@ import Signup from "../pages/Auth/Signup/Signup";
 import ProtectedRoute from "./ProtectedRoute";
 import Parking from "../pages/parking/Parking";
 import DashboardLayout from "../layouts/DashboardLayout";
+import AccessRule from "../pages/access-rule/AccessRule";
+import Finance from "../pages/finance/Finance";
+import Team from "../pages/team/Team";
+import ParkingAnalytics from "../pages/parking-analytics/ParkingAnalytics";
+import ParkingSection from "../pages/parking-section/ParkingSection";
+import ParkingOverview from "../pages/parking-overview/ParkingOverview";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +26,12 @@ const AppRoutes = () => {
           <Route element={<DashboardLayout />} >
             {/* <Route element={<ProtectedRoute>  </ProtectedRoute>} > */}
             <Route path={ADMIN_ROUTES?.PARKING} element={<Parking />} />
+            <Route path={ADMIN_ROUTES?.PARKING_OVERVIEW} element={<ParkingOverview />} />
+            <Route path={ADMIN_ROUTES?.PARKING_ANALYTICS} element={<ParkingAnalytics />} />
+            <Route path={ADMIN_ROUTES?.PARKING_SECTION} element={<ParkingSection />} />
+            <Route path={ADMIN_ROUTES?.ACCESS_RULE} element={<AccessRule />} />
+            <Route path={ADMIN_ROUTES?.FINANCE} element={<Finance />} />
+            <Route path={ADMIN_ROUTES?.TEAM} element={<Team />} />
           </Route>
         </Routes>
       </Router>
@@ -28,3 +40,8 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
+
+
+
+
+

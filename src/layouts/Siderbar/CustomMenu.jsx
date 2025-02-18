@@ -24,37 +24,37 @@ export default function CustomMenu() {
         >
 
             <Menu.Item key="1" className="p-1" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "1" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+                <img src="/images/sidebar/1.png" alt="" />
                 <span className="ml-2">Parking</span>
             </Menu.Item>
 
-            <Menu.Item key="2" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "2" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="2" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
+                <img src="/images/sidebar/2.png" alt="" />
                 <span className="ml-2">Parking Overview</span>
             </Menu.Item>
 
-            <Menu.Item key="3" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "3" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="3" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
+                <img src="/images/sidebar/3.png" alt="" />
                 <span className="ml-2">Parking Analytics</span>
             </Menu.Item>
 
-            <Menu.Item key="4" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "4" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="4" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
+                <img src="/images/sidebar/4.png" alt="" />
                 <span className="ml-2">Parking Section</span>
             </Menu.Item>
 
-            <Menu.Item key="5" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "5" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="5" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
+                <img src="/images/sidebar/5.png" alt="" />
                 <span className="ml-2">Access Rule</span>
             </Menu.Item>
 
-            <Menu.Item key="6" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
-                {selected === "6" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="6" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.FINANCE); }} >
+                <img src="/images/sidebar/6.png" alt="" />
                 <span className="ml-2">Finance</span>
             </Menu.Item>
 
-            <Menu.Item key="7" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
-                {selected === "7" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
+            <Menu.Item key="7" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.TEAM); }} >
+                <img src="/images/sidebar/7.png" alt="" />
                 <span className="ml-2">Team</span>
             </Menu.Item>
 
