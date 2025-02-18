@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SignupBanner from "../../../components/SignupBanner";
 import BasicInfo from "./BasicInfo";
 import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
@@ -105,7 +104,7 @@ const Signup = () => {
 
     return (
         <>
-            <SignupBanner />
+            <img src="/images/banner.png" alt="" className='w-[100vw] h-[300px]' />
             <div className="flex items-center justify-center mt-16">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white">

@@ -4,8 +4,8 @@ import Login from "../pages/Auth/login/Login";
 import { ADMIN_ROUTES, APP_ROUTES } from "../config/Constants";
 import Signup from "../pages/Auth/Signup/Signup";
 import ProtectedRoute from "./ProtectedRoute";
-import MainAdminLayout from "../layouts/MainAdminLayout";
 import Parking from "../pages/parking/Parking";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const AppRoutes = () => {
   return (
@@ -17,7 +17,7 @@ const AppRoutes = () => {
             <Route path={APP_ROUTES?.LOGIN} element={<Login />} />
             <Route path={APP_ROUTES?.SIGN_UP} element={<Signup />} />
           </Route>
-          <Route element={<MainAdminLayout />} >
+          <Route element={<DashboardLayout />} >
             {/* <Route element={<ProtectedRoute>  </ProtectedRoute>} > */}
             <Route path={ADMIN_ROUTES?.PARKING} element={<Parking />} />
           </Route>

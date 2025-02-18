@@ -4,7 +4,7 @@ import Siderbar from "./Siderbar/Sidebar";
 import Header from "./Header/Header";
 
 
-function MainAdminLayout() {
+function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
@@ -15,4 +15,4 @@ function MainAdminLayout() {
   );
 }
 
-export default MainAdminLayout;
+export default DashboardLayout;
