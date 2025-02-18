@@ -46,7 +46,7 @@ export default function CustomMenu() {
             {menuItems.map(({ key, label, route, icon, extraClass }) => (
                 <Menu.Item
                     key={key}
-                    className={`p-4 rounded-md transition-all duration-300 ${selected === key ? "bg-blue-800 text-white" : "hover:bg-gray-100"
+                    className={`p-4 rounded-md transition-all duration-300 ${selected == key ? "bg-blue-800 text-white" : "hover:bg-gray-100"
                         } ${extraClass || ""}`}
                 >
                     <img src={icon} alt={label} className="inline-block w-6 h-6" />
