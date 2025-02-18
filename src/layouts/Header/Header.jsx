@@ -68,7 +68,7 @@ export default function Header({ collapsed, setCollapsed }) {
                     </Dropdown>
                 </div>
             </header>
-            <div className="admin_body ml-8 mr-6">
+            <div className="admin_body m-10">
                 <Outlet />
             </div>
         </Layout>
