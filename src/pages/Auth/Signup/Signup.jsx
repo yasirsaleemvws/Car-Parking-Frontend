@@ -3,8 +3,11 @@ import SignupBanner from "../../../components/SignupBanner";
 import BasicInfo from "./BasicInfo";
 import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
+import { useUser } from "../../../Context/UserContext";
+import { APP_ROUTES } from "../../../config/Constants";
 
 const Signup = () => {
+    const { registerMutation } = useUser()
     const [activeTab, setActiveTab] = useState("basic");
 
     const [formData, setFormData] = useState({
@@ -39,7 +42,6 @@ const Signup = () => {
                 }
 
                 updatedParking[index][field] = value;
-                console.log("formData", formData);
                 return { ...prev, parkingInfo: updatedParking };
             }
             return { ...prev, [step]: { ...prev[step], [field]: value } };
@@ -54,8 +56,8 @@ const Signup = () => {
         let newErrors = {};
         let isValid = true;
 
-        if (step === "parkingInfo") {
-            formData[step].forEach((area, index) => {
+        if (step === "parking") {
+            formData.parkingInfo.forEach((area, index) => {
                 let areaErrors = {};
                 Object.keys(area).forEach((field) => {
                     if (!area[field]) {
@@ -83,12 +85,19 @@ const Signup = () => {
     };
 
 
-    const handleNext = (step) => {
+    const handleNext = async (step, event) => {
         if (validateStep(step)) {
             if (step === "basicInfo") setActiveTab("address");
             if (step === "address") setActiveTab("parking");
             if (step === "parking") {
-                // save will handle here
+                try {
+                    const response = await registerMutation.mutateAsync(formData);
+                    if (response.success) {
+                        navigate(APP_ROUTES.LOGIN);
+                    }
+                } catch (error) {
+                    console.error("Login failed:", error);
+                }
             }
         }
     };
