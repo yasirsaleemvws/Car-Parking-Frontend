@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import SignupBanner from "../../../components/SignupBanner";
 import BasicInfo from "./BasicInfo";
 import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
-import axios from "axios";
 
 const Signup = () => {
     const [activeTab, setActiveTab] = useState("basic");
@@ -12,18 +10,11 @@ const Signup = () => {
     const [formData, setFormData] = useState({
         basicInfo: { companyName: "", email: "", regNumber: "", businessType: "" },
         address: { country: "", city: "", state: "", zip: "", address: "", street: "", apartment: "" },
-        parkingInfo: [
-            { areaName: "", length: "", width: "", capacity: "", cameras: "" },
-        ],
+        parkingInfo: [],
     });
 
     const [errors, setErrors] = useState({});
 
-    // const mutation = useMutation({
-    //     mutationFn: async (data) => axios.post("https://api.example.com/register", data),
-    //     onSuccess: (response) => alert("Registration successful!"),
-    //     onError: (error) => alert("Failed to register!"),
-    // });
 
     const validateField = (step, field, value) => {
         let errorMsg = "";
@@ -38,37 +29,66 @@ const Signup = () => {
         }));
     };
 
-    const handleChange = (step, field, value) => {
-        setFormData((prev) => ({
-            ...prev,
-            [step]: { ...prev[step], [field]: value },
-        }));
+    const handleChange = (step, field, value, index = null) => {
+        setFormData((prev) => {
+            if (step === "parkingInfo") {
+                const updatedParking = prev.parkingInfo ? [...prev.parkingInfo] : []; // ✅ Ensure array exists
+
+                if (!updatedParking[index]) {
+                    updatedParking[index] = {};
+                }
+
+                updatedParking[index][field] = value;
+                console.log("formData", formData);
+                return { ...prev, parkingInfo: updatedParking };
+            }
+            return { ...prev, [step]: { ...prev[step], [field]: value } };
+
+        });
 
         validateField(step, field, value);
     };
 
+
     const validateStep = (step) => {
         let newErrors = {};
         let isValid = true;
-        Object.keys(formData[step]).forEach((field) => {
-            if (!formData[step][field]) {
-                newErrors[field] = `${field.replace(/([A-Z])/g, " $1")} is required`;
-                isValid = false;
-            }
-        });
+
+        if (step === "parkingInfo") {
+            formData[step].forEach((area, index) => {
+                let areaErrors = {};
+                Object.keys(area).forEach((field) => {
+                    if (!area[field]) {
+                        areaErrors[field] = `${field.replace(/([A-Z])/g, " $1")} is required`;
+                        isValid = false;
+                    }
+                });
+                newErrors[index] = areaErrors;
+            });
+        } else {
+            Object.keys(formData[step]).forEach((field) => {
+                if (!formData[step][field]) {
+                    newErrors[field] = `${field.replace(/([A-Z])/g, " $1")} is required`;
+                    isValid = false;
+                }
+            });
+        }
+
         setErrors((prevErrors) => ({
             ...prevErrors,
             [step]: newErrors,
         }));
+
         return isValid;
     };
+
 
     const handleNext = (step) => {
         if (validateStep(step)) {
             if (step === "basicInfo") setActiveTab("address");
             if (step === "address") setActiveTab("parking");
             if (step === "parking") {
-
+                // save will handle here
             }
         }
     };
@@ -87,8 +107,8 @@ const Signup = () => {
                                     <button
                                         key={tab}
                                         disabled={tab !== "basic" && tab !== activeTab}
-                                        className={`pb-2 text-gray-600 border-b-2 transition py-1 px-4 rounded ${activeTab === tab ? "bg-purple-700 text-white font-medium" : "border-transparent"
-                                            }`}
+                                        onClick={() => setActiveTab(tab)}
+                                        className={`pb-2 text-gray-600 border-b-2 transition py-1 px-4 rounded ${activeTab === tab ? "bg-purple-700 text-white font-medium" : "border-transparent"}`}
                                     >
                                         {tab === "basic" ? "Basic Info" : tab === "address" ? "Address" : "Parking Info"}
                                     </button>

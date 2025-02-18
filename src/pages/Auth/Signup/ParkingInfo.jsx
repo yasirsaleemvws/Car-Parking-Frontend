@@ -3,15 +3,6 @@ import React, { useState } from "react";
 export default function ParkingInfo({ formData, errors, handleChange, handleNext }) {
   const [parkingAreas, setParkingAreas] = useState([{ areaName: "", length: "", width: "", capacity: "", cameras: "" }]);
 
-  const handleFieldChange = (index, field, value) => {
-    const updatedAreas = [...parkingAreas];
-    updatedAreas[index][field] = value;
-    setParkingAreas(updatedAreas);
-
-    // Validate field immediately on change
-    handleChange(index, field, value);
-  };
-
   const handleAddMore = () => {
     setParkingAreas([...parkingAreas, { areaName: "", length: "", width: "", capacity: "", cameras: "" }]);
   };
@@ -26,8 +17,8 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
             <input
               type="text"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-              value={area.areaName}
-              onChange={(e) => handleFieldChange(index, "areaName", e.target.value)}
+              value={formData.parkingInfo.areaName}
+              onChange={(e) => handleChange("parkingInfo", "areaName", e.target.value, index)}
               placeholder="Enter Area Name"
             />
             {errors?.[index]?.areaName && <p className="text-red-600">{errors[index].areaName}</p>}
@@ -40,8 +31,8 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
                 <input
                   type="text"
                   className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-                  value={area.length}
-                  onChange={(e) => handleFieldChange(index, "length", e.target.value)}
+                  value={formData.parkingInfo.length}
+                  onChange={(e) => handleChange("parkingInfo", "length", e.target.value, index)}
                   placeholder="Enter Length"
                 />
                 {errors?.[index]?.length && <p className="text-red-600">{errors[index].length}</p>}
@@ -50,8 +41,8 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
                 <input
                   type="text"
                   className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-                  value={area.width}
-                  onChange={(e) => handleFieldChange(index, "width", e.target.value)}
+                  value={formData.parkingInfo.width}
+                  onChange={(e) => handleChange("parkingInfo", "width", e.target.value, index)}
                   placeholder="Enter Width"
                 />
                 {errors?.[index]?.width && <p className="text-red-600">{errors[index].width}</p>}
@@ -64,8 +55,8 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
             <input
               type="text"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-              value={area.capacity}
-              onChange={(e) => handleFieldChange(index, "capacity", e.target.value)}
+              value={formData.parkingInfo.capacity}
+              onChange={(e) => handleChange("parkingInfo", "capacity", e.target.value, index)}
               placeholder="Enter Capacity"
             />
             {errors?.[index]?.capacity && <p className="text-red-600">{errors[index].capacity}</p>}
@@ -76,8 +67,8 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
             <input
               type="number"
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-              value={area.cameras}
-              onChange={(e) => handleFieldChange(index, "cameras", e.target.value)}
+              value={formData.parkingInfo.cameras}
+              onChange={(e) => handleChange("parkingInfo", "cameras", e.target.value, index)}
               placeholder="Enter Number of Cameras"
             />
             {errors?.[index]?.cameras && <p className="text-red-600">{errors[index].cameras}</p>}
