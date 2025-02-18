@@ -10,7 +10,7 @@ export default function CustomMenu() {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname.includes(ADMIN_ROUTES?.DASHBOARD)) {
+        if (location.pathname.includes(ADMIN_ROUTES?.PARKING)) {
             setSelected("1");
         }
     }, [location]);
@@ -23,27 +23,27 @@ export default function CustomMenu() {
             onClick={(e) => setSelected(e.key)}
         >
 
-            <Menu.Item key="1" className="p-1" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="1" className="p-1" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "1" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
-                <span className="ml-2">Dashboard</span>
+                <span className="ml-2">Parking</span>
             </Menu.Item>
 
-            <Menu.Item key="2" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="2" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "2" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
                 <span className="ml-2">Parking Overview</span>
             </Menu.Item>
 
-            <Menu.Item key="3" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="3" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "3" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
                 <span className="ml-2">Parking Analytics</span>
             </Menu.Item>
 
-            <Menu.Item key="4" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="4" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "4" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
                 <span className="ml-2">Parking Section</span>
             </Menu.Item>
 
-            <Menu.Item key="5" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="5" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "5" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
                 <span className="ml-2">Access Rule</span>
             </Menu.Item>
@@ -53,7 +53,7 @@ export default function CustomMenu() {
                 <span className="ml-2">Finance</span>
             </Menu.Item>
 
-            <Menu.Item key="7" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.DASHBOARD); }} >
+            <Menu.Item key="7" className="p-4" onClick={() => { Navigate(ADMIN_ROUTES?.PARKING); }} >
                 {selected === "7" ? <DashboardOutlined style={{ fontSize: "20px" }} /> : <DashboardOutlined style={{ fontSize: "20px" }} />}
                 <span className="ml-2">Team</span>
             </Menu.Item>

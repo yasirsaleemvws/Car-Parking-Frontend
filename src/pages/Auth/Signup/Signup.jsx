@@ -91,6 +91,7 @@ const Signup = () => {
             if (step === "address") setActiveTab("parking");
             if (step === "parking") {
                 try {
+                    debugger
                     const response = await registerMutation.mutateAsync(formData);
                     if (response.success) {
                         navigate(APP_ROUTES.LOGIN);

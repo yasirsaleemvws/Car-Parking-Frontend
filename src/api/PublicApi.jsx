@@ -12,7 +12,7 @@ export const POST__LOGIN = async (data) => {
 
 export const POST__REGISTER = async (data) => {
   try {
-    const response = await PublicAxiosInstance.post(`auth/12321321321321`, data);
+    const response = await PublicAxiosInstance.post(`auth/register`, data);
     return response.data;
   } catch (error) {
     throw error;

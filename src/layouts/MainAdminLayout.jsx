@@ -26,7 +26,7 @@ function MainAdminLayout() {
 
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname.includes(ADMIN_ROUTES?.DASHBOARD)) {
+    if (location.pathname.includes(ADMIN_ROUTES?.PARKING)) {
       setHeaderlabel("Dashboared");
     }
   }, [location]);
@@ -72,7 +72,7 @@ function MainAdminLayout() {
     <Layout>
       <Siderbar collapsed={collapsed} setCollapsed={setCollapsed} />
       <Layout className="asasas ">
-        <Header className="bg-white  flex items-center justify-between px-8 py-14 rounded ml-8" style={{ borderRadius: "0 0 0 12px" }}>
+        <Header className="bg-white  flex items-center justify-between px-8 py-9 ">
           <div className="lg:hidden">
             <Button icon={<MenuOutlined />} onClick={() => setCollapsed(false)} />
           </div>

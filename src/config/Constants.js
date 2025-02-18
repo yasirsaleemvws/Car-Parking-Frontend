@@ -10,12 +10,13 @@ export const CONSTANTS = {
 };
 
 export const APP_ROUTES = {
+  HOME: '/',
   LOGIN: "/login",
   SIGN_UP: "/sign-up",
 
 };
 
 export const ADMIN_ROUTES = {
-  DASHBOARD: "/dashboard",
+  PARKING: "/parking",
 };
 

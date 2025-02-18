@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const response = await loginMutation.mutateAsync(data);
       if (response.success ) {
-        navigate(ADMIN_ROUTES.DASHBOARD);
+        navigate(ADMIN_ROUTES.PARKING);
       }
     } catch (error) {
       console.error("Login failed:", error);
