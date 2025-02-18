@@ -1,20 +1,19 @@
-import React from 'react'
-import notif from "/images/icons/notif.png";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Layout, Menu, Button, Dropdown } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
+import notif from "/images/icons/notif.png";
+import Profil from "/images/icons/default-profile.png";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useUser } from "../../Context/UserContext";
+import { APP_ROUTES } from "../../config/Constants";
 
 
-const { Header } = Layout;
 
-export default function Header() {
+
+export default function Header({ collapsed, setCollapsed }) {
     const [notifications, setNotifications] = useState([]);
     const { logout } = useUser();
-    const [headerLabel, setHeaderlabel] = useState("Your Event’s");
-    const [profileImage, setProfileImage] = useState(user?.profile_image);
     const Navigate = useNavigate();
-  const location = useLocation();
-
 
     const notificationMenu = (
         <Menu>
@@ -53,8 +52,8 @@ export default function Header() {
     );
 
     return (
-        <Layout className="asasas ">
-            <Header className="bg-white  flex items-center justify-between lg:justify-end px-8 py-9 ">
+        <Layout>
+            <header className="bg-white  flex items-center justify-between lg:justify-end px-8 py-2 ">
                 <div className="lg:hidden">
                     <Button icon={<MenuOutlined />} onClick={() => setCollapsed(false)} />
                 </div>
@@ -65,13 +64,13 @@ export default function Header() {
                         </a>
                     </Dropdown>
                     <Dropdown overlay={menu} trigger={["click"]}>
-                        <img src={profileImage} alt="User Avatar" className="rounded-full cursor-pointer w-[52px] h-[52px] object-cover" />
+                        <img src={Profil} alt="User Avatar" className="rounded-full cursor-pointer w-[52px] h-[52px] object-cover" />
                     </Dropdown>
                 </div>
-            </Header>
+            </header>
             <div className="admin_body ml-8 mr-6">
                 <Outlet />
             </div>
         </Layout>
-    )
+    );
 }
