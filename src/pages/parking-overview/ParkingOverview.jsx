@@ -63,7 +63,7 @@ export default function ParkingOverview() {
             <div className="bg-white p-6 rounded-lg shadow-md col-span-2 flex items-center">
               <ResponsiveContainer width="100%" height={150} className="flex-1">
                 <PieChart>
-                  <Pie data={parkingSpaceData} dataKey="value" nameKey="name" outerRadius={50} fill="#6D28D9">
+                  <Pie data={parkingSpaceData} dataKey="value" nameKey="name" outerRadius={65} fill="#6D28D9">
                     {parkingSpaceData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index]} />
                     ))}
