@@ -13,10 +13,9 @@ const RangeCalander = ({ selectedDates, setSelectedDates, onCancel }) => {
             <RangePicker
                 onChange={(dates) => setSelectedDates(dates ? dates.map(date => date.toDate()) : [])}
                 style={{ marginBottom: '16px' }}
-                
             />
         </div>
     );
-};  
+};
 
 export default RangeCalander;

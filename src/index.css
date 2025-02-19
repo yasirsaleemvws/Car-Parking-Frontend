@@ -10,3 +10,18 @@ body {
   background-color: #E7E9ED !important;
   color: #000 !important;
 }
+
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: #8133F1 !important;
+  color: white !important;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before {
+  background-color: #E6D4FF !important;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  background-color: #8133F1 !important;
+  color: white !important;
+}
