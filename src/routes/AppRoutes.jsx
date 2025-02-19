@@ -16,6 +16,7 @@ import PeakTraffic from "../pages/parking-analytics/peak-traffic/PeakTraffic";
 import AvgOccupancy from "../pages/parking-analytics/avg-occupancy/AvgOccupancy";
 import AvgParking from "../pages/parking-analytics/avg-parking/AvgParking";
 import AvgVehicle from "../pages/parking-analytics/avg-vehicle/AvgVehicle";
+import Settings from "../pages/settings/Settings";
 
 const AppRoutes = () => {
   return (
@@ -40,6 +41,9 @@ const AppRoutes = () => {
             <Route path={ADMIN_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
             <Route path={ADMIN_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
             <Route path={ADMIN_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
+            <Route element={<Settings />}>
+              <Route path={ADMIN_ROUTES?.SETTINGS} element={<AvgOccupancy />} />
+            </Route>
           </Route>
         </Routes>
       </Router>

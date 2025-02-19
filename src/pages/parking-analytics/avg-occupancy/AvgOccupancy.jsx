@@ -4,9 +4,11 @@ import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/CustomBarChart';
+import RangeCalander from '../../../components/RangeCalander';
 
 export default function AvgOccupancy() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedDates, setSelectedDates] = useState([]);
   const rowsPerPage = 10;
 
   const data = [

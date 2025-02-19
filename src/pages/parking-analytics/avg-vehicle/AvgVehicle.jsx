@@ -4,9 +4,11 @@ import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/CustomBarChart';
+import RangeCalander from '../../../components/RangeCalander';
 
 export default function AvgVehicle() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedDates, setSelectedDates] = useState([]);
   const rowsPerPage = 10;
 
   const data = [
@@ -53,7 +55,7 @@ export default function AvgVehicle() {
     <>
       <div className=" lg:flex justify-between p-6">
         <Breadcrumb items={breadcrumbItems} />
-        <RangeCalander selectedDates={selectedDates} setSelectedDates={setSelectedDates}/>
+        <RangeCalander selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
       </div>
 
       <div className="bg-white shadow-md rounded-lg mb-6 pt-6 pb-6 pr-6">
@@ -66,7 +68,7 @@ export default function AvgVehicle() {
             <span className='text-gray-500'> Vehicle Exited</span>
           </div>
         </div>
-        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} fill2={'#a96ae3'} barSize={10}/>
+        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} fill2={'#a96ae3'} barSize={10} />
       </div>
 
       <div className="bg-white shadow-md rounded-lg ">
