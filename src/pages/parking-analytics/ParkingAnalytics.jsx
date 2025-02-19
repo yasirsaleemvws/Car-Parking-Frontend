@@ -1,7 +1,144 @@
-import React from 'react'
+import React from "react";
+import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, } from "recharts";
+import { IoMdMore } from "react-icons/io";
 
-export default function ParkingAnalytics() {
+const analyticsData = [
+  { day: "S", value: 10 },
+  { day: "M", value: 20 },
+  { day: "T", value: 30 },
+  { day: "W", value: 50 },
+  { day: "T", value: 45 },
+  { day: "F", value: 60 },
+  { day: "S", value: 70 },
+];
+
+const withdrawData = [
+  { day: "S", value: 50 },
+  { day: "M", value: 70 },
+  { day: "T", value: 55 },
+  { day: "W", value: 65 },
+  { day: "T", value: 40 },
+  { day: "F", value: 60 },
+  { day: "S", value: 50 },
+];
+
+const ParkingAnalytics = () => {
   return (
-    <div>ParkingAnalytics</div>
-  )
-}
+    <div className="p-6 bg-gray-100">
+      <h2 className="text-xl font-semibold mb-4">Parking Analytics</h2>
+
+      {/* Cards Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        {/* Card 1 */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-600">Avg. Parking Duration</span>
+            <FaArrowRightLong className="text-gray-400" size={16} />
+          </div>
+          <h3 className="text-xl font-semibold mt-2">3hrs</h3>
+          <span className="text-green-500 text-sm flex items-center mt-1">
+            <FaArrowUpLong size={14} className="mr-1" /> 20% vs last week
+          </span>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-600">Peak Traffic Time</span>
+            <FaArrowRightLong className="text-gray-400" size={16} />
+          </div>
+          <h3 className="text-xl font-semibold mt-2">11:00 am - 01:00 pm</h3>
+          <span className="text-gray-500 text-sm block mt-1">
+            12:00 am - 03:00 pm
+          </span>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-600">Avg. Vehicle Parked</span>
+            <FaArrowRightLong className="text-gray-400" size={16} />
+          </div>
+          <h3 className="text-xl font-semibold mt-2">80</h3>
+          <span className="text-green-500 text-sm flex items-center mt-1">
+            <FaArrowUpLong size={14} className="mr-1" /> 20% vs last month
+          </span>
+        </div>
+
+        {/* Card 4 */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-600">Avg. Occupancy Rate</span>
+            <FaArrowRightLong className="text-gray-400" size={16} />
+          </div>
+          <h3 className="text-xl font-semibold mt-2">80%</h3>
+          <span className="text-red-500 text-sm flex items-center mt-1">
+            <FaArrowDownLong size={14} className="mr-1" /> 20% vs last week
+          </span>
+        </div>
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Revenue Chart */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="text-gray-600">Total Revenue</h3>
+              <h2 className="text-xl font-semibold">$824,458.65</h2>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-purple-600 text-sm flex items-center">
+                <input type="radio" name="revenue" checked className="mr-1" /> Weekly
+              </span>
+              <span className="text-gray-500 text-sm flex items-center">
+                <input type="radio" name="revenue" className="mr-1" /> Monthly
+              </span>
+              <FaArrowRightLong className="text-gray-400" size={18} />
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={analyticsData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="value" stroke="#4CAF50" fill="#C8E6C9" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Withdraw Chart */}
+        <div className="bg-white shadow-md p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="text-gray-600">Withdraw</h3>
+              <h2 className="text-xl font-semibold">$456,68</h2>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-purple-600 text-sm flex items-center">
+                <input type="radio" name="withdraw" checked className="mr-1" /> Weekly
+              </span>
+              <span className="text-gray-500 text-sm flex items-center">
+                <input type="radio" name="withdraw" className="mr-1" /> Monthly
+              </span>
+              <IoMdMore className="text-gray-800" size={18} />
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={withdrawData}>
+              <CartesianGrid strokeDasharray="1 1" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#7B1FA2" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ParkingAnalytics;

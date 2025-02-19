@@ -36,7 +36,7 @@ export default function ParkingOverview() {
   const COLORS = ["#6D28D9", "#D1C4E9"];
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100">
       {/* Parking Overview Title */}
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Parking Overview</h2>
 

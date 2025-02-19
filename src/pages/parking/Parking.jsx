@@ -26,7 +26,7 @@ export default function Parking() {
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100">
       <div className="bg-white shadow-md rounded-lg ">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between p-4">
