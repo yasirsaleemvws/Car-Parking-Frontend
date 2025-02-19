@@ -1,6 +1,6 @@
 import React from "react";
 import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, AreaChart, Area, } from "recharts";
 import { IoMdMore } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
@@ -8,11 +8,11 @@ import { ADMIN_ROUTES } from "../../config/Constants";
 const analyticsData = [
   { day: "S", value: 10 },
   { day: "M", value: 20 },
-  { day: "T", value: 30 },
+  { day: "T", value: 70 },
   { day: "W", value: 50 },
   { day: "T", value: 45 },
-  { day: "F", value: 60 },
-  { day: "S", value: 70 },
+  { day: "F", value: 35 },
+  { day: "S", value: 30 },
 ];
 
 const withdrawData = [
@@ -34,7 +34,7 @@ const ParkingAnalytics = () => {
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Card 1 */}
-        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_PARKING)}>
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={() => navigate(ADMIN_ROUTES.AVG_PARKING)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Parking Duration</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -46,7 +46,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.PEAK_TRAFFIC)}>
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={() => navigate(ADMIN_ROUTES.PEAK_TRAFFIC)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Peak Traffic Time</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -58,7 +58,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_VEHICLE)}>
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={() => navigate(ADMIN_ROUTES.AVG_VEHICLE)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Vehicle Parked</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -70,7 +70,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_OCCUPANCY)}>
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={() => navigate(ADMIN_ROUTES.AVG_OCCUPANCY)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Occupancy Rate</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -102,13 +102,13 @@ const ParkingAnalytics = () => {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={analyticsData}>
+            <AreaChart data={analyticsData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="day" />
               <YAxis />
               <Tooltip />
-              <Line type="monotone" dataKey="value" stroke="#4CAF50" fill="#C8E6C9" />
-            </LineChart>
+              <Area type="monotone" dataKey="value" stroke="#4CAF50" fill="#C8E6C9" />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
 
