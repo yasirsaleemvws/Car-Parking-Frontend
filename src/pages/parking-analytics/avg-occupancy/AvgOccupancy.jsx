@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
+import Breadcrumb from '../../../components/Breadcurms';
 
 export default function AvgOccupancy() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,9 +23,17 @@ export default function AvgOccupancy() {
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
+  const breadcrumbItems = [
+    { label: 'Home', link: '/parking' },
+    { label: 'Parking analytics', link: '/parking-analytics' },
+    { label: 'Average Occupancy' }
+  ];
+
   return (
-    <div className="bg-gray-100">
-      <div className="bg-white shadow-md rounded-lg ">
+    <div className="bg-white shadow-md rounded-lg">
+        <div className="container mx-auto p-6">
+          <Breadcrumb items={breadcrumbItems} />
+        </div>
         {/* Header */}
         <CustomFilters title={'Average Occupancy'} />
 
@@ -37,7 +46,6 @@ export default function AvgOccupancy() {
           totalPages={totalPages}
           onPageChange={setCurrentPage}
         />
-      </div>
     </div>
   )
 }
