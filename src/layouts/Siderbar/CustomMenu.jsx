@@ -1,58 +1,90 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import { Menu } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function CustomMenu() {
-    const [selected, setSelected] = useState("");
+    const [selected, setSelected] = useState();
     const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname.includes(ADMIN_ROUTES.PARKING)) setSelected("1");
-        else if (location.pathname.includes(ADMIN_ROUTES.PARKING_OVERVIEW)) setSelected("2");
-        else if (location.pathname.includes(ADMIN_ROUTES.PARKING_ANALYTICS)) setSelected("3");
-        else if (location.pathname.includes(ADMIN_ROUTES.PARKING_SECTION)) setSelected("4");
-        else if (location.pathname.includes(ADMIN_ROUTES.ACCESS_RULE)) setSelected("5");
-        else if (location.pathname.includes(ADMIN_ROUTES.FINANCE)) setSelected("6");
-        else if (location.pathname.includes(ADMIN_ROUTES.TEAM)) setSelected("7");
-        else if (location.pathname.includes(ADMIN_ROUTES.SETTINGS)) setSelected("0");
-        console.log(selected);
-        
+        if (location.pathname.endsWith(ADMIN_ROUTES?.SETTINGS)) {
+            setSelected("0");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING)) {
+            setSelected("1");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_OVERVIEW)) {
+            setSelected("2");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_ANALYTICS)) {
+            setSelected("3");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_PARKING)) {
+            setSelected("3");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PEAK_TRAFFIC)) {
+            setSelected("3");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_VEHICLE)) {
+            setSelected("3");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_OCCUPANCY)) {
+            setSelected("3");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_SECTION)) {
+            setSelected("4");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.ACCESS_RULE)) {
+            setSelected("5");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.FINANCE)) {
+            setSelected("6");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.TEAM)) {
+            setSelected("7");
+        }
     }, [location]);
 
-    const menuItems = [
-        { key: "1", label: "Parking", route: ADMIN_ROUTES.PARKING, icon: "/images/sidebar/1.png" },
-        { key: "2", label: "Parking Overview", route: ADMIN_ROUTES.PARKING_OVERVIEW, icon: "/images/sidebar/2.png" },
-        { key: "3", label: "Parking Analytics", route: ADMIN_ROUTES.PARKING_ANALYTICS, icon: "/images/sidebar/3.png" },
-        { key: "4", label: "Parking Section", route: ADMIN_ROUTES.PARKING_SECTION, icon: "/images/sidebar/4.png" },
-        { key: "5", label: "Access Rule", route: ADMIN_ROUTES.ACCESS_RULE, icon: "/images/sidebar/5.png" },
-        { key: "6", label: "Finance", route: ADMIN_ROUTES.FINANCE, icon: "/images/sidebar/6.png" },
-        { key: "7", label: "Team", route: ADMIN_ROUTES.TEAM, icon: "/images/sidebar/7.png" },
-        { key: "0", label: "Settings", route: ADMIN_ROUTES.SETTINGS, icon: "/images/sidebar/0.png", extraClass: "absolute bottom-2" }
-    ];
 
     return (
         <Menu
             mode="inline"
             selectedKeys={[selected]}
-            className="text-lg border-r-0 flex flex-col p-3 gap-0"
-            onClick={(e) => {
-                setSelected(e.key);
-                const selectedItem = menuItems.find(item => item.key === e.key);
-                if (selectedItem) navigate(selectedItem.route);
-            }}
+            className="text-lg !border-r-0 flex flex-col p-3 gap-0"
+            onClick={(e) => setSelected(e.key)}
         >
-            {menuItems.map(({ key, label, route, icon, extraClass }) => (
-                <Menu.Item
-                    key={key}
-                    className={`p-4 rounded-md transition-all duration-300 ${selected == key ? "bg-blue-800 text-white" : "hover:bg-gray-100"
-                        } ${extraClass || ""}`}
-                >
-                    <img src={icon} alt={label} className="inline-block w-6 h-6" />
-                    <span className="ml-2">{label}</span>
-                </Menu.Item>
-            ))}
+
+            <Menu.Item key="1" className="p-1" onClick={() => { navigate(ADMIN_ROUTES?.PARKING); }} >
+                <img src="/images/sidebar/1.png" alt="" />
+                <span className="ml-2">Parking</span>
+            </Menu.Item>
+
+            <Menu.Item key="2" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
+                <img src="/images/sidebar/2.png" alt="" />
+                <span className="ml-2">Parking Overview</span>
+            </Menu.Item>
+
+            <Menu.Item key="3" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
+                <img src="/images/sidebar/3.png" alt="" />
+                <span className="ml-2">Parking Analytics</span>
+            </Menu.Item>
+
+            <Menu.Item key="4" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
+                <img src="/images/sidebar/4.png" alt="" />
+                <span className="ml-2">Parking Section</span>
+            </Menu.Item>
+
+            <Menu.Item key="5" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
+                <img src="/images/sidebar/5.png" alt="" />
+                <span className="ml-2">Access Rule</span>
+            </Menu.Item>
+
+            <Menu.Item key="6" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.FINANCE); }} >
+                <img src="/images/sidebar/6.png" alt="" />
+                <span className="ml-2">Finance</span>
+            </Menu.Item>
+
+            <Menu.Item key="7" className="p-4" onClick={() => { navigate(ADMIN_ROUTES?.TEAM); }} >
+                <img src="/images/sidebar/7.png" alt="" />
+                <span className="ml-2">Team</span>
+            </Menu.Item>
+
+
+            <Menu.Item key="0" className="p-6 !absolute bottom-2" style={{ paddingLeft: "21px" }} onClick={() => { navigate(ADMIN_ROUTES?.SETTINGS); }} >
+                <img src="/images/sidebar/0.png" alt="" />
+                <span className="ml-2">Setting</span>
+            </Menu.Item>
         </Menu>
-    );
+    )
 }

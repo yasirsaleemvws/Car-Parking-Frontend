@@ -28,5 +28,6 @@ export const ADMIN_ROUTES = {
   ACCESS_RULE: "/access-rule",
   FINANCE: "/finance",
   TEAM: "/team",
+  SETTINGS: "/settings"
 };
 
