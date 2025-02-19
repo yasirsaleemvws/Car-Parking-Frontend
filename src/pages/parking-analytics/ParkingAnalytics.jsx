@@ -2,6 +2,8 @@ import React from "react";
 import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, } from "recharts";
 import { IoMdMore } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { ADMIN_ROUTES } from "../../config/Constants";
 
 const analyticsData = [
   { day: "S", value: 10 },
@@ -24,6 +26,7 @@ const withdrawData = [
 ];
 
 const ParkingAnalytics = () => {
+  const navigate = useNavigate()
   return (
     <div className="p-6 bg-gray-100">
       <h2 className="text-xl font-semibold mb-4">Parking Analytics</h2>
@@ -31,7 +34,7 @@ const ParkingAnalytics = () => {
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Card 1 */}
-        <div className="bg-white shadow-md p-4 rounded-lg">
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_PARKING)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Parking Duration</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -43,7 +46,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white shadow-md p-4 rounded-lg">
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.PEAK_TRAFFIC)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Peak Traffic Time</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -55,7 +58,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="bg-white shadow-md p-4 rounded-lg">
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_VEHICLE)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Vehicle Parked</span>
             <FaArrowRightLong className="text-gray-400" size={16} />
@@ -67,7 +70,7 @@ const ParkingAnalytics = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="bg-white shadow-md p-4 rounded-lg">
+        <div className="bg-white shadow-md p-4 rounded-lg cursor-pointer" onClick={()=> navigate(ADMIN_ROUTES.AVG_OCCUPANCY)}>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Avg. Occupancy Rate</span>
             <FaArrowRightLong className="text-gray-400" size={16} />

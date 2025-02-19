@@ -12,6 +12,10 @@ import Team from "../pages/team/Team";
 import ParkingAnalytics from "../pages/parking-analytics/ParkingAnalytics";
 import ParkingSection from "../pages/parking-section/ParkingSection";
 import ParkingOverview from "../pages/parking-overview/ParkingOverview";
+import PeakTraffic from "../pages/parking-analytics/peak-traffic/PeakTraffic";
+import AvgOccupancy from "../pages/parking-analytics/avg-occupancy/AvgOccupancy";
+import AvgParking from "../pages/parking-analytics/avg-parking/AvgParking";
+import AvgVehicle from "../pages/parking-analytics/avg-vehicle/AvgVehicle";
 
 const AppRoutes = () => {
   return (
@@ -32,6 +36,10 @@ const AppRoutes = () => {
             <Route path={ADMIN_ROUTES?.ACCESS_RULE} element={<AccessRule />} />
             <Route path={ADMIN_ROUTES?.FINANCE} element={<Finance />} />
             <Route path={ADMIN_ROUTES?.TEAM} element={<Team />} />
+            <Route path={ADMIN_ROUTES?.AVG_PARKING} element={<AvgParking />} />
+            <Route path={ADMIN_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
+            <Route path={ADMIN_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
+            <Route path={ADMIN_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
           </Route>
         </Routes>
       </Router>
