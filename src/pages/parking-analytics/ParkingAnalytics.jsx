@@ -1,9 +1,10 @@
 import React from "react";
 import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, AreaChart, Area, } from "recharts";
 import { IoMdMore } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
+import CustomAreaChart from "../../components/CustomAreaChart";
+import CustomBarChart from "../../components/CustomBarChart";
 
 const analyticsData = [
   { day: "S", value: 10 },
@@ -101,15 +102,7 @@ const ParkingAnalytics = () => {
               <FaArrowRightLong className="text-gray-400" size={18} />
             </div>
           </div>
-          <ResponsiveContainer width="100%" height={400}>
-            <AreaChart data={analyticsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
-              <Area type="monotone" dataKey="value" stroke="#089540" fill="#84FFB5" strokeWidth={2} />
-            </AreaChart>
-          </ResponsiveContainer>
+          <CustomAreaChart data={analyticsData} height={400} stroke={"#089540"} fill={"#84FFB5"} />
         </div>
 
         {/* Withdraw Chart */}
@@ -129,15 +122,7 @@ const ParkingAnalytics = () => {
               <IoMdMore className="text-gray-800" size={18} />
             </div>
           </div>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={withdrawData}>
-              <CartesianGrid strokeDasharray="1 1" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="#7B1FA2" />
-            </BarChart>
-          </ResponsiveContainer>
+          <CustomBarChart data={withdrawData} height={400} fill={'#7B1FA2'} />
         </div>
       </div>
     </div>

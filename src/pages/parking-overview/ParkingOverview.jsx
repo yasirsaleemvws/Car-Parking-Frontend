@@ -1,23 +1,23 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 export default function ParkingOverview() {
   const parkingUsageData = [
-    { time: "0-1", usage: 10 },
-    { time: "1-2", usage: 50 },
-    { time: "2-3", usage: 20 },
-    { time: "3-4", usage: 30 },
-    { time: "4-5", usage: 40 },
-    { time: "5-6", usage: 90 },
-    { time: "6-7", usage: 60 },
-    { time: "8-9", usage: 80 },
-    { time: "10-11", usage: 90 },
-    { time: "12-13", usage: 100 },
-    { time: "14-15", usage: 85 },
-    { time: "16-17", usage: 70 },
-    { time: "18-19", usage: 60 },
-    { time: "20-21", usage: 50 },
-    { time: "22-23", usage: 30 }
+    { day: "0-1", value: 10 },
+    { day: "1-2", value: 50 },
+    { day: "2-3", value: 20 },
+    { day: "3-4", value: 30 },
+    { day: "4-5", value: 40 },
+    { day: "5-6", value: 90 },
+    { day: "6-7", value: 60 },
+    { day: "8-9", value: 80 },
+    { day: "10-11", value: 90 },
+    { day: "12-13", value: 100 },
+    { day: "14-15", value: 85 },
+    { day: "16-17", value: 70 },
+    { day: "18-19", value: 60 },
+    { day: "20-21", value: 50 },
+    { day: "22-23", value: 30 }
   ];
 
   const data = [
@@ -141,14 +141,7 @@ export default function ParkingOverview() {
         {/* Parking Usage Bar Chart */}
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md flex-1">
           <h3 className="text-gray-500 mb-2">Parking Usage</h3>
-          <ResponsiveContainer width="100%" height={500}>
-            <BarChart data={parkingUsageData}>
-              <XAxis dataKey="time" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="usage" fill="#6D28D9" barSize={15} />
-            </BarChart>
-          </ResponsiveContainer>
+          <CustomBarChart data={parkingUsageData} height={500} fill={"#6D28D9"} />
         </div>
       </div>
     </div>

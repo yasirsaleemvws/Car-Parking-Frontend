@@ -3,7 +3,7 @@ import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
-import { XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, AreaChart, Area, } from "recharts";
+import CustomAreaChart from '../../../components/CustomAreaChart';
 
 export default function AvgParking() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,6 +52,7 @@ export default function AvgParking() {
       <div className=" mx-auto p-6">
         <Breadcrumb items={breadcrumbItems} />
       </div>
+
       <div className="bg-white shadow-md rounded-lg mb-6 pt-6 pb-6 pr-6">
         <div className="flex justify-between items-center pl-6 mb-2">
           <h3 className="text-gray-600 font-bold">Average Parking Duration</h3>
@@ -60,18 +61,10 @@ export default function AvgParking() {
             <span className='text-gray-500'> Average Parking Duration</span>
           </p>
         </div>
-        <ResponsiveContainer width="100%" height={350}>
-          <AreaChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
-            <Area type="monotone" dataKey="value" stroke="#420993" fill="#9b55ffd6" strokeWidth={2} />
-          </AreaChart>
-        </ResponsiveContainer>
+        <CustomAreaChart data={chartData} height={350} stroke={"#420993"} fill={"#9b55ffd6"} />
       </div>
-      <div className="bg-white shadow-md rounded-lg ">
 
+      <div className="bg-white shadow-md rounded-lg ">
         {/* Header */}
         <CustomFilters title={'Average Parking Duration'} />
 
