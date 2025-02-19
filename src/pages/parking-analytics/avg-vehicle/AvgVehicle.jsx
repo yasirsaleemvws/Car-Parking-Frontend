@@ -51,8 +51,9 @@ export default function AvgVehicle() {
 
   return (
     <>
-      <div className=" mx-auto p-6">
+      <div className=" lg:flex justify-between p-6">
         <Breadcrumb items={breadcrumbItems} />
+        <RangeCalander selectedDates={selectedDates} setSelectedDates={setSelectedDates}/>
       </div>
 
       <div className="bg-white shadow-md rounded-lg mb-6 pt-6 pb-6 pr-6">

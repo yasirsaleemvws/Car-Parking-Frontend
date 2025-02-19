@@ -4,9 +4,12 @@ import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomAreaChart from '../../../components/CustomAreaChart';
+import RangeCalander from '../../../components/RangeCalander';
 
 export default function AvgParking() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedDates, setSelectedDates] = useState([]);
+
   const rowsPerPage = 10;
 
   const data = [
@@ -49,8 +52,9 @@ export default function AvgParking() {
 
   return (
     <>
-      <div className=" mx-auto p-6">
+      <div className=" lg:flex justify-between p-6">
         <Breadcrumb items={breadcrumbItems} />
+        <RangeCalander selectedDates={selectedDates} setSelectedDates={setSelectedDates}/>
       </div>
 
       <div className="bg-white shadow-md rounded-lg mb-6 pt-6 pb-6 pr-6">
