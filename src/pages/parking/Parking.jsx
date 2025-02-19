@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { IoMdMore } from "react-icons/io";
+import { IoCloudDownloadOutline } from "react-icons/io5";
+import { IoSwapVertical } from "react-icons/io5";
+import { IoFilter } from "react-icons/io5";
+import { RiSwap2Line } from "react-icons/ri";
+
 
 export default function Parking() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,27 +28,37 @@ export default function Parking() {
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="bg-white shadow-md rounded-lg p-4">
+    <div className="bg-gray-100 min-h-screen">
+      <div className="bg-white shadow-md rounded-lg ">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between p-4">
           <h2 className="text-lg font-semibold">Parking</h2>
           <div className="flex items-center space-x-2">
             <div className="relative">
-              <span className="absolute left-3 top-2 text-gray-500">O</span>
+              <span className="absolute left-3 top-2 text-gray-500 text-xl">
+                <CiSearch className="text-xl" />
+              </span>
+
               <input
                 type="text"
                 placeholder="Search..."
                 className="pl-10 pr-4 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
-            <button className="p-2 border rounded-md hover:bg-gray-200">
-              \\\
+            <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
+              <IoFilter />
             </button>
-            <button className="p-2 border rounded-md hover:bg-gray-200">
-              ///
+            <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
+              <RiSwap2Line />
             </button>
-            <button className="p-2 border rounded-md hover:bg-gray-200">Export</button>
+            <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
+              <IoSwapVertical />
+            </button>
+            <button className="p-2 border rounded-md hover:bg-gray-200 flex items-center">
+              <IoCloudDownloadOutline className="text-xl" />
+              <span className="ml-2"> Export </span>
+              <span className="ml-4"> <FaChevronDown /> </span>
+            </button>
           </div>
         </div>
 
@@ -75,8 +93,8 @@ export default function Parking() {
                     </div>
                   </td>
                   <td className="p-3 text-right">
-                    <button className="p-2 hover:bg-gray-200 rounded">
-                      |||
+                    <button className="p-2 border rounded-md hover:bg-gray-200 rounded text-2xl">
+                      <IoMdMore />
                     </button>
                   </td>
                 </tr>
@@ -86,13 +104,15 @@ export default function Parking() {
         </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between mt-4">
-          <span>Row</span>
-          <select className="border p-1 rounded-md">
-            <option>10</option>
-            <option>20</option>
-            <option>50</option>
-          </select>
+        <div className="flex items-center justify-between m-4 pb-6">
+          <div>
+            <span>Row</span>
+            <select className="border p-1 rounded-md ml-2">
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>
+          </div>
           <div className="flex items-center space-x-1">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
