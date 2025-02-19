@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoMdMore } from "react-icons/io";
-import { IoCloudDownloadOutline } from "react-icons/io5";
-import { IoSwapVertical } from "react-icons/io5";
-import { IoFilter } from "react-icons/io5";
+import { IoCloudDownloadOutline, IoFilter, IoSwapVertical } from "react-icons/io5";
 import { RiSwap2Line } from "react-icons/ri";
 
 
