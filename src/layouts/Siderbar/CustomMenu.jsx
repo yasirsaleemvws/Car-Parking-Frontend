@@ -45,43 +45,43 @@ export default function CustomMenu() {
             onClick={(e) => setSelected(e.key)}
         >
 
-            <Menu.Item key="1"  onClick={() => { navigate(ADMIN_ROUTES?.PARKING); }} >
+            <Menu.Item key="1" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING); }} >
                 <img src="/images/sidebar/1.png" alt="" />
                 <span className="ml-3">Parking</span>
             </Menu.Item>
 
-            <Menu.Item key="2" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
+            <Menu.Item key="2" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
                 <img src="/images/sidebar/2.png" alt="" />
                 <span className="ml-3">Parking Overview</span>
             </Menu.Item>
 
-            <Menu.Item key="3" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
+            <Menu.Item key="3" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
                 <img src="/images/sidebar/3.png" alt="" />
                 <span className="ml-3">Parking Analytics</span>
             </Menu.Item>
 
-            <Menu.Item key="4" onClick={() => { navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
+            <Menu.Item key="4" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
                 <img src="/images/sidebar/4.png" alt="" />
                 <span className="ml-3">Parking Section</span>
             </Menu.Item>
 
-            <Menu.Item key="5" onClick={() => { navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
+            <Menu.Item key="5" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
                 <img src="/images/sidebar/5.png" alt="" />
                 <span className="ml-3">Access Rule</span>
             </Menu.Item>
 
-            <Menu.Item key="6" onClick={() => { navigate(ADMIN_ROUTES?.FINANCE); }} >
+            <Menu.Item key="6" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.FINANCE); }} >
                 <img src="/images/sidebar/6.png" alt="" />
                 <span className="ml-3">Finance</span>
             </Menu.Item>
 
-            <Menu.Item key="7" onClick={() => { navigate(ADMIN_ROUTES?.TEAM); }} >
+            <Menu.Item key="7" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.TEAM); }} >
                 <img src="/images/sidebar/7.png" alt="" />
                 <span className="ml-3">Team</span>
             </Menu.Item>
 
 
-            <Menu.Item key="0" className="p-6 !absolute bottom-2" style={{ paddingLeft: "21px" }} onClick={() => { navigate(ADMIN_ROUTES?.SETTINGS); }} >
+            <Menu.Item key="0" className='m-0 !absolute bottom-2' style={{ paddingLeft: "21px" }} onClick={() => { navigate(ADMIN_ROUTES?.SETTINGS); }} >
                 <img src="/images/sidebar/0.png" alt="" />
                 <span className="ml-3">Setting</span>
             </Menu.Item>
