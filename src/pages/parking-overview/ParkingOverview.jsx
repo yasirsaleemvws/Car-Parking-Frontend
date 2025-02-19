@@ -16,10 +16,9 @@ export default function ParkingOverview() {
     { name: 'Group A', value: 400 },
     { name: 'Group B', value: 300 },
     { name: 'Group C', value: 200 },
-    { name: 'Group D', value: 100 },
   ];
 
-  const COLORS2 = ['#4B0082', '#8A2BE2', '#9370DB', '#D8BFD8'];
+  const COLORS2 = ['#4B0082', '#8A2BE2', '#9370DB'];
 
   // Parking Space Data (Pie Chart)
   const parkingSpaceData = [
@@ -96,7 +95,7 @@ export default function ParkingOverview() {
                     innerRadius={40}
                     outerRadius={60}
                     fill="#8884d8"
-                    paddingAngle={10}
+                    paddingAngle={0}
                     dataKey="value"
                   >
                     {data.map((entry, index) => (
