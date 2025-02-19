@@ -25,7 +25,7 @@ export default function AvgVehicle() {
 
   const breadcrumbItems = [
     { label: 'Home', link: '/parking' },
-    { label: 'Parking analytics', link: '/parking-analytics' },
+    { label: 'Parking Analytics', link: '/parking-analytics' },
     { label: 'Average Vehicle Parked' }
   ];
 

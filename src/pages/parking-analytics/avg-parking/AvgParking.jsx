@@ -3,6 +3,7 @@ import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
+import { XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, AreaChart, Area, } from "recharts";
 
 export default function AvgParking() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,28 +26,65 @@ export default function AvgParking() {
 
   const breadcrumbItems = [
     { label: 'Home', link: '/parking' },
-    { label: 'Parking analytics', link: '/parking-analytics' },
+    { label: 'Parking Analytics', link: '/parking-analytics' },
     { label: 'Average Parking Duration' }
   ];
 
+  const chartData = [
+    { day: "Jan", value: Math.floor(Math.random() * 100) },
+    { day: "Feb", value: Math.floor(Math.random() * 100) },
+    { day: "Mar", value: Math.floor(Math.random() * 100) },
+    { day: "Apr", value: Math.floor(Math.random() * 100) },
+    { day: "May", value: Math.floor(Math.random() * 100) },
+    { day: "Jun", value: Math.floor(Math.random() * 100) },
+    { day: "Jul", value: Math.floor(Math.random() * 100) },
+    { day: "Aug", value: Math.floor(Math.random() * 100) },
+    { day: "Sep", value: Math.floor(Math.random() * 100) },
+    { day: "Oct", value: Math.floor(Math.random() * 100) },
+    { day: "Nov", value: Math.floor(Math.random() * 100) },
+    { day: "Dec", value: Math.floor(Math.random() * 100) },
+  ];
+
+
 
   return (
-    <div className="bg-white shadow-md rounded-lg ">
+    <>
       <div className=" mx-auto p-6">
         <Breadcrumb items={breadcrumbItems} />
       </div>
-      {/* Header */}
-      <CustomFilters title={'Average Parking Duration'} />
+      <div className="bg-white shadow-md rounded-lg mb-6 pt-6 pb-6 pr-6">
+        <div className="flex justify-between items-center pl-6 mb-2">
+          <h3 className="text-gray-600 font-bold">Average Parking Duration</h3>
+          <p className="text-purple-600 text-sm flex items-center">
+            <span className='w-[30px] h-[5px] bg-purple-800 mr-2 rounded'></span>
+            <span className='text-gray-500'> Average Parking Duration</span>
+          </p>
+        </div>
+        <ResponsiveContainer width="100%" height={350}>
+          <AreaChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip />
+            <Area type="monotone" dataKey="value" stroke="#420993" fill="#9b55ffd6" strokeWidth={2} />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="bg-white shadow-md rounded-lg ">
 
-      {/* Table */}
-      <CustomTable data={data} />
+        {/* Header */}
+        <CustomFilters title={'Average Parking Duration'} />
 
-      {/* Pagination */}
-      <CustomPagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
-    </div>
+        {/* Table */}
+        <CustomTable data={data} />
+
+        {/* Pagination */}
+        <CustomPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
+    </>
   )
 }

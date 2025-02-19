@@ -25,7 +25,7 @@ export default function PeakTraffic() {
 
   const breadcrumbItems = [
     { label: 'Home', link: '/parking' },
-    { label: 'Parking analytics', link: '/parking-analytics' },
+    { label: 'Parking Analytics', link: '/parking-analytics' },
     { label: 'Peak traffic time' }
   ];
 

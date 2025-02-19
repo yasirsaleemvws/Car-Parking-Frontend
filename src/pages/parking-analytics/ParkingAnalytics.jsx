@@ -107,7 +107,7 @@ const ParkingAnalytics = () => {
               <XAxis dataKey="day" />
               <YAxis />
               <Tooltip />
-              <Area type="monotone" dataKey="value" stroke="#4CAF50" fill="#C8E6C9" />
+              <Area type="monotone" dataKey="value" stroke="#089540" fill="#84FFB5" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
