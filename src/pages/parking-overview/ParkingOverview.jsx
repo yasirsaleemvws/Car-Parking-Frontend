@@ -92,8 +92,8 @@ export default function ParkingOverview() {
                     data={data}
                     cx="50%"
                     cy="50%"
-                    innerRadius={40}
-                    outerRadius={60}
+                    innerRadius={30}
+                    outerRadius={70}
                     fill="#8884d8"
                     paddingAngle={0}
                     dataKey="value"
