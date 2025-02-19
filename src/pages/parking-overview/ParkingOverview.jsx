@@ -1,5 +1,6 @@
 import React from 'react';
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import CustomBarChart from '../../components/CustomBarChart';
 
 export default function ParkingOverview() {
   const parkingUsageData = [
@@ -140,8 +141,8 @@ export default function ParkingOverview() {
 
         {/* Parking Usage Bar Chart */}
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md flex-1">
-          <h3 className="text-gray-500 mb-2">Parking Usage</h3>
-          <CustomBarChart data={parkingUsageData} height={500} fill={"#6D28D9"} />
+          <h3 className="text-gray-700 mb-2 font-bold text-xl">Parking Usage</h3>
+          <CustomBarChart data={parkingUsageData} height={500} fill={"#6D28D9"} barSize={12} />
         </div>
       </div>
     </div>

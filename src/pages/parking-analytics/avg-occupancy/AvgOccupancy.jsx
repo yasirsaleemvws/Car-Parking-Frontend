@@ -31,21 +31,35 @@ export default function AvgOccupancy() {
   ];
 
   const chartData = [
-    { day: "0-1", value: 10 },
-    { day: "1-2", value: 50 },
-    { day: "2-3", value: 20 },
-    { day: "3-4", value: 30 },
-    { day: "4-5", value: 40 },
-    { day: "5-6", value: 90 },
-    { day: "6-7", value: 60 },
-    { day: "8-9", value: 80 },
-    { day: "10-11", value: 90 },
-    { day: "12-13", value: 100 },
-    { day: "14-15", value: 85 },
-    { day: "16-17", value: 70 },
-    { day: "18-19", value: 60 },
-    { day: "20-21", value: 50 },
-    { day: "22-23", value: 30 }
+    { day: "1", value: 10 },
+    { day: "2", value: 50 },
+    { day: "3", value: 20 },
+    { day: "4", value: 30 },
+    { day: "5", value: 40 },
+    { day: "6", value: 90 },
+    { day: "7", value: 60 },
+    { day: "8", value: 80 },
+    { day: "9", value: 90 },
+    { day: "10", value: 85 },
+    { day: "11", value: 100 },
+    { day: "12", value: 70 },
+    { day: "13", value: 60 },
+    { day: "14", value: 50 },
+    { day: "15", value: 30 },
+    { day: "16", value: 10 },
+    { day: "17", value: 50 },
+    { day: "18", value: 20 },
+    { day: "19", value: 30 },
+    { day: "21", value: 40 },
+    { day: "22", value: 90 },
+    { day: "23", value: 60 },
+    { day: "24", value: 80 },
+    { day: "25", value: 90 },
+    { day: "26", value: 100 },
+    { day: "27", value: 85 },
+    { day: "28", value: 70 },
+    { day: "29", value: 60 },
+    { day: "30", value: 50 },
   ];
 
   return (
@@ -62,7 +76,7 @@ export default function AvgOccupancy() {
             <span className='text-gray-500'> Vehicle Occupancy</span>
           </div>
         </div>
-        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} />
+        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} barSize={12} barSize2={12} />
       </div>
 
 

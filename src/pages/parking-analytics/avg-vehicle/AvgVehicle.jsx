@@ -31,21 +31,21 @@ export default function AvgVehicle() {
   ];
 
   const chartData = [
-    { day: "0-1", value: 10 },
-    { day: "1-2", value: 50 },
-    { day: "2-3", value: 20 },
-    { day: "3-4", value: 30 },
-    { day: "4-5", value: 40 },
-    { day: "5-6", value: 90 },
-    { day: "6-7", value: 60 },
-    { day: "8-9", value: 80 },
-    { day: "10-11", value: 90 },
-    { day: "12-13", value: 100 },
-    { day: "14-15", value: 85 },
-    { day: "16-17", value: 70 },
-    { day: "18-19", value: 60 },
-    { day: "20-21", value: 50 },
-    { day: "22-23", value: 30 }
+    { day: "0-1", value: 10, value2: 10 },
+    { day: "1-2", value: 50, value2: 50 },
+    { day: "2-3", value: 20, value2: 20 },
+    { day: "3-4", value: 30, value2: 30 },
+    { day: "4-5", value: 40, value2: 40 },
+    { day: "5-6", value: 90, value2: 90 },
+    { day: "6-7", value: 60, value2: 60 },
+    { day: "8-9", value: 80, value2: 80 },
+    { day: "10-11", value: 90, value2: 90 },
+    { day: "12-13", value: 100, value2: 100 },
+    { day: "14-15", value: 85, value2: 85 },
+    { day: "16-17", value: 70, value2: 70 },
+    { day: "18-19", value: 60, value2: 60 },
+    { day: "20-21", value: 50, value2: 50 },
+    { day: "22-23", value: 30, value2: 30 }
   ];
 
 
@@ -65,7 +65,7 @@ export default function AvgVehicle() {
             <span className='text-gray-500'> Vehicle Exited</span>
           </div>
         </div>
-        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} />
+        <CustomBarChart data={chartData} height={350} fill={"#6D28D9"} fill2={'#a96ae3'} barSize={10}/>
       </div>
 
       <div className="bg-white shadow-md rounded-lg ">
