@@ -7,8 +7,8 @@ body {
 }
 
 .ant-menu-item-selected {
-  background-color: #E7E9ED !important;
-  color: #000 !important;
+  background-color: #6b21a894 !important;
+  color: #ffffff !important;
 }
 
 .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {

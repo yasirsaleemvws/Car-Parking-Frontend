@@ -1,15 +1,19 @@
 import React from 'react'
 
-export default function SettingMenu() {
+export default function SettingMenu({ selected, setSelected }) {
     return (
-        <div className="sidebar w-1/4 bg-gray-100 p-4">
-            <ul>
-                <li className="active text-blue-500 font-bold">Profile</li>
-                <li className="text-gray-700 hover:text-blue-500">Company Profile</li>
-                <li className="text-gray-700 hover:text-blue-500">Password</li>
-                <li className="text-gray-700 hover:text-blue-500">Notifications</li>
-                <li className="text-gray-700 hover:text-blue-500">Display</li>
+        <div className="w-1/5 p-6 border-r">
+            <ul className="space-y-2">
+                {['Profile', 'Company Profile', 'Password', 'Notifications', 'Display'].map(item => (
+                    <li
+                        key={item}
+                        className={`cursor-pointer font-bold p-2 rounded-md text-gray-500 hover:text-purple-800 hover:bg-purple-200 ${selected === item.toLowerCase() ? 'text-purple-800 bg-purple-200' : ''}`}
+                        onClick={() => setSelected(item.toLowerCase())}
+                    >
+                        {item}
+                    </li>
+                ))}
             </ul>
         </div>
-    )
+    );
 }
