@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Menu } from "antd";
 import { ADMIN_ROUTES } from "../../config/Constants";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { RiTeamFill, RiDashboardFill } from "react-icons/ri";
+import { FaChartPie } from "react-icons/fa";
+import { IoLayers, IoSettingsSharp } from "react-icons/io5";
+import { SiGraphql } from "react-icons/si";
+import { ImStackoverflow } from "react-icons/im";
+import { FaSquareParking } from "react-icons/fa6";
+
 
 export default function CustomMenu() {
     const [selected, setSelected] = useState();
@@ -46,43 +53,42 @@ export default function CustomMenu() {
         >
 
             <Menu.Item key="1" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING); }} >
-                <img src="/images/sidebar/1.png" alt="" />
+                <FaSquareParking className='text-xl' />
                 <span className="ml-3">Parking</span>
             </Menu.Item>
 
             <Menu.Item key="2" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
-                <img src="/images/sidebar/2.png" alt="" />
+                <ImStackoverflow className='text-xl' />
                 <span className="ml-3">Parking Overview</span>
             </Menu.Item>
 
             <Menu.Item key="3" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
-                <img src="/images/sidebar/3.png" alt="" />
+                <SiGraphql className='text-xl' />
                 <span className="ml-3">Parking Analytics</span>
             </Menu.Item>
 
             <Menu.Item key="4" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
-                <img src="/images/sidebar/4.png" alt="" />
+                <RiDashboardFill className='text-xl' />
                 <span className="ml-3">Parking Section</span>
             </Menu.Item>
 
             <Menu.Item key="5" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
-                <img src="/images/sidebar/5.png" alt="" />
+                <IoLayers className='text-xl' />
                 <span className="ml-3">Access Rule</span>
             </Menu.Item>
 
             <Menu.Item key="6" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.FINANCE); }} >
-                <img src="/images/sidebar/6.png" alt="" />
+                <FaChartPie />
                 <span className="ml-3">Finance</span>
             </Menu.Item>
 
             <Menu.Item key="7" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.TEAM); }} >
-                <img src="/images/sidebar/7.png" alt="" />
+                <RiTeamFill className='text-xl' />
                 <span className="ml-3">Team</span>
             </Menu.Item>
 
-
             <Menu.Item key="0" className='m-0 !absolute bottom-2' style={{ paddingLeft: "21px" }} onClick={() => { navigate(ADMIN_ROUTES?.SETTINGS); }} >
-                <img src="/images/sidebar/0.png" alt="" />
+                <IoSettingsSharp className='text-xl' />
                 <span className="ml-3">Setting</span>
             </Menu.Item>
         </Menu>
