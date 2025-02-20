@@ -32,11 +32,6 @@ const Login = () => {
     }
   };
 
-  const test = ()=>{
-    console.log("Test ::::::::: ");
-    
-  }
-
   return (
     <div className="flex flex-col md:flex-row h-screen">
       <div className="w-full md:w-1/2 flex items-center justify-center p-6 ">
@@ -105,7 +100,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="hidden md:block md:w-1/2" onClick={test}>
+      <div className="hidden md:block md:w-1/2">
         <img src="/images/login.png" alt="Parking" className="w-full h-full object-cover" />
       </div>
     </div>
