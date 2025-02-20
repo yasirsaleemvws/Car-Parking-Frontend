@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Modal, Input, Button, Form } from 'antd';
 import MembershipTypeModal from './MembershipType';
+import PaymentMethodModal from './PaymentMethod';
 
 export default function AddParkingMemberModal({ visible, onClose, onSave }) {
     const [form] = Form.useForm();
     const [membershipModalVisible, setMembershipModalVisible] = useState(false);
-    const [selectedMembershipType, setSelectedMembershipType] = useState('');
+    const [selectedMembershipType, setSelectedMembershipType] = useState('Free');
+    const [paymentModalVisible, setPaymentModalVisible] = useState(false);
+    const [selectedPayment, setSelectedPayment] = useState('');
 
     const handleSave = () => {
         form.validateFields()
@@ -20,6 +23,10 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
     };
 
     const handleSelectMembershipType = (type) => {
+        setSelectedMembershipType(type);
+    };
+
+    const handleSelecPayment = (type) => {
         setSelectedMembershipType(type);
     };
 
@@ -72,7 +79,12 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
                         label={<span className="text-gray-700">Payment Method <span className='text-red-600'>*</span></span>}
                         rules={[{ required: true, message: "Please select the payment method" }]}
                     >
-                        <Input placeholder="Enter Payment Method" className="w-full px-3 py-2 rounded-md text-gray-700 border border-gray-600" />
+                        <div
+                            className="w-full px-3 py-2 rounded-md text-gray-700 border border-gray-600 cursor-pointer"
+                            onClick={() => setPaymentModalVisible(true)}
+                        >
+                            {selectedPayment || "Select Payment Method"}
+                        </div>
                     </Form.Item>
 
                     {/* Save Button */}
@@ -91,6 +103,13 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
                     visible={membershipModalVisible}
                     onClose={() => setMembershipModalVisible(false)}
                     onSelect={handleSelectMembershipType}
+                    value={selectedMembershipType}
+                />
+
+                <PaymentMethodModal
+                    visible={paymentModalVisible}
+                    onClose={() => setPaymentModalVisible(false)}
+                    onSelect={handleSelecPayment}
                 />
             </div>
         </Modal>
