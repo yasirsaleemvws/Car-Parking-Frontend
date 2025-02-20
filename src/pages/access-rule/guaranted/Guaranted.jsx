@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ADMIN_ROUTES } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
-import AddParkingMemberModal from '../../../components/modals/AddParkingMemberModal';
+import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';

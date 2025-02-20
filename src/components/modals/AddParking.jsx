@@ -34,7 +34,7 @@ export default function AddParkingModal({ visible, onClose, onSave }) {
                     <Form.Item
                         name="parkingAreaName"
                         label={<span className="text-gray-700">Parking Area Name <span className='text-red-600'>*</span></span>}
-                        rules={[{  message: "Please enter the parking area name" }]}
+                        rules={[{ message: "Please enter the parking area name" }]}
                     >
                         <Input placeholder="Enter Area Name" className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600" />
                     </Form.Item>
@@ -53,7 +53,7 @@ export default function AddParkingModal({ visible, onClose, onSave }) {
                         <Form.Item
                             name="parkingAreaWidth"
                             label={<span className="text-gray-700">Width<span className='text-red-600'>*</span></span>}
-                            rules={[{  message: "Please enter the width" }]}
+                            rules={[{ message: "Please enter the width" }]}
                             className="flex-1"
                         >
                             <Input placeholder="25" type='number' className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600" />
@@ -64,7 +64,7 @@ export default function AddParkingModal({ visible, onClose, onSave }) {
                     <Form.Item
                         name="parkingCapacity"
                         label={<span className="text-gray-700">Parking Capacity<span className='text-red-600'>*</span></span>}
-                        rules={[{  message: "Please select the parking capacity" }]}
+                        rules={[{ message: "Please select the parking capacity" }]}
                     >
                         <Input placeholder="250" type='number' className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600" />
 
@@ -74,7 +74,7 @@ export default function AddParkingModal({ visible, onClose, onSave }) {
                     <Form.Item
                         name="installedCamera"
                         label={<span className="text-gray-700">Installed Camera<span className='text-red-600'>*</span></span>}
-                        rules={[{  message: "Please select the number of installed cameras" }]}
+                        rules={[{ message: "Please select the number of installed cameras" }]}
                     >
                         <Input placeholder="150" type='number' className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600" />
                     </Form.Item>

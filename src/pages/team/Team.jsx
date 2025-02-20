@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CustomFilters from '../../components/CustomFilters';
 import CustomTable from '../../components/CustomTable';
 import CustomPagination from '../../components/CustomPagination';
-import AddTeamMemberModal from '../../components/modals/AddTeamMemberModal';
+import AddTeamMemberModal from '../../components/modals/AddTeamMember';
 
 const data = [
   { date: "November", membership: "Monthly", checkIn: "12:19 am", checkOut: "---" },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ParkingCard from '../../components/ParkingCard';
 import { Modal, Input, Button, Select, Form } from "antd";
-import AddParkingModal from '../../components/modals/AddParkingModal';
+import AddParkingModal from '../../components/modals/AddParking';
 const { Option } = Select;
 
 const parkingData = [
