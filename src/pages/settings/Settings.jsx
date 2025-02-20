@@ -7,9 +7,9 @@ import Notifications from './notifications/Notifications'
 import Display from './display/Display'
 
 export default function Settings() {
-    const [selected, setSelected] = useState('profile')
+    const [selected, setSelected] = useState('notifications')
     return (
-        <div className="p-6 bg-white rounded-lg min-h-[80vh]">
+        <div className="p-6 bg-white rounded-lg">
             <h1 className='text-2xl font-bold mb-4 border-b pb-5'>Setting</h1>
             <div className="flex">
                 <SettingMenu selected={selected} setSelected={setSelected} />
