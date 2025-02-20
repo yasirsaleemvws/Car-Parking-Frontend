@@ -31,7 +31,11 @@ export default function Profile() {
                     </div>
                     <div className="flex gap-4 items-center">
                         <label className="block text-gray-700 w-1/4">Your Photo</label>
-                        <div className="border-dashed border-2 border-gray-300 p-6 rounded-md text-center cursor-pointer w-full">
+                        <div className="border-dashed border-2 border-gray-300 p-6 rounded-md text-center cursor-pointer w-full relative">
+                            <input
+                                type="file"
+                                className="absolute inset-0 opacity-0 cursor-pointer"
+                            />
                             <span className="text-purple-500">Click to upload</span> or drag and drop
                             <p className="text-sm text-gray-500">PNG or JPG (max. 2MB | 272 x 130)</p>
                         </div>
