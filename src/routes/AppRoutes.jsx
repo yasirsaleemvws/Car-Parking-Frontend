@@ -17,6 +17,9 @@ import AvgOccupancy from "../pages/parking-analytics/avg-occupancy/AvgOccupancy"
 import AvgParking from "../pages/parking-analytics/avg-parking/AvgParking";
 import AvgVehicle from "../pages/parking-analytics/avg-vehicle/AvgVehicle";
 import Settings from "../pages/settings/Settings";
+import MemberShip from "../pages/access-rule/membership/MemberShip";
+import Blocked from "../pages/access-rule/blocked/Blocked";
+import Guaranted from "../pages/access-rule/guaranted/Guaranted";
 
 const AppRoutes = () => {
   return (
@@ -41,6 +44,9 @@ const AppRoutes = () => {
             <Route path={ADMIN_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
             <Route path={ADMIN_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
             <Route path={ADMIN_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
+            <Route path={ADMIN_ROUTES?.GUARANTED} element={<Guaranted />} />
+            <Route path={ADMIN_ROUTES?.MEMBERSHIP} element={<MemberShip />} />
+            <Route path={ADMIN_ROUTES?.BLOCKED} element={<Blocked />} />
             <Route path={ADMIN_ROUTES?.SETTINGS} element={<Settings />} />
           </Route>
         </Routes>

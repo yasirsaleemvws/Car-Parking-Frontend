@@ -1,14 +1,16 @@
 import React from 'react'
 import { MdMoreVert } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+import { ADMIN_ROUTES } from '../../config/Constants';
 
 export default function AccessRule() {
-
+  const navigate = useNavigate();
   return (
     <>
       <h2 className="text-lg font-semibold mb-5">Access Rule</h2>
       <div className="flex flex-col md:flex-row justify-around items-center gap-5">
         {/* Guaranteed Parkers */}
-        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3">
+        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3" onClick={() => navigate(ADMIN_ROUTES.GUARANTED)}>
           <div className="flex justify-center mb-5">
             <img src="/images/icons/guaranted.png" alt="" />
           </div>
@@ -17,11 +19,11 @@ export default function AccessRule() {
           <div className="flex justify-center">
             <img src="/images/icons/members.png" alt="" />
           </div>
-          <MdMoreVert className='absolute top-4 right-4 text-xl'/>
+          <MdMoreVert className='absolute top-4 right-4 text-xl' />
         </div>
 
         {/* Membership Parkers */}
-        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3">
+        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3" onClick={() => navigate(ADMIN_ROUTES.MEMBERSHIP)}>
           <div className="flex justify-center mb-5">
             <img src="/images/icons/membership.png" alt="" />
           </div>
@@ -30,11 +32,11 @@ export default function AccessRule() {
           <div className="flex justify-center">
             <img src="/images/icons/members.png" alt="" />
           </div>
-          <MdMoreVert className='absolute top-4 right-4 text-xl'/>
+          <MdMoreVert className='absolute top-4 right-4 text-xl' />
         </div>
 
         {/* Restricted Parkers */}
-        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3">
+        <div className="relative bg-white shadow-md rounded-lg p-6 w-full md:w-1/3" onClick={() => navigate(ADMIN_ROUTES.BLOCKED)}>
           <div className="flex justify-center mb-5">
             <img src="/images/icons/blocked.png" alt="" />
           </div>
@@ -43,7 +45,7 @@ export default function AccessRule() {
           <div className="flex justify-center">
             <img src="/images/icons/members.png" alt="" />
           </div>
-          <MdMoreVert className='absolute top-4 right-4 text-xl'/>
+          <MdMoreVert className='absolute top-4 right-4 text-xl' />
         </div>
       </div>
     </>

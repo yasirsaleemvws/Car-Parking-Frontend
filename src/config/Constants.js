@@ -26,6 +26,9 @@ export const ADMIN_ROUTES = {
   AVG_OCCUPANCY: "/parking-analytics/avg-occupancy",
   PARKING_SECTION: "/parking-section",
   ACCESS_RULE: "/access-rule",
+  GUARANTED: "/access-rule/guaranted",
+  MEMBERSHIP: "/access-rule-membership",
+  BLOCKED: "/access-rule-blocked",
   FINANCE: "/finance",
   TEAM: "/team",
   SETTINGS: "/settings"
