@@ -41,9 +41,7 @@ const AppRoutes = () => {
             <Route path={ADMIN_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
             <Route path={ADMIN_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
             <Route path={ADMIN_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
-            <Route element={<Settings />}>
-              <Route path={ADMIN_ROUTES?.SETTINGS} element={<AvgOccupancy />} />
-            </Route>
+            <Route path={ADMIN_ROUTES?.SETTINGS} element={<Settings />} />
           </Route>
         </Routes>
       </Router>
