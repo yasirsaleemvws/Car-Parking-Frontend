@@ -7,7 +7,7 @@ import Notifications from './notifications/Notifications'
 import Display from './display/Display'
 
 export default function Settings() {
-    const [selected, setSelected] = useState('notifications')
+    const [selected, setSelected] = useState('profile')
     return (
         <div className="p-6 bg-white rounded-lg">
             <h1 className='text-2xl font-bold mb-4 border-b pb-5'>Setting</h1>
