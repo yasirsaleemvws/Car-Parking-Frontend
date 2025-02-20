@@ -8,7 +8,7 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
     const [membershipModalVisible, setMembershipModalVisible] = useState(false);
     const [selectedMembershipType, setSelectedMembershipType] = useState('Free');
     const [paymentModalVisible, setPaymentModalVisible] = useState(false);
-    const [selectedPayment, setSelectedPayment] = useState('');
+    const [selectedPayment, setSelectedPayment] = useState('Visa');
 
     const handleSave = () => {
         form.validateFields()
@@ -27,7 +27,7 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
     };
 
     const handleSelecPayment = (type) => {
-        setSelectedMembershipType(type);
+        setSelectedPayment(type);
     };
 
     return (
@@ -104,12 +104,13 @@ export default function AddParkingMemberModal({ visible, onClose, onSave }) {
                     onClose={() => setMembershipModalVisible(false)}
                     onSelect={handleSelectMembershipType}
                     value={selectedMembershipType}
-                />
+                    />
 
                 <PaymentMethodModal
                     visible={paymentModalVisible}
                     onClose={() => setPaymentModalVisible(false)}
                     onSelect={handleSelecPayment}
+                    value={selectedPayment}
                 />
             </div>
         </Modal>

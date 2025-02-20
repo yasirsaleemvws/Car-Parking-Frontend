@@ -24,7 +24,7 @@ export default function MembershipTypeModal({ visible, onClose, onSelect, value 
                 <h2 className="text-lg font-semibold mb-6">Select Your Plan</h2>
                 <Radio.Group onChange={e => setSelectedType(e.target.value)} className="w-full">
                     <div className="flex flex-col space-y-4">
-                        <div className={`flex items-center justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Basic Monthly' ? 'border-purple-800 border-2' : ''}`}>
+                        <div className={`flex justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Basic Monthly' ? 'border-purple-800 border-2 bg-purple-100' : ''}`}>
                             <IoLayersSharp className={`text-2xl ${selectedType === 'Basic Monthly' ? 'text-purple-800' : ''}`} />
                             <div>
                                 <span className="font-medium">Basic Monthly</span>
@@ -33,7 +33,7 @@ export default function MembershipTypeModal({ visible, onClose, onSelect, value 
                             </div>
                             <Radio value="Basic Monthly" checked={selectedType === 'Basic Monthly'} />
                         </div>
-                        <div className={`flex items-center justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Free' ? 'border-purple-800 border-2' : ''}`}>
+                        <div className={`flex justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Free' ? 'border-purple-800 border-2 bg-purple-100' : ''}`}>
                             <MdOutlineLayers className={`text-2xl ${selectedType === 'Free' ? 'text-purple-800' : ''}`} />
                             <div>
                                 <span className="font-medium">Free</span>
@@ -42,7 +42,7 @@ export default function MembershipTypeModal({ visible, onClose, onSelect, value 
                             </div>
                             <Radio value="Free" checked={selectedType === 'Free'} />
                         </div>
-                        <div className={`flex items-center justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Basic Yearly' ? 'border-purple-800 border-2' : ''}`}>
+                        <div className={`flex justify-between p-4 gap-2 border rounded-lg ${selectedType === 'Basic Yearly' ? 'border-purple-800 border-2 bg-purple-100' : ''}`}>
                             <PiExcludeFill className={`text-2xl ${selectedType === 'Basic Yearly' ? 'text-purple-800' : ''}`} />
                             <div>
                                 <span className="font-medium">Basic Yearly</span>
