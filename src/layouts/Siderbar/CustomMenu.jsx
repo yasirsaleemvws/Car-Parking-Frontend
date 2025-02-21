@@ -34,6 +34,12 @@ export default function CustomMenu() {
             setSelected("3");
         } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_SECTION)) {
             setSelected("4");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_AREA)) {
+            setSelected("4");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_CAMERA)) {
+            setSelected("4");
+        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_CAMERA_DETAILS)) {
+            setSelected("4");
         } else if (location.pathname.endsWith(ADMIN_ROUTES?.ACCESS_RULE)) {
             setSelected("5");
         } else if (location.pathname.endsWith(ADMIN_ROUTES?.FINANCE)) {
