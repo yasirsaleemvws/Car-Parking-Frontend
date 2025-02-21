@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../pages/Auth/login/Login";
-import { ADMIN_ROUTES, APP_ROUTES } from "../config/Constants";
+import { APP_ROUTES } from "../config/Constants";
 import Signup from "../pages/Auth/Signup/Signup";
 import ProtectedRoute from "./ProtectedRoute";
 import Parking from "../pages/parking/Parking";
@@ -36,24 +36,24 @@ const AppRoutes = () => {
           </Route>
           <Route element={<DashboardLayout />} >
             {/* <Route element={<ProtectedRoute>  </ProtectedRoute>} > */}
-            <Route path={ADMIN_ROUTES?.PARKING} element={<Parking />} />
-            <Route path={ADMIN_ROUTES?.PARKING_OVERVIEW} element={<ParkingOverview />} />
-            <Route path={ADMIN_ROUTES?.PARKING_ANALYTICS} element={<ParkingAnalytics />} />
-            <Route path={ADMIN_ROUTES?.PARKING_SECTION} element={<ParkingSection />} />
-            <Route path={ADMIN_ROUTES?.ACCESS_RULE} element={<AccessRule />} />
-            <Route path={ADMIN_ROUTES?.FINANCE} element={<Finance />} />
-            <Route path={ADMIN_ROUTES?.TEAM} element={<Team />} />
-            <Route path={ADMIN_ROUTES?.AVG_PARKING} element={<AvgParking />} />
-            <Route path={ADMIN_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
-            <Route path={ADMIN_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
-            <Route path={ADMIN_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
-            <Route path={ADMIN_ROUTES?.GUARANTED} element={<Guaranted />} />
-            <Route path={ADMIN_ROUTES?.MEMBERSHIP} element={<MemberShip />} />
-            <Route path={ADMIN_ROUTES?.BLOCKED} element={<Blocked />} />
-            <Route path={ADMIN_ROUTES?.PARKING_AREA} element={<ParkingArea />} />
-            <Route path={ADMIN_ROUTES?.PARKING_CAMERA} element={<CameraView />} />
-            <Route path={ADMIN_ROUTES?.PARKING_CAMERA_DETAILS} element={<SingleCamera />} />
-            <Route path={ADMIN_ROUTES?.SETTINGS} element={<Settings />} />
+            <Route path={APP_ROUTES?.PARKING} element={<Parking />} />
+            <Route path={APP_ROUTES?.PARKING_OVERVIEW} element={<ParkingOverview />} />
+            <Route path={APP_ROUTES?.PARKING_ANALYTICS} element={<ParkingAnalytics />} />
+            <Route path={APP_ROUTES?.PARKING_SECTION} element={<ParkingSection />} />
+            <Route path={APP_ROUTES?.ACCESS_RULE} element={<AccessRule />} />
+            <Route path={APP_ROUTES?.FINANCE} element={<Finance />} />
+            <Route path={APP_ROUTES?.TEAM} element={<Team />} />
+            <Route path={APP_ROUTES?.AVG_PARKING} element={<AvgParking />} />
+            <Route path={APP_ROUTES?.PEAK_TRAFFIC} element={<PeakTraffic />} />
+            <Route path={APP_ROUTES?.AVG_VEHICLE} element={<AvgVehicle />} />
+            <Route path={APP_ROUTES?.AVG_OCCUPANCY} element={<AvgOccupancy />} />
+            <Route path={APP_ROUTES?.GUARANTED} element={<Guaranted />} />
+            <Route path={APP_ROUTES?.MEMBERSHIP} element={<MemberShip />} />
+            <Route path={APP_ROUTES?.BLOCKED} element={<Blocked />} />
+            <Route path={APP_ROUTES?.PARKING_AREA} element={<ParkingArea />} />
+            <Route path={APP_ROUTES?.PARKING_CAMERA} element={<CameraView />} />
+            <Route path={APP_ROUTES?.PARKING_CAMERA_DETAILS} element={<SingleCamera />} />
+            <Route path={APP_ROUTES?.SETTINGS} element={<Settings />} />
           </Route>
         </Routes>
       </Router>

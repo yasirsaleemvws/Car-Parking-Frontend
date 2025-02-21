@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ADMIN_ROUTES } from '../../../config/Constants';
+import { APP_ROUTES } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
@@ -8,7 +8,7 @@ import CustomPagination from '../../../components/CustomPagination';
 
 const breadcrumbItems = [
   { label: 'Home', link: '/parking' },
-  { label: 'Access Rule', link: ADMIN_ROUTES.ACCESS_RULE },
+  { label: 'Access Rule', link: APP_ROUTES.ACCESS_RULE },
   { label: 'MemberShip Parker' }
 ];
 

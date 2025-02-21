@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Menu } from "antd";
-import { ADMIN_ROUTES } from "../../config/Constants";
+import { APP_ROUTES } from "../../config/Constants";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { RiTeamFill, RiDashboardFill } from "react-icons/ri";
 import { FaChartPie } from "react-icons/fa";
@@ -16,35 +16,35 @@ export default function CustomMenu() {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname.endsWith(ADMIN_ROUTES?.SETTINGS)) {
+        if (location.pathname.endsWith(APP_ROUTES?.SETTINGS)) {
             setSelected("0");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING)) {
             setSelected("1");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_OVERVIEW)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_OVERVIEW)) {
             setSelected("2");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_ANALYTICS)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_ANALYTICS)) {
             setSelected("3");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_PARKING)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.AVG_PARKING)) {
             setSelected("3");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PEAK_TRAFFIC)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PEAK_TRAFFIC)) {
             setSelected("3");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_VEHICLE)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.AVG_VEHICLE)) {
             setSelected("3");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.AVG_OCCUPANCY)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.AVG_OCCUPANCY)) {
             setSelected("3");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_SECTION)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_SECTION)) {
             setSelected("4");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_AREA)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_AREA)) {
             setSelected("4");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_CAMERA)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_CAMERA)) {
             setSelected("4");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.PARKING_CAMERA_DETAILS)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.PARKING_CAMERA_DETAILS)) {
             setSelected("4");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.ACCESS_RULE)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.ACCESS_RULE)) {
             setSelected("5");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.FINANCE)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.FINANCE)) {
             setSelected("6");
-        } else if (location.pathname.endsWith(ADMIN_ROUTES?.TEAM)) {
+        } else if (location.pathname.endsWith(APP_ROUTES?.TEAM)) {
             setSelected("7");
         }
     }, [location]);
@@ -58,42 +58,42 @@ export default function CustomMenu() {
             onClick={(e) => setSelected(e.key)}
         >
 
-            <Menu.Item key="1" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING); }} >
+            <Menu.Item key="1" className='m-0' onClick={() => { navigate(APP_ROUTES?.PARKING); }} >
                 <FaSquareParking className='text-xl' />
                 <span className="ml-3">Parking</span>
             </Menu.Item>
 
-            <Menu.Item key="2" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_OVERVIEW); }} >
+            <Menu.Item key="2" className='m-0' onClick={() => { navigate(APP_ROUTES?.PARKING_OVERVIEW); }} >
                 <ImStackoverflow className='text-xl' />
                 <span className="ml-3">Parking Overview</span>
             </Menu.Item>
 
-            <Menu.Item key="3" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_ANALYTICS); }} >
+            <Menu.Item key="3" className='m-0' onClick={() => { navigate(APP_ROUTES?.PARKING_ANALYTICS); }} >
                 <SiGraphql className='text-xl' />
                 <span className="ml-3">Parking Analytics</span>
             </Menu.Item>
 
-            <Menu.Item key="4" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.PARKING_SECTION); }} >
+            <Menu.Item key="4" className='m-0' onClick={() => { navigate(APP_ROUTES?.PARKING_SECTION); }} >
                 <RiDashboardFill className='text-xl' />
                 <span className="ml-3">Parking Section</span>
             </Menu.Item>
 
-            <Menu.Item key="5" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.ACCESS_RULE); }} >
+            <Menu.Item key="5" className='m-0' onClick={() => { navigate(APP_ROUTES?.ACCESS_RULE); }} >
                 <IoLayers className='text-xl' />
                 <span className="ml-3">Access Rule</span>
             </Menu.Item>
 
-            <Menu.Item key="6" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.FINANCE); }} >
+            <Menu.Item key="6" className='m-0' onClick={() => { navigate(APP_ROUTES?.FINANCE); }} >
                 <FaChartPie />
                 <span className="ml-3">Finance</span>
             </Menu.Item>
 
-            <Menu.Item key="7" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.TEAM); }} >
+            <Menu.Item key="7" className='m-0' onClick={() => { navigate(APP_ROUTES?.TEAM); }} >
                 <RiTeamFill className='text-xl' />
                 <span className="ml-3">Team</span>
             </Menu.Item>
 
-            <Menu.Item key="0" className='m-0 !absolute bottom-2' style={{ paddingLeft: "21px" }} onClick={() => { navigate(ADMIN_ROUTES?.SETTINGS); }} >
+            <Menu.Item key="0" className='m-0 !absolute bottom-2' style={{ paddingLeft: "21px" }} onClick={() => { navigate(APP_ROUTES?.SETTINGS); }} >
                 <IoSettingsSharp className='text-xl' />
                 <span className="ml-3">Setting</span>
             </Menu.Item>

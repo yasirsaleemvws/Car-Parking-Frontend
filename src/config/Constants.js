@@ -9,14 +9,11 @@ export const CONSTANTS = {
 
 };
 
+
 export const APP_ROUTES = {
   HOME: '/',
   LOGIN: "/login",
   SIGN_UP: "/sign-up",
-
-};
-
-export const ADMIN_ROUTES = {
   PARKING: "/parking",
   PARKING_OVERVIEW: "/parking-overview",
   PARKING_ANALYTICS: "/parking-analytics",
@@ -179,21 +176,21 @@ export const access_rules_card_data = [
     title: "Guaranteed Parkers",
     description: "People who always get a free space",
     icon: "/images/icons/guaranted.png",
-    navigateTo: ADMIN_ROUTES.GUARANTED,
+    navigateTo: APP_ROUTES.GUARANTED,
   },
   {
     id: 2,
     title: "Membership Parkers",
     description: "People who always pay for space",
     icon: "/images/icons/membership.png",
-    navigateTo: ADMIN_ROUTES.MEMBERSHIP,
+    navigateTo: APP_ROUTES.MEMBERSHIP,
   },
   {
     id: 3,
     title: "Restricted Parkers",
     description: "People who are restricted from entry",
     icon: "/images/icons/blocked.png",
-    navigateTo: ADMIN_ROUTES.BLOCKED,
+    navigateTo: APP_ROUTES.BLOCKED,
   },
 ];
 

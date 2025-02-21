@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ADMIN_ROUTES, APP_ROUTES } from "../../../config/Constants";
+import { APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -20,12 +20,12 @@ const Login = () => {
 
 
   const onSubmit = async (data) => {
-    navigate(ADMIN_ROUTES.PARKING);
+    navigate(APP_ROUTES.PARKING);
     return
     try {
       const response = await loginMutation.mutateAsync(data);
-      if (response.success ) {
-        navigate(ADMIN_ROUTES.PARKING);
+      if (response.success) {
+        navigate(APP_ROUTES.PARKING);
       }
     } catch (error) {
       console.error("Login failed:", error);

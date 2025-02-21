@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
 import { IoMdMore } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_ROUTES } from "../../config/Constants";
+import { APP_ROUTES } from "../../config/Constants";
 import CustomAreaChart from "../../components/charts/CustomAreaChart";
 import CustomBarChart from "../../components/charts/CustomBarChart";
 import { area_chart_data, bar_chart_data2 } from "../../config/Constants";
@@ -15,14 +15,14 @@ const analytics_card = [
     trend: "20% vs last week",
     trendIcon: <FaArrowUpLong size={14} className="mr-1" />,
     trendColor: "text-green-500",
-    navigateTo: ADMIN_ROUTES.AVG_PARKING,
+    navigateTo: APP_ROUTES.AVG_PARKING,
   },
   {
     id: 2,
     title: "Peak Traffic Time",
     value: "11:00 am - 01:00 pm",
     extraInfo: "12:00 am - 03:00 pm",
-    navigateTo: ADMIN_ROUTES.PEAK_TRAFFIC,
+    navigateTo: APP_ROUTES.PEAK_TRAFFIC,
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const analytics_card = [
     trend: "20% vs last month",
     trendIcon: <FaArrowUpLong size={14} className="mr-1" />,
     trendColor: "text-green-500",
-    navigateTo: ADMIN_ROUTES.AVG_VEHICLE,
+    navigateTo: APP_ROUTES.AVG_VEHICLE,
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const analytics_card = [
     trend: "20% vs last week",
     trendIcon: <FaArrowDownLong size={14} className="mr-1" />,
     trendColor: "text-red-500",
-    navigateTo: ADMIN_ROUTES.AVG_OCCUPANCY,
+    navigateTo: APP_ROUTES.AVG_OCCUPANCY,
   },
 ];
 

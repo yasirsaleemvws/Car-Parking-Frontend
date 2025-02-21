@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ADMIN_ROUTES } from '../config/Constants';
+import { APP_ROUTES } from '../config/Constants';
 
 export default function ParkingCard({ data }) {
   const navigate = useNavigate();
   return (
-    <div className="bg-white shadow-lg rounded-xl p-4" onClick={() => navigate(`${ADMIN_ROUTES.PARKING_AREA}?id=${data.id}&&view=2d`)}>
+    <div className="bg-white shadow-lg rounded-xl p-4" onClick={() => navigate(`${APP_ROUTES.PARKING_AREA}?id=${data.id}&&view=2d`)}>
       <img
         src="/images/parking-card.png"
         alt={data.title}

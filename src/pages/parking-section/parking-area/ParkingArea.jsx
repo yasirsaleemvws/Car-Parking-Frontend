@@ -4,7 +4,7 @@ import View3D from './view-3D/View3D';
 import View2D from './view-2D/View2D';
 import { DiHtml53dEffects } from "react-icons/di";
 import { FaCamera } from "react-icons/fa";
-import { ADMIN_ROUTES } from '../../../config/Constants';
+import { APP_ROUTES } from '../../../config/Constants';
 
 const useQuery = () => {
     return new URLSearchParams(useLocation().search);
@@ -30,17 +30,17 @@ export default function ParkingArea() {
                                 <option value="2">Second Floor</option>
                                 <option value="1">Ground Floor</option>
                             </select>
-                            <button className='flex items-center bg-white text-purple-700 px-4 h-[40px] rounded-md border border-gray-400' onClick={() => navigate(`${ADMIN_ROUTES.PARKING_AREA}?id=${data.id}&&view=2d`)}>
+                            <button className='flex items-center bg-white text-purple-700 px-4 h-[40px] rounded-md border border-gray-400' onClick={() => navigate(`${APP_ROUTES.PARKING_AREA}?id=${data.id}&&view=2d`)}>
                                 <DiHtml53dEffects className='text-2xl mr-2' /> 2D View
                             </button>
                         </>
                     ) : (
-                        <button className='flex items-center bg-white text-purple-700 px-4 h-[40px] rounded-md border border-gray-400' onClick={() => navigate(`${ADMIN_ROUTES.PARKING_AREA}?id=${data.id}&&view=3d`)}>
+                        <button className='flex items-center bg-white text-purple-700 px-4 h-[40px] rounded-md border border-gray-400' onClick={() => navigate(`${APP_ROUTES.PARKING_AREA}?id=${data.id}&&view=3d`)}>
                             <DiHtml53dEffects className='text-2xl mr-2' /> 3D View
                         </button>
                     )}
 
-                    <button className='flex items-center bg-purple-700 text-white px-4 h-[40px] rounded-md ml-2 border border-gray-400' onClick={() => navigate(`${ADMIN_ROUTES.PARKING_CAMERA}?id=${data.id}`)}>
+                    <button className='flex items-center bg-purple-700 text-white px-4 h-[40px] rounded-md ml-2 border border-gray-400' onClick={() => navigate(`${APP_ROUTES.PARKING_CAMERA}?id=${data.id}`)}>
                         <FaCamera className='text-lg mr-2' />Camera View
                     </button>
                 </div>
