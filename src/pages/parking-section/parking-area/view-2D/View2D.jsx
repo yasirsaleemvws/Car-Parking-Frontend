@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CustomDrawer from '../../../../components/CustomDrawer';
 
 const SLOTS = {
     A: [
@@ -89,18 +90,32 @@ const ParkingSlot = ({ status }) => {
 };
 
 export default function View2D() {
+    const [open, setOpen] = useState(false);
+
+    const showDrawer = () => {
+        setOpen(true);
+    };
+
+    const onClose = () => {
+        setOpen(false);
+    };
+
     return (
-        <div className="flex gap-4 justify-center mt-10">
-            {Object.entries(SLOTS).map(([slotName, slots]) => (
-                <div key={slotName} className="flex flex-col items-center w-1/3">
-                    <h2 className="mb-2 text-lg font-bold bg-purple-200 text-purple-700 px-8 rounded-full">{slotName}</h2>
-                    <div className="grid grid-cols-2 gap-4 w-[100%]">
-                        {slots.map((slot) => (
-                            <ParkingSlot key={slot.id} status={slot.status} />
-                        ))}
+        <>
+            <div className="flex gap-4 justify-center mt-10" onClick={showDrawer}>
+                {Object.entries(SLOTS).map(([slotName, slots]) => (
+                    <div key={slotName} className="flex flex-col items-center w-1/3">
+                        <h2 className="mb-2 text-lg font-bold bg-purple-200 text-purple-700 px-8 rounded-full">{slotName}</h2>
+                        <div className="grid grid-cols-2 gap-4 w-[100%]">
+                            {slots.map((slot) => (
+                                <ParkingSlot key={slot.id} status={slot.status} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+
+            <CustomDrawer open={open} onClose={onClose} />
+        </>
     );
 }
