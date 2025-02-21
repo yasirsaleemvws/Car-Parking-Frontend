@@ -1,41 +1,9 @@
 import React from 'react';
-import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import CustomBarChart from '../../components/CustomBarChart';
+import { bar_chart_data, donut_chart_data, pie_chart_data } from '../../config/data.service';
+import CustomPieChart from '../../components/charts/CustomPieChart';
 
 export default function ParkingOverview() {
-  const parkingUsageData = [
-    { day: "0-1", value: 10 },
-    { day: "1-2", value: 50 },
-    { day: "2-3", value: 20 },
-    { day: "3-4", value: 30 },
-    { day: "4-5", value: 40 },
-    { day: "5-6", value: 90 },
-    { day: "6-7", value: 60 },
-    { day: "8-9", value: 80 },
-    { day: "10-11", value: 90 },
-    { day: "12-13", value: 100 },
-    { day: "14-15", value: 85 },
-    { day: "16-17", value: 70 },
-    { day: "18-19", value: 60 },
-    { day: "20-21", value: 50 },
-    { day: "22-23", value: 30 }
-  ];
-
-  const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 200 },
-  ];
-
-  const COLORS2 = ['#4B0082', '#8A2BE2', '#9370DB'];
-
-  // Parking Space Data (Pie Chart)
-  const parkingSpaceData = [
-    { name: "Filled Space", value: 900 },
-    { name: "Available Space", value: 210 }
-  ];
-  const COLORS = ["#6D28D9", "#D1C4E9"];
-
   return (
     <div className="bg-gray-100">
       {/* Parking Overview Title */}
@@ -70,15 +38,15 @@ export default function ParkingOverview() {
             </div>
 
             <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md col-span-1 sm:col-span-2 flex flex-col sm:flex-row items-center">
-              <ResponsiveContainer width="100%" height={150} className="flex-1">
-                <PieChart>
-                  <Pie data={parkingSpaceData} dataKey="value" nameKey="name" outerRadius={65} fill="#6D28D9">
-                    {parkingSpaceData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+              <CustomPieChart
+                data={pie_chart_data}
+                width={150}
+                height={150}
+                colors={["#6D28D9", "#D1C4E9"]}
+                fill={"#8884d8"}
+                innerRadius={0}
+                outerRadius={65} />
+
               <div className="mt-4 sm:mt-0 sm:ml-4 text-sm flex-1">
                 <div className='flex items-center'>
                   <p className="text-purple-700 mr-1 text-xl">●</p>
@@ -95,24 +63,15 @@ export default function ParkingOverview() {
           {/* Bottom Section - Charts */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
             <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md col-span-1 sm:col-span-2 flex flex-col sm:flex-row items-center">
-              <ResponsiveContainer width={150} height={150}>
-                <PieChart>
-                  <Pie
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={30}
-                    outerRadius={70}
-                    fill="#8884d8"
-                    paddingAngle={0}
-                    dataKey="value"
-                  >
-                    {data.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS2[index % COLORS2.length]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+              <CustomPieChart
+                data={donut_chart_data}
+                width={150}
+                height={150}
+                colors={['#4B0082', '#8A2BE2', '#9370DB']}
+                fill={"#8884d8"}
+                innerRadius={30}
+                outerRadius={70} />
+
               <div className="mt-4 sm:mt-0 sm:ml-4 text-sm flex-1">
                 <div className='flex items-center'>
                   <p className="text-purple-700 mr-1 text-xl">●</p>
@@ -142,7 +101,11 @@ export default function ParkingOverview() {
         {/* Parking Usage Bar Chart */}
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md flex-1">
           <h3 className="text-gray-700 mb-2 font-bold text-xl">Parking Usage</h3>
-          <CustomBarChart data={parkingUsageData} height={500} fill={"#6D28D9"} barSize={12} />
+          <CustomBarChart
+            data={bar_chart_data}
+            height={500}
+            fill={"#6D28D9"}
+            barSize={12} />
         </div>
       </div>
     </div>

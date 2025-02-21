@@ -6,6 +6,8 @@ import CustomBarChart from '../../components/CustomBarChart';
 import RangeCalander from '../../components/RangeCalander';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { FaArrowUpLong } from 'react-icons/fa6';
+import { donut_chart_data } from '../../config/data.service';
+import CustomPieChart from '../../components/charts/CustomPieChart';
 
 
 export default function Finance() {
@@ -46,13 +48,6 @@ export default function Finance() {
     { day: "22-23", value: 30, value2: 30 }
   ];
 
-  const COLORS2 = ['#4B0082', '#8A2BE2', '#9370DB'];
-
-  const dotnetData = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 200 },
-  ];
 
   return (
     <>
@@ -72,24 +67,15 @@ export default function Finance() {
         </div>
 
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md flex flex-col sm:flex-row items-center">
-          <ResponsiveContainer width={150} height={150}>
-            <PieChart>
-              <Pie
-                data={dotnetData}
-                cx="50%"
-                cy="50%"
-                innerRadius={30}
-                outerRadius={70}
-                fill="#8884d8"
-                paddingAngle={0}
-                dataKey="value"
-              >
-                {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS2[index % COLORS2.length]} />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
+          <CustomPieChart
+            data={donut_chart_data}
+            width={150}
+            height={150}
+            colors={['#4B0082', '#8A2BE2', '#9370DB']}
+            fill={"#8884d8"}
+            innerRadius={30}
+            outerRadius={70} />
+
           <div className="mt-4 sm:mt-0 sm:ml-4 text-sm flex-1">
             <div className='flex items-center'>
               <p className="text-purple-700 mr-1 text-xl">●</p>
