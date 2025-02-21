@@ -11,8 +11,8 @@ const parkingSlots = [
 const ParkingSlot = ({ status }) => {
     return (
         <div
-            className={`min-w-[200px] min-h-[200px] border flex items-center justify-center rounded-md shadow-md text-[3rem] font-samibold
-        ${status === "free" ? "bg-purple-200" : status === "reserved" ? "bg-purple-600 text-white" : "bg-gray-300"}`}
+            className={`min-h-[250px] border flex items-center justify-center rounded-md shadow-md text-[3rem] font-samibold
+        ${status === "free" ? "bg-purple-200" : status === "reserved" ? "bg-purple-600 text-white" : "bg-gray-100"}`}
         >
             {status === "free" ? "P" : status === "reserved" ? "R" : <img src="/images/car.png" alt="Car" className="" />}
         </div>
@@ -25,7 +25,7 @@ export default function View2D() {
                 ["A", "B", "C"].map((section, index) => (
                     <div key={index} className="flex flex-col items-center w-1/3">
                         <h2 className="mb-2 text-[2rem] font-bold">{section}</h2>
-                        <div className="grid grid-cols-2 gap-4 w-100">
+                        <div className="grid grid-cols-2 gap-4 w-[100%]">
                             {parkingSlots.map((slot) => (
                                 <ParkingSlot key={slot.id} status={slot.status} />
                             ))}
