@@ -20,6 +20,7 @@ const Login = () => {
 
 
   const onSubmit = async (data) => {
+    localStorage.setItem('token', "test Token")
     navigate(APP_ROUTES.PARKING);
     return
     try {
