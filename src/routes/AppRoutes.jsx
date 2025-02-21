@@ -20,6 +20,9 @@ import Settings from "../pages/settings/Settings";
 import MemberShip from "../pages/access-rule/membership/MemberShip";
 import Blocked from "../pages/access-rule/blocked/Blocked";
 import Guaranted from "../pages/access-rule/guaranted/Guaranted";
+import SingleCamera from "../pages/parking-section/camera-view/single-camera/SingleCamera";
+import CameraView from "../pages/parking-section/camera-view/CameraView";
+import ParkingArea from "../pages/parking-section/parking-area/ParkingArea";
 
 const AppRoutes = () => {
   return (
@@ -47,6 +50,9 @@ const AppRoutes = () => {
             <Route path={ADMIN_ROUTES?.GUARANTED} element={<Guaranted />} />
             <Route path={ADMIN_ROUTES?.MEMBERSHIP} element={<MemberShip />} />
             <Route path={ADMIN_ROUTES?.BLOCKED} element={<Blocked />} />
+            <Route path={ADMIN_ROUTES?.PARKING_AREA} element={<ParkingArea />} />
+            <Route path={ADMIN_ROUTES?.PARKING_CAMERA} element={<CameraView />} />
+            <Route path={ADMIN_ROUTES?.PARKING_CAMERA_DETAILS} element={<SingleCamera />} />
             <Route path={ADMIN_ROUTES?.SETTINGS} element={<Settings />} />
           </Route>
         </Routes>
@@ -56,6 +62,8 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
+
+
 
 
 

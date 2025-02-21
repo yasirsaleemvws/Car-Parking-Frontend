@@ -25,6 +25,9 @@ export const ADMIN_ROUTES = {
   AVG_VEHICLE: "/parking-analytics/avg-vehicle",
   AVG_OCCUPANCY: "/parking-analytics/avg-occupancy",
   PARKING_SECTION: "/parking-section",
+  PARKING_AREA: "/parking-section/parking-area",
+  PARKING_CAMERA: "/parking-section/camera-view",
+  PARKING_CAMERA_DETAILS: "/parking-section/camera/:id",
   ACCESS_RULE: "/access-rule",
   GUARANTED: "/access-rule/guaranted",
   MEMBERSHIP: "/access-rule-membership",
@@ -162,12 +165,12 @@ export const area_chart_data = [
 ];
 
 export const parking_section_data = [
-  { title: "Ground Floor", available: 20, total: 40, occupied: 32, vacant: 10 },
-  { title: "Floor A", available: 22, total: 40, occupied: 32, vacant: 10 },
-  { title: "Floor B", available: 24, total: 40, occupied: 32, vacant: 10 },
-  { title: "Floor C", available: 26, total: 40, occupied: 32, vacant: 10 },
-  { title: "Floor D", available: 28, total: 40, occupied: 32, vacant: 10 },
-  { title: "Floor E", available: 30, total: 40, occupied: 32, vacant: 10 },
+  { id: "1", title: "Ground Floor", available: 20, total: 40, occupied: 32, vacant: 10 },
+  { id: "2", title: "Floor A", available: 22, total: 40, occupied: 32, vacant: 10 },
+  { id: "3", title: "Floor B", available: 24, total: 40, occupied: 32, vacant: 10 },
+  { id: "4", title: "Floor C", available: 26, total: 40, occupied: 32, vacant: 10 },
+  { id: "5", title: "Floor D", available: 28, total: 40, occupied: 32, vacant: 10 },
+  { id: "6", title: "Floor E", available: 30, total: 40, occupied: 32, vacant: 10 },
 ]
 
 export const access_rules_card_data = [
