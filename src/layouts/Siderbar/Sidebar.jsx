@@ -16,7 +16,7 @@ const Siderbar = ({ collapsed, setCollapsed }) => {
         <div className="fixed max-w-[270px] left-[10px] h-full">
           <div className="p-4 flex items-center justify-center mt-5 cursor-pointer">
             <img className="h-[55px]" src={logo} alt="logo" onClick={() => Navigate("/login")} />
-            <h2 className="font-semibold text-xl">Car Parking</h2>
+            <h2 className="font-semibold text-xl ml-2">Car Parking</h2>
           </div>
           <CustomMenu />
         </div>

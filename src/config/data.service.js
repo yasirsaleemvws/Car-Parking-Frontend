@@ -138,25 +138,25 @@ export const parking_section_data = [
 
 export const access_rules_card_data = [
     {
-      id: 1,
-      title: "Guaranteed Parkers",
-      description: "People who always get a free space",
-      icon: "/images/icons/guaranted.png",
-      navigateTo: ADMIN_ROUTES.GUARANTED,
+        id: 1,
+        title: "Guaranteed Parkers",
+        description: "People who always get a free space",
+        icon: "/images/icons/guaranted.png",
+        navigateTo: ADMIN_ROUTES.GUARANTED,
     },
     {
-      id: 2,
-      title: "Membership Parkers",
-      description: "People who always pay for space",
-      icon: "/images/icons/membership.png",
-      navigateTo: ADMIN_ROUTES.MEMBERSHIP,
+        id: 2,
+        title: "Membership Parkers",
+        description: "People who always pay for space",
+        icon: "/images/icons/membership.png",
+        navigateTo: ADMIN_ROUTES.MEMBERSHIP,
     },
     {
-      id: 3,
-      title: "Restricted Parkers",
-      description: "People who are restricted from entry",
-      icon: "/images/icons/blocked.png",
-      navigateTo: ADMIN_ROUTES.BLOCKED,
+        id: 3,
+        title: "Restricted Parkers",
+        description: "People who are restricted from entry",
+        icon: "/images/icons/blocked.png",
+        navigateTo: ADMIN_ROUTES.BLOCKED,
     },
-  ];
-  
+];
+
