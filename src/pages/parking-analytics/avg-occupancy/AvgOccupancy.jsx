@@ -5,7 +5,7 @@ import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/charts/CustomBarChart';
 import RangeCalander from '../../../components/RangeCalander';
-import { bar_chart_data5, table_data } from '../../../config/Constants';
+import { bar_chart_data5, table_data, table_headers } from '../../../config/Constants';
 
 const breadcrumbItems = [
   { label: 'Home', link: '/parking' },
@@ -20,6 +20,22 @@ export default function AvgOccupancy() {
 
   const rowsPerPage = 10;
   const totalPages = Math.ceil(table_data.length / rowsPerPage);
+
+  const renderColumn = {
+    date: (value) => (
+      <span>
+        {value} <br />
+        <span className="block text-gray-500 text-sm">Formatted Date</span>
+      </span>
+    ),
+    membership: (value) => <span className="text-indigo-600 font-medium">{value}</span>,
+    duration: (value) => (
+      <div className="flex items-center space-x-2">
+        <div className="w-16 h-2 bg-purple-500 rounded"></div>
+        <span className="text-sm">{value}</span>
+      </div>
+    ),
+  };
 
 
   return (
@@ -44,7 +60,7 @@ export default function AvgOccupancy() {
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'Average Occupancy'} />
 
-        <CustomTable data={table_data} />
+        <CustomTable data={table_data} headers={table_headers} renderColumn={renderColumn} />
 
         <CustomPagination
           currentPage={currentPage}

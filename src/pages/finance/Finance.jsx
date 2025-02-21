@@ -5,7 +5,7 @@ import CustomPagination from '../../components/CustomPagination';
 import CustomBarChart from '../../components/charts/CustomBarChart';
 import RangeCalander from '../../components/RangeCalander';
 import { FaArrowUpLong } from 'react-icons/fa6';
-import { bar_chart_data4, donut_chart_data, table_data } from '../../config/Constants';
+import { bar_chart_data4, donut_chart_data, table_data, table_headers } from '../../config/Constants';
 import CustomPieChart from '../../components/charts/CustomPieChart';
 
 
@@ -16,6 +16,23 @@ export default function Finance() {
   const rowsPerPage = 10;
   const totalPages = Math.ceil(table_data.length / rowsPerPage);
 
+  const renderColumn = {
+    date: (value) => (
+      <span>
+        {value} <br />
+        <span className="block text-gray-500 text-sm">Formatted Date</span>
+      </span>
+    ),
+    membership: (value) => <span className="text-indigo-600 font-medium">{value}</span>,
+    duration: (value) => (
+      <div className="flex items-center space-x-2">
+        <div className="w-16 h-2 bg-purple-500 rounded"></div>
+        <span className="text-sm">{value}</span>
+      </div>
+    ),
+  };
+
+  
   return (
     <>
 
@@ -76,7 +93,7 @@ export default function Finance() {
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Parking revenue'} />
 
-        <CustomTable data={table_data} />
+        <CustomTable data={table_data} headers={table_headers} renderColumn={renderColumn} />
 
         <CustomPagination
           currentPage={currentPage}

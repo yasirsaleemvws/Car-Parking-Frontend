@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { APP_ROUTES } from '../../../config/Constants';
+import { APP_ROUTES, table_headers } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
@@ -35,6 +35,22 @@ export default function Blocked() {
     // Handle the saved data (e.g., make an API call)
   };
 
+  const renderColumn = {
+    date: (value) => (
+      <span>
+        {value} <br />
+        <span className="block text-gray-500 text-sm">Formatted Date</span>
+      </span>
+    ),
+    membership: (value) => <span className="text-indigo-600 font-medium">{value}</span>,
+    duration: (value) => (
+      <div className="flex items-center space-x-2">
+        <div className="w-16 h-2 bg-purple-500 rounded"></div>
+        <span className="text-sm">{value}</span>
+      </div>
+    ),
+  };
+
   return (
     <>
       <div className="flex justify-between items-center p-4">
@@ -51,7 +67,7 @@ export default function Blocked() {
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Restricted Parkers'} />
 
-        <CustomTable data={table_data} />
+        <CustomTable data={table_data} headers={table_headers} renderColumn={renderColumn} />
 
         <CustomPagination
           currentPage={currentPage}
