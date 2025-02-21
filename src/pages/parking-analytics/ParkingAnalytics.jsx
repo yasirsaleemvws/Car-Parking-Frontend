@@ -5,26 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
 import CustomAreaChart from "../../components/charts/CustomAreaChart";
 import CustomBarChart from "../../components/charts/CustomBarChart";
+import { area_chart_data, bar_chart_data2 } from "../../config/data.service";
 
-const analyticsData = [
-  { day: "S", value: 10 },
-  { day: "M", value: 20 },
-  { day: "T", value: 70 },
-  { day: "W", value: 50 },
-  { day: "T", value: 45 },
-  { day: "F", value: 35 },
-  { day: "S", value: 30 },
-];
-
-const withdrawData = [
-  { day: "S", value: 50 },
-  { day: "M", value: 70 },
-  { day: "T", value: 55 },
-  { day: "W", value: 65 },
-  { day: "T", value: 40 },
-  { day: "F", value: 60 },
-  { day: "S", value: 50 },
-];
 
 const ParkingAnalytics = () => {
   const navigate = useNavigate()
@@ -102,7 +84,7 @@ const ParkingAnalytics = () => {
               <FaArrowRightLong className="text-gray-400" size={18} />
             </div>
           </div>
-          <CustomAreaChart data={analyticsData} height={400} stroke={"#089540"} fill={"#84FFB5"} />
+          <CustomAreaChart data={area_chart_data} height={400} stroke={"#089540"} fill={"#84FFB5"} />
         </div>
 
         {/* Withdraw Chart */}
@@ -122,7 +104,7 @@ const ParkingAnalytics = () => {
               <IoMdMore className="text-gray-800" size={18} />
             </div>
           </div>
-          <CustomBarChart data={withdrawData} height={400} fill={'#7B1FA2'} />
+          <CustomBarChart data={bar_chart_data2} height={400} fill={'#7B1FA2'} />
         </div>
       </div>
     </div>
