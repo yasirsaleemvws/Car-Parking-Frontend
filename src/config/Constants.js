@@ -24,7 +24,7 @@ export const APP_ROUTES = {
   PARKING_SECTION: "/parking-section",
   PARKING_AREA: "/parking-section/parking-area",
   PARKING_CAMERA: "/parking-section/camera-view",
-  PARKING_CAMERA_DETAILS: "/parking-section/camera/:id",
+  PARKING_CAMERA_DETAILS: "/parking-section/camera-view/:id",
   ACCESS_RULE: "/access-rule",
   GUARANTED: "/access-rule/guaranted",
   MEMBERSHIP: "/access-rule-membership",
@@ -194,3 +194,35 @@ export const access_rules_card_data = [
   },
 ];
 
+export const camera_data = [
+  {
+    id: 10,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video1.mp4',
+  },
+  {
+    id: 11,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video2.mp4',
+  },
+  {
+    id: 12,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video3.mp4',
+  },
+  {
+    id: 13,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video3.mp4',
+  },
+  {
+    id: 14,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video2.mp4',
+  },
+  {
+    id: 15,
+    title: "Camera No 1 Main Floor",
+    video: '/videos/video1.mp4',
+  },
+]
