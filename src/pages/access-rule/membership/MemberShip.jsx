@@ -13,25 +13,12 @@ const breadcrumbItems = [
 ];
 
 
-const data = [
-  { date: "November", membership: "Monthly", checkIn: "12:19 am", checkOut: "---" },
-  { date: "March", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "December", membership: "Monthly", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "April", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "May", membership: "Weekly", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "June", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "January", membership: "Monthly", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "July", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "February", membership: "Monthly", checkIn: "12:19 am", checkOut: "02:19 pm" },
-  { date: "August", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
-];
-
-
 export default function MemberShip() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
   const rowsPerPage = 10;
-  const totalPages = Math.ceil(data.length / rowsPerPage);
+  const totalPages = Math.ceil(table_data.length / rowsPerPage);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -61,13 +48,10 @@ export default function MemberShip() {
       </div>
 
       <div className="bg-white shadow-md rounded-lg ">
-        {/* Header */}
         <CustomFilters title={'Membership Parkers'} />
 
-        {/* Table */}
-        <CustomTable data={data} />
+        <CustomTable data={table_data} />
 
-        {/* Pagination */}
         <CustomPagination
           currentPage={currentPage}
           totalPages={totalPages}

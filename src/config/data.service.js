@@ -1,3 +1,5 @@
+import { ADMIN_ROUTES } from "./Constants";
+
 export const table_data = [
     { date: "November", membership: "Monthly", checkIn: "12:19 am", checkOut: "---" },
     { date: "March", membership: "Nil", checkIn: "12:19 am", checkOut: "02:19 pm" },
@@ -124,3 +126,37 @@ export const area_chart_data = [
     { day: "F", value: 35 },
     { day: "S", value: 30 },
 ];
+
+export const parking_section_data = [
+    { title: "Ground Floor", available: 20, total: 40, occupied: 32, vacant: 10 },
+    { title: "Floor A", available: 22, total: 40, occupied: 32, vacant: 10 },
+    { title: "Floor B", available: 24, total: 40, occupied: 32, vacant: 10 },
+    { title: "Floor C", available: 26, total: 40, occupied: 32, vacant: 10 },
+    { title: "Floor D", available: 28, total: 40, occupied: 32, vacant: 10 },
+    { title: "Floor E", available: 30, total: 40, occupied: 32, vacant: 10 },
+]
+
+export const access_rules_card_data = [
+    {
+      id: 1,
+      title: "Guaranteed Parkers",
+      description: "People who always get a free space",
+      icon: "/images/icons/guaranted.png",
+      navigateTo: ADMIN_ROUTES.GUARANTED,
+    },
+    {
+      id: 2,
+      title: "Membership Parkers",
+      description: "People who always pay for space",
+      icon: "/images/icons/membership.png",
+      navigateTo: ADMIN_ROUTES.MEMBERSHIP,
+    },
+    {
+      id: 3,
+      title: "Restricted Parkers",
+      description: "People who are restricted from entry",
+      icon: "/images/icons/blocked.png",
+      navigateTo: ADMIN_ROUTES.BLOCKED,
+    },
+  ];
+  
