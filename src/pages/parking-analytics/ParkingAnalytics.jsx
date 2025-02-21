@@ -3,8 +3,8 @@ import { FaArrowRightLong, FaArrowUpLong, FaArrowDownLong } from "react-icons/fa
 import { IoMdMore } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
-import CustomAreaChart from "../../components/CustomAreaChart";
-import CustomBarChart from "../../components/CustomBarChart";
+import CustomAreaChart from "../../components/charts/CustomAreaChart";
+import CustomBarChart from "../../components/charts/CustomBarChart";
 
 const analyticsData = [
   { day: "S", value: 10 },

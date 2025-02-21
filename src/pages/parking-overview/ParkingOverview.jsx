@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomBarChart from '../../components/CustomBarChart';
+import CustomBarChart from '../../components/charts/CustomBarChart';
 import { bar_chart_data, donut_chart_data, pie_chart_data } from '../../config/data.service';
 import CustomPieChart from '../../components/charts/CustomPieChart';
 

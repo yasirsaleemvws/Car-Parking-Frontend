@@ -3,7 +3,7 @@ import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
-import CustomAreaChart from '../../../components/CustomAreaChart';
+import CustomAreaChart from '../../../components/charts/CustomAreaChart';
 import RangeCalander from '../../../components/RangeCalander';
 
 export default function AvgParking() {

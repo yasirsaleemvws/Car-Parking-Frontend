@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CustomFilters from '../../components/CustomFilters';
 import CustomTable from '../../components/CustomTable';
 import CustomPagination from '../../components/CustomPagination';
-import CustomBarChart from '../../components/CustomBarChart';
+import CustomBarChart from '../../components/charts/CustomBarChart';
 import RangeCalander from '../../components/RangeCalander';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { FaArrowUpLong } from 'react-icons/fa6';
