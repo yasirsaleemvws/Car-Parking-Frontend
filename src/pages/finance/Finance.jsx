@@ -5,7 +5,7 @@ import CustomPagination from '../../components/CustomPagination';
 import CustomBarChart from '../../components/charts/CustomBarChart';
 import RangeCalander from '../../components/RangeCalander';
 import { FaArrowUpLong } from 'react-icons/fa6';
-import { bar_chart_data4, donut_chart_data, table_data } from '../../config/data.service';
+import { bar_chart_data4, donut_chart_data, table_data } from '../../config/Constants';
 import CustomPieChart from '../../components/charts/CustomPieChart';
 
 
@@ -19,8 +19,8 @@ export default function Finance() {
   return (
     <>
 
-      <div className=" lg:flex justify-between p-6">
-        <h2 className='text-2xl font-bold mb-4 border-b pb-5'>Financial Overview</h2>
+      <div className="lg:flex justify-between mb-6">
+        <h2 className='text-2xl font-bold'>Financial Overview</h2>
         <RangeCalander selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
       </div>
 

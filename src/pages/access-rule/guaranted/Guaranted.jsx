@@ -5,7 +5,7 @@ import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
 import CustomPagination from '../../../components/CustomPagination';
-import { table_data } from '../../../config/data.service';
+import { table_data } from '../../../config/Constants';
 
 const breadcrumbItems = [
   { label: 'Home', link: '/parking' },

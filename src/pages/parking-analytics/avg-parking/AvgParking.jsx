@@ -5,7 +5,7 @@ import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomAreaChart from '../../../components/charts/CustomAreaChart';
 import RangeCalander from '../../../components/RangeCalander';
-import { bar_chart_data3, table_data } from '../../../config/data.service';
+import { bar_chart_data3, table_data } from '../../../config/Constants';
 
 const breadcrumbItems = [
   { label: 'Home', link: '/parking' },

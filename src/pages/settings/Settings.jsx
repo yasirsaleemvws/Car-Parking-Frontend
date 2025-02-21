@@ -10,10 +10,10 @@ export default function Settings() {
     const [selected, setSelected] = useState('profile')
     return (
         <div className="p-6 bg-white rounded-lg">
-            <h1 className='text-2xl font-bold mb-4 border-b pb-5'>Setting</h1>
-            <div className="flex">
+            <h1 className='text-2xl font-bold mb-4 border-b pb-4'>Setting</h1>
+            <div className="flex mt-2">
                 <SettingMenu selected={selected} setSelected={setSelected} />
-                <div className="w-3/4 p-6">
+                <div className="w-3/4 pl-4">
                     {selected === 'profile' && <Profile />}
                     {selected === 'company profile' && <CompanyProfile />}
                     {selected === 'password' && <Password />}

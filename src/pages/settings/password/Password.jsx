@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Password() {
   return (
-    <div className="p-6">
+    <>
       <h2 className="text-xl font-semibold mb-4">Password</h2>
       <form>
         <div className="flex flex-col gap-4 mb-4 min-h-[40vh]">
@@ -42,6 +42,6 @@ export default function Password() {
           </div>
       </form>
 
-    </div>
+    </>
   )
 }

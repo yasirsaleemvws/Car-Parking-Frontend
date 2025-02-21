@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CompanyProfile() {
     return (
-        <div className="p-6">
+        <>
             <h2 className="text-xl font-semibold mb-4">Company Information</h2>
             <form>
                 <div className="flex flex-col gap-4 mb-4 min-h-[40vh]">
@@ -44,6 +44,6 @@ export default function CompanyProfile() {
                 </div>
             </form>
 
-        </div>
+        </>
     )
 }

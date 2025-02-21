@@ -19,7 +19,7 @@ export default function Notifications() {
     };
 
     return (
-        <div className="p-6">
+        <>
             <h2 className="text-xl font-semibold mb-4">Notifications Preferences</h2>
             <form>
                 <div className="flex flex-col mb-4 min-h-[40vh]">
@@ -133,6 +133,6 @@ export default function Notifications() {
                 </div>
             </form>
 
-        </div>
+        </>
     );
 }

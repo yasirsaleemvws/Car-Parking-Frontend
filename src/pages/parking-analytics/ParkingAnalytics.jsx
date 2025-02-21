@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../config/Constants";
 import CustomAreaChart from "../../components/charts/CustomAreaChart";
 import CustomBarChart from "../../components/charts/CustomBarChart";
-import { area_chart_data, bar_chart_data2 } from "../../config/data.service";
+import { area_chart_data, bar_chart_data2 } from "../../config/Constants";
 
 const analytics_card = [
   {
@@ -48,8 +48,8 @@ const analytics_card = [
 const ParkingAnalytics = () => {
   const navigate = useNavigate()
   return (
-    <div className="p-6 bg-gray-100">
-      <h2 className="text-xl font-semibold mb-4">Parking Analytics</h2>
+    <>
+      <h2 className="text-2xl font-bold mb-6">Parking Analytics</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {analytics_card.map((card) => (
@@ -112,7 +112,7 @@ const ParkingAnalytics = () => {
           <CustomBarChart data={bar_chart_data2} height={400} fill={'#7B1FA2'} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

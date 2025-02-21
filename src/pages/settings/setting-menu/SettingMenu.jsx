@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SettingMenu({ selected, setSelected }) {
     return (
-        <div className="w-1/5 p-6 border-r">
+        <div className="w-1/5 pr-4 border-r">
             <ul className="space-y-2">
                 {['Profile', 'Company Profile', 'Password', 'Notifications', 'Display'].map(item => (
                     <li

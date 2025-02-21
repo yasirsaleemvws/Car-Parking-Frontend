@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Display() {
     return (
-        <div className="p-6">
+        <>
             <h2 className="text-xl font-semibold mb-4">Display Mode</h2>
             <form>
                 <div className="flex flex-col gap-4 mb-4 min-h-[40vh]">
@@ -34,6 +34,6 @@ export default function Display() {
                 </div>
             </form>
 
-        </div>
+        </>
     )
 }

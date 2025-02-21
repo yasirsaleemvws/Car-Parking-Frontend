@@ -1,14 +1,14 @@
 import React from 'react'
 import { MdMoreVert } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { access_rules_card_data } from '../../config/data.service';
+import { access_rules_card_data } from '../../config/Constants';
 
 export default function AccessRule() {
   const navigate = useNavigate();
 
   return (
     <>
-      <h2 className="text-lg font-semibold mb-5">Access Rule</h2>
+      <h2 className="text-2xl font-bold mb-6">Access Rule</h2>
       <div className="flex flex-col md:flex-row justify-around items-center gap-5">
         {access_rules_card_data.map((rule) => (
           <div

@@ -1,13 +1,13 @@
 import React from 'react';
 import CustomBarChart from '../../components/charts/CustomBarChart';
-import { bar_chart_data, donut_chart_data, pie_chart_data } from '../../config/data.service';
+import { bar_chart_data, donut_chart_data, pie_chart_data } from '../../config/Constants';
 import CustomPieChart from '../../components/charts/CustomPieChart';
 
 export default function ParkingOverview() {
   return (
     <div className="bg-gray-100">
       {/* Parking Overview Title */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Parking Overview</h2>
+      <h2 className="text-2xl font-bold mb-6">Parking Overview</h2>
 
       <div className='flex flex-col lg:flex-row gap-6'>
         <div className='flex-1'>
