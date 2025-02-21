@@ -62,7 +62,18 @@ const ParkingSlot = ({ status }) => {
             case "free":
                 return "P";
             case "reserved":
-                return "R";
+                return (
+                    <div className="text-center">
+                        <p className="text-[1.5rem] font-bold">RESERVED</p>
+                        <p className="text-[1rem]">Membership Monthly</p>
+                    </div>
+                );
+            case "private":
+                return (
+                    <div className="text-center">
+                        <p className="text-[1.5rem] font-bold">PRIVATE PARKING</p>
+                    </div>
+                );
             default:
                 return <img src="/images/car.png" alt="Car" className="max-h-[100px]" />;
         }
