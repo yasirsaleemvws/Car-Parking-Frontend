@@ -213,7 +213,7 @@ export const camera_data = [
   {
     id: 13,
     title: "Camera No 1 Main Floor",
-    video: '/videos/video4.mp4',
+    video: '/videos/video3.mp4',
   },
   {
     id: 14,
