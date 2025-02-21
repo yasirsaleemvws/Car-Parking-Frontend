@@ -12,7 +12,7 @@ export default function CameraCard({ data }) {
                 <img src="/images/icons/cctv.png" alt="" />
                 <span className='ml-2'> {data.title} </span>
             </div>
-            <div className="w-full max-w-4xl">
+            <div className="w-full">
                 <video className="w-full h-auto rounded-br-lg rounded-bl-lg" autoPlay muted loop>
                     <source src={data.video} type="video/mp4" />
                     Your browser does not support the video tag.
