@@ -29,3 +29,7 @@ body {
 .ant-select-selector{
   border: none !important;
 }
+
+:where(.css-dev-only-do-not-override-vryruh).ant-drawer .ant-drawer-header-title{
+  flex-direction: row-reverse;
+}
