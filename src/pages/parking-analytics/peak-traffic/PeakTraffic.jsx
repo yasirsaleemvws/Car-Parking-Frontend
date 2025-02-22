@@ -6,6 +6,11 @@ import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/charts/CustomBarChart';
 import RangeCalander from '../../../components/RangeCalander';
 import { bar_chart_data, table_data, table_headers } from '../../../config/Constants';
+import TableComponent from '../../../components/EventTable';
+import { Dropdown, Menu, Tag } from 'antd';
+import { IoMdMore } from 'react-icons/io';
+import { useQuery } from 'react-query';
+import { GET__PARKING_LIST } from '../../../api/PrivateApi';
 
 const breadcrumbItems = [
   { label: 'Home', link: '/parking' },
@@ -13,31 +18,88 @@ const breadcrumbItems = [
   { label: 'Peak Traffic Time' }
 ];
 
+const renderActionsDropdown = (item) => {
+  const actionMenu = (
+    <Menu className="min-w-[120px]">
+      <Menu.Item key="test1" className="border-b border-gray-300"> Test </Menu.Item>
+      <Menu.Item key="test2" className="border-b border-gray-300"> Test </Menu.Item>
+      <Menu.Item key="test3"> Test </Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <Dropdown overlay={actionMenu} placement="bottomRight">
+      <button className="p-2 border rounded-md hover:bg-gray-200 text-2xl">
+        <IoMdMore />
+      </button>
+    </Dropdown>
+  );
+};
+
 
 export default function PeakTraffic() {
-  const [currentPage, setCurrentPage] = useState(1);
   const [selectedDates, setSelectedDates] = useState([]);
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 10,
+    total: 10,
+  });
 
-  const rowsPerPage = 10;
-  const totalPages = Math.ceil(table_data.length / rowsPerPage);
+  const { data, isLoading } = useQuery([
+    "parkingData", pagination.current,
+  ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
+    keepPreviousData: true,
+  });
 
-  const renderColumn = {
-    date: (value) => (
-      <span>
-        {value} <br />
-        <span className="block text-gray-500 text-sm">Formatted Date</span>
-      </span>
-    ),
-    membership: (value) => <span className="text-indigo-600 font-medium">{value}</span>,
-    duration: (value) => (
-      <div className="flex items-center space-x-2">
-        <div className="w-16 h-2 bg-purple-500 rounded"></div>
-        <span className="text-sm">{value}</span>
-      </div>
-    ),
-  };
+  const columns = [
+    {
+      title: "Date",
+      dataIndex: "date",
+      render: (date) => new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }).format(new Date(date)),
+    },
+    {
+      title: "Membership",
+      dataIndex: "membership",
+      render: (value) => {
+        return (
+          <Tag color="green">
+            {value}
+          </Tag>
+        );
+      },
+    },
+    {
+      title: "Vehicle Number",
+      dataIndex: "plateNumber",
+    },
+    {
+      title: "Parking Area",
+      dataIndex: "parkingArea",
+    },
+    {
+      title: "Check In",
+      dataIndex: "checkIn",
+    },
+    {
+      title: "Check Out",
+      dataIndex: "checkOut",
+    },
+    {
+      title: "Duration",
+      dataIndex: "duration",
+    },
+    {
+      title: "Action",
+      render: (_, record) => (
+        <div>{renderActionsDropdown(record)}</div>
+      ),
+    },
+  ];
 
-  
   return (
     <>
       <div className=" lg:flex justify-between p-6">
@@ -58,14 +120,7 @@ export default function PeakTraffic() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Peak Traffic Time'} />
-
-        <CustomTable data={table_data} headers={table_headers} renderColumn={renderColumn} />
-
-        <CustomPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
+        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { APP_ROUTES, CONSTANTS } from "./Constants";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useUser } from "../Context/UserContext";
 
@@ -42,10 +42,16 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
 };
 
 export const useAxiosInterceptors = () => {
-  const navigate = useNavigate();
+  const navigate = useLocation();
   const { user } = useUser()
+  const token = localStorage.getItem("token");
+  const tokendata = {
+    user: {
+      token: token
+    }
+  }
 
   useEffect(() => {
-    setupInterceptor(PrivateAxiosInstance, navigate, user);
+    setupInterceptor(PrivateAxiosInstance, navigate, tokendata);
   }, [navigate]);
 };

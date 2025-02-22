@@ -35,14 +35,14 @@ export const APP_ROUTES = {
 };
 
 export const table_data = [
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
-  { date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"1",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"2",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"3",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"4",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"5",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"6",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"7",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
+  { id:"8",date: "Nov 1, 2024", membership: "Gold", plateNumber: "AEX 8458", parkingArea: "Floor A", checkIn: "10:00 AM", checkOut: "1:00 PM", duration: "3 hr", },
 ];
 
 export const table_headers = [
