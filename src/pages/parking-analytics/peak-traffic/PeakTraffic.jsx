@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import CustomFilters from '../../../components/CustomFilters';
-import CustomTable from '../../../components/CustomTable';
-import CustomPagination from '../../../components/CustomPagination';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/charts/CustomBarChart';
 import RangeCalander from '../../../components/RangeCalander';
-import { bar_chart_data, table_data, table_headers } from '../../../config/Constants';
+import { bar_chart_data, table_data } from '../../../config/Constants';
 import TableComponent from '../../../components/EventTable';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
