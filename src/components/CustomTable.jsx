@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import React from "react";
 
-export default function TableComponent({ data, columns, pagination, setPagination, loading }) {
+export default function CustomTable({ data, columns, pagination, setPagination, loading }) {
   return (
     <Table
       columns={columns}

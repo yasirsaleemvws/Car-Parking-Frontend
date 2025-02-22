@@ -4,7 +4,7 @@ import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/charts/CustomBarChart';
 import RangeCalander from '../../../components/RangeCalander';
 import { bar_chart_data4, table_data } from '../../../config/Constants';
-import TableComponent from '../../../components/EventTable';
+import CustomTable from '../../../components/CustomTable';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
 import { useQuery } from 'react-query';
@@ -121,7 +121,7 @@ export default function AvgVehicle() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Average Vehicle Parked'} />
-        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )

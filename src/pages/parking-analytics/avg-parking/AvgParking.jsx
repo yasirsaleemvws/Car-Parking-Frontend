@@ -6,7 +6,7 @@ import RangeCalander from '../../../components/RangeCalander';
 import { bar_chart_data3, table_data } from '../../../config/Constants';
 import { useQuery } from 'react-query';
 import { Dropdown, Menu, Tag } from 'antd';
-import TableComponent from '../../../components/EventTable';
+import CustomTable from '../../../components/CustomTable';
 import { IoMdMore } from 'react-icons/io';
 
 const breadcrumbItems = [
@@ -116,7 +116,7 @@ export default function AvgParking() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Average Parking Duration'} />
-        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )

@@ -5,7 +5,7 @@ import { table_data } from '../../config/Constants';
 import { useQuery } from 'react-query';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
-import TableComponent from "../../components/EventTable";
+import CustomTable from "../../components/CustomTable";
 import { GET__PARKING_LIST } from "../../api/PrivateApi";
 
 const renderActionsDropdown = (item) => {
@@ -136,7 +136,7 @@ export default function Team() {
 
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'All Team Members'} />
-        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddTeamMemberModal

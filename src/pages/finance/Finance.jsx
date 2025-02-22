@@ -8,7 +8,7 @@ import CustomPieChart from '../../components/charts/CustomPieChart';
 import { IoMdMore } from 'react-icons/io';
 import { Dropdown, Menu, Tag } from 'antd';
 import { useQuery } from 'react-query';
-import TableComponent from "../../components/EventTable";
+import CustomTable from "../../components/CustomTable";
 import { GET__PARKING_LIST } from "../../api/PrivateApi";
 
 
@@ -154,7 +154,7 @@ export default function Finance() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Parking revenue'} />
-        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )

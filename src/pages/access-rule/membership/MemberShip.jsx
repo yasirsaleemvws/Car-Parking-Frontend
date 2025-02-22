@@ -3,7 +3,7 @@ import { APP_ROUTES, table_data } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
-import TableComponent from '../../../components/EventTable';
+import CustomTable from '../../../components/CustomTable';
 import { Dropdown, Menu, Tag } from 'antd';
 import { useQuery } from 'react-query';
 import { IoMdMore } from 'react-icons/io';
@@ -127,7 +127,7 @@ export default function MemberShip() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Membership Parkers'} />
-        <TableComponent data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddParkingMemberModal
