@@ -3,7 +3,7 @@ import CustomFilters from '../../../components/CustomFilters';
 import Breadcrumb from '../../../components/Breadcurms';
 import CustomBarChart from '../../../components/charts/CustomBarChart';
 import RangeCalander from '../../../components/RangeCalander';
-import { bar_chart_data, table_data } from '../../../config/Constants';
+import { bar_chart_data } from '../../../config/Constants';
 import CustomTable from '../../../components/CustomTable';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
@@ -118,7 +118,7 @@ export default function PeakTraffic() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Peak Traffic Time'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )

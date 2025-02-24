@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { APP_ROUTES, table_data } from '../../../config/Constants';
+import { APP_ROUTES } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
@@ -127,7 +127,7 @@ export default function MemberShip() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Membership Parkers'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddParkingMemberModal

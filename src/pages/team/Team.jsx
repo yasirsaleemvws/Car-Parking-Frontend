@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import CustomFilters from '../../components/CustomFilters';
 import AddTeamMemberModal from '../../components/modals/AddTeamMember';
-import { table_data } from '../../config/Constants';
 import { useQuery } from 'react-query';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
@@ -136,7 +135,7 @@ export default function Team() {
 
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'All Team Members'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddTeamMemberModal

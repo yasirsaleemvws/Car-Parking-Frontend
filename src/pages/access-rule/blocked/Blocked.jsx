@@ -3,7 +3,6 @@ import { APP_ROUTES } from '../../../config/Constants';
 import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
-import { table_data } from '../../../config/Constants';
 import CustomTable from '../../../components/CustomTable';
 import { Dropdown, Menu, Tag } from 'antd';
 import { useQuery } from 'react-query';
@@ -143,7 +142,7 @@ export default function Blocked() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Restricted Parkers'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddParkingMemberModal

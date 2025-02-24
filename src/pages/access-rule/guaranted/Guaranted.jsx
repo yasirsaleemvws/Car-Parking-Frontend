@@ -4,7 +4,6 @@ import Breadcrumb from '../../../components/Breadcurms';
 import AddParkingMemberModal from '../../../components/modals/AddParkingMember';
 import CustomFilters from '../../../components/CustomFilters';
 import CustomTable from '../../../components/CustomTable';
-import { table_data } from '../../../config/Constants';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
 import { useQuery } from 'react-query';
@@ -126,7 +125,7 @@ export default function Guaranted() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Guaranted Parkers'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddParkingMemberModal

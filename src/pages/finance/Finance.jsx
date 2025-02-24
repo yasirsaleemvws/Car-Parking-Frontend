@@ -3,7 +3,7 @@ import CustomFilters from '../../components/CustomFilters';
 import CustomBarChart from '../../components/charts/CustomBarChart';
 import RangeCalander from '../../components/RangeCalander';
 import { FaArrowUpLong } from 'react-icons/fa6';
-import { bar_chart_data4, donut_chart_data, table_data } from '../../config/Constants';
+import { bar_chart_data4, donut_chart_data } from '../../config/Constants';
 import CustomPieChart from '../../components/charts/CustomPieChart';
 import { IoMdMore } from 'react-icons/io';
 import { Dropdown, Menu, Tag } from 'antd';
@@ -154,7 +154,7 @@ export default function Finance() {
 
       <div className="bg-white shadow-md rounded-lg ">
         <CustomFilters title={'Parking revenue'} />
-        <CustomTable data={table_data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
     </>
   )
