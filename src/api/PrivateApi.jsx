@@ -26,3 +26,12 @@ export const UPDATE_COMPANY_PROFILE = async (data) => {
         throw new Error(error?.response?.data?.message);
     }
 };
+
+export const UPDATE_PROFILE = async (data) => {
+    try {
+        const response = await PrivateAxiosInstance.post(`/update-profile`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error(error?.response?.data?.message);
+    }
+};
