@@ -9,6 +9,7 @@ import { SiGraphql } from "react-icons/si";
 import { ImStackoverflow } from "react-icons/im";
 import { FaSquareParking } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
+import { PiBuildingOfficeBold } from "react-icons/pi";
 
 
 export default function CustomMenu() {
@@ -74,7 +75,7 @@ export default function CustomMenu() {
                     </Menu.Item>
 
                     <Menu.Item key="200" className='m-0' onClick={() => { navigate(ADMIN_ROUTES?.COMPANIES); }} >
-                        <FaKey className='text-xl' />
+                        <PiBuildingOfficeBold className='text-xl' />
                         <span className="ml-3">Companies</span>
                     </Menu.Item>
 
