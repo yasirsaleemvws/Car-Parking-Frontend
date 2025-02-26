@@ -50,7 +50,6 @@ const Signup = () => {
         validateField(step, field, value);
     };
 
-
     const validateStep = (step) => {
         let newErrors = {};
         let isValid = true;
@@ -83,14 +82,12 @@ const Signup = () => {
         return isValid;
     };
 
-
     const handleNext = async (step, event) => {
         if (validateStep(step)) {
             if (step === "basicInfo") setActiveTab("address");
             if (step === "address") setActiveTab("parking");
             if (step === "parking") {
                 try {
-                    debugger
                     const response = await registerMutation.mutateAsync(formData);
                     if (response.success) {
                         navigate(APP_ROUTES.LOGIN);

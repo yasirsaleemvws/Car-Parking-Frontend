@@ -78,6 +78,13 @@ export default function Parking() {
     {
       title: "Duration",
       dataIndex: "duration",
+      render: (value) => {
+        return (
+          <Tag color="green">
+            {value}
+          </Tag>
+        );
+      },
     },
     {
       title: "Action",

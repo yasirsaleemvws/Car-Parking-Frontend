@@ -84,7 +84,7 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
         </div>
       ))}
 
-      <button type="submit" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition" onClick={() => handleNext("parking")}>
+      <button type="button" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition" onClick={() => handleNext("parking")}>
         Next
       </button>
     </form>
