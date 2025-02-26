@@ -27,6 +27,24 @@ export const UserProvider = ({ children }) => {
     }
   );
 
+  const adminLoginMutation = useMutation(
+    async (data) => {
+      const response = await POST__LOGIN(data);
+      return response;
+    },
+    {
+      onSuccess: (data) => {
+        setUser(data?.data);
+        localStorage.setItem("user", JSON.stringify(data?.data));
+        queryClient.invalidateQueries("user");
+        toast.success("Login Successfully");
+      },
+      onError: (error) => {
+        toast.error("Login failed. Please check your credentials.");
+      },
+    }
+  );
+
   const registerMutation = useMutation(
     async (data) => {
       const response = await POST__REGISTER(data);
@@ -57,7 +75,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, loginMutation, registerMutation, logout }}>
+    <UserContext.Provider value={{ user, setUser, loginMutation, adminLoginMutation, registerMutation, logout }}>
       {children}
     </UserContext.Provider>
   );

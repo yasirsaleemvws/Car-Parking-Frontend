@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Auth/login/Login";
-import { APP_ROUTES } from "../config/Constants";
+import { ADMIN_ROUTES, APP_ROUTES } from "../config/Constants";
 import Signup from "../pages/Auth/Signup/Signup";
-import ProtectedRoute from "./ProtectedRoute";
 import Parking from "../pages/parking/Parking";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AccessRule from "../pages/access-rule/AccessRule";
@@ -23,6 +22,12 @@ import Guaranted from "../pages/access-rule/guaranted/Guaranted";
 import SingleCamera from "../pages/parking-section/camera-view/single-camera/SingleCamera";
 import CameraView from "../pages/parking-section/camera-view/CameraView";
 import ParkingArea from "../pages/parking-section/parking-area/ParkingArea";
+import AdminLogin from "../pages/Auth/admin-login/AdminLogin";
+import UserGuard from "./UserGuard";
+import Dashboard from "../pages/admin/dashbaord/Dashboard";
+import Companies from "../pages/admin/companies/Companies";
+import ChangePassword from "../pages/admin/change-password/ChangePassword";
+import AdminGuard from "./AdminGuard";
 
 const AppRoutes = () => {
   return (
@@ -30,11 +35,12 @@ const AppRoutes = () => {
       <Router>
         <Routes>
           <Route>
-            <Route path={APP_ROUTES?.HOME} element={<Login />} />
+            <Route path={APP_ROUTES?.HOME} element={<Navigate to={APP_ROUTES.LOGIN} />} />
             <Route path={APP_ROUTES?.LOGIN} element={<Login />} />
             <Route path={APP_ROUTES?.SIGN_UP} element={<Signup />} />
+            <Route path={ADMIN_ROUTES.LOGIN} element={<AdminLogin />} />
           </Route>
-          <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>} >
+          <Route element={<UserGuard><DashboardLayout /></UserGuard>} >
             <Route path={APP_ROUTES?.PARKING} element={<Parking />} />
             <Route path={APP_ROUTES?.PARKING_OVERVIEW} element={<ParkingOverview />} />
             <Route path={APP_ROUTES?.PARKING_ANALYTICS} element={<ParkingAnalytics />} />
@@ -53,6 +59,11 @@ const AppRoutes = () => {
             <Route path={APP_ROUTES?.PARKING_CAMERA} element={<CameraView />} />
             <Route path={APP_ROUTES?.PARKING_CAMERA_DETAILS} element={<SingleCamera />} />
             <Route path={APP_ROUTES?.SETTINGS} element={<Settings />} />
+          </Route>
+          <Route element={<AdminGuard><DashboardLayout /></AdminGuard>}>
+            <Route path={ADMIN_ROUTES.DASHBOARD} element={<Dashboard />} />
+            <Route path={ADMIN_ROUTES.COMPANIES} element={<Companies />} />
+            <Route path={ADMIN_ROUTES.CHANGE_PASSWORD} element={<ChangePassword />} />
           </Route>
         </Routes>
       </Router>

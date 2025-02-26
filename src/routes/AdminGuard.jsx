@@ -4,16 +4,17 @@ import { Navigate } from "react-router-dom";
 import { APP_ROUTES } from "../config/Constants";
 import { useAxiosInterceptors } from "../config/axios";
 
-const ProtectedRoute = ({ children }) => {
+const AdminGuard = ({ children }) => {
   useAxiosInterceptors();
 
   // const { user } = useUser();
   const token = localStorage.getItem("token");
-  if (!token) {
+  const role = localStorage.getItem("role");
+  if (!token || !role) {
     return <Navigate to={APP_ROUTES?.LOGIN} />;
   }
 
   return children;
 };
 
-export default ProtectedRoute;
+export default AdminGuard;
