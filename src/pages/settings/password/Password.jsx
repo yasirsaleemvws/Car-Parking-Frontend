@@ -1,15 +1,14 @@
 import React from 'react';
-import { useMutation } from 'react-query';
+import { useMutation } from 'react-query'; // Fixed import path
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { GET__UPDATE_PASSWORD } from '../../../api/PrivateApi';
+import { UPDATE_PASSWORD } from '../../../api/PrivateApi';
 
-
+// Validation Schema
 const validationSchema = Yup.object({
-  currentPassword: Yup.string()
-    .required('Current Password is required'),
+  currentPassword: Yup.string().required('Current Password is required'),
   newPassword: Yup.string()
-    .required('Password is required')
+    .required('New Password is required')
     .min(8, 'Password must be at least 8 characters long'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('newPassword'), null], 'Passwords must match')
@@ -17,7 +16,8 @@ const validationSchema = Yup.object({
 });
 
 export default function Password() {
-  const mutation = useMutation(GET__UPDATE_PASSWORD(), {
+  // React Query Mutation
+  const mutation = useMutation(UPDATE_PASSWORD, {
     onSuccess: () => {
       alert('Password updated successfully!');
     },
@@ -26,6 +26,7 @@ export default function Password() {
     },
   });
 
+  // Formik Form
   const formik = useFormik({
     initialValues: {
       currentPassword: '',
@@ -34,74 +35,75 @@ export default function Password() {
     },
     validationSchema,
     onSubmit: (values) => {
-      if (!formik.isValid) {
-        mutation.mutate(values);
-      }
+      mutation.mutate(values);
     },
   });
 
   return (
     <>
-      <h2 className="text-xl font-semibold mb-4">Password</h2>
+      <h2 className="text-xl font-semibold mb-4">Update Password</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="flex flex-col gap-4 mb-4 min-h-[40vh]">
+
+          {/* Current Password */}
           <div className="flex gap-4 items-center">
             <label className="block text-gray-700 w-1/4">Current Password</label>
-            <div className='w-full'>
+            <div className="w-full">
               <input
                 className="border p-2 w-full rounded-md"
                 type="password"
                 name="currentPassword"
                 placeholder="Enter Current Password"
-                value={formik.values.currentPassword}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                {...formik.getFieldProps("currentPassword")}
               />
-              {formik.touched.currentPassword && formik.errors.currentPassword ? (
+              {formik.touched.currentPassword && formik.errors.currentPassword && (
                 <div className="text-red-500">{formik.errors.currentPassword}</div>
-              ) : null}
+              )}
             </div>
           </div>
+
+          {/* New Password */}
           <div className="flex gap-4 items-center">
-            <label className="block text-gray-700 w-1/4">Password</label>
-            <div className='w-full'>
+            <label className="block text-gray-700 w-1/4">New Password</label>
+            <div className="w-full">
               <input
                 className="border p-2 w-full rounded-md"
                 type="password"
                 name="newPassword"
-                placeholder="Enter Password"
-                value={formik.values.newPassword}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                placeholder="Enter New Password"
+                {...formik.getFieldProps("newPassword")}
               />
-              {formik.touched.newPassword && formik.errors.newPassword ? (
+              {formik.touched.newPassword && formik.errors.newPassword && (
                 <div className="text-red-500">{formik.errors.newPassword}</div>
-              ) : null}
+              )}
             </div>
           </div>
+
+          {/* Confirm Password */}
           <div className="flex gap-4 items-center">
             <label className="block text-gray-700 w-1/4">Confirm Password</label>
-            <div className='w-full'>
+            <div className="w-full">
               <input
                 className="border p-2 w-full rounded-md"
                 type="password"
                 name="confirmPassword"
-                placeholder="Enter Confirm Password"
-                value={formik.values.confirmPassword}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                placeholder="Confirm New Password"
+                {...formik.getFieldProps("confirmPassword")}
               />
-              {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              {formik.touched.confirmPassword && formik.errors.confirmPassword && (
                 <div className="text-red-500">{formik.errors.confirmPassword}</div>
-              ) : null}
+              )}
             </div>
           </div>
+
         </div>
+
+        {/* Submit Button */}
         <div className="flex justify-end space-x-2">
           <button
             className="bg-purple-500 text-white p-2 rounded-md min-w-[120px]"
             type="submit"
-            disabled={mutation.isLoading}
+            disabled={mutation.isLoading || !formik.isValid || !formik.dirty}
           >
             {mutation.isLoading ? 'Saving...' : 'Save'}
           </button>
