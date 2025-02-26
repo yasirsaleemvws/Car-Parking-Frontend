@@ -35,9 +35,9 @@ export default function CompanyProfile() {
                     </div>
                 </div>
                 <div className="flex justify-end space-x-2">
-                    <button className="bg-white text-purple-700 p-2 rounded-md min-w-[120px] border-purple-500 border" type="button">
+                    {/* <button className="bg-white text-purple-700 p-2 rounded-md min-w-[120px] border-purple-500 border" type="button">
                         Cancel
-                    </button>
+                    </button> */}
                     <button className="bg-purple-500 text-white p-2 rounded-md min-w-[120px]" type="submit">
                         Save
                     </button>
