@@ -17,8 +17,7 @@ export const UserProvider = ({ children }) => {
     {
       onSuccess: (data) => {
         setUser(data?.data);
-        localStorage.setItem("token", JSON.stringify(data?.token));
-        localStorage.setItem("user", JSON.stringify(data?.user));
+        localStorage.setItem("userInfo", JSON.stringify(data?.data));
         queryClient.invalidateQueries("user");
         toast.success("Login Successfully");
       },
