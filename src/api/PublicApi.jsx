@@ -21,7 +21,7 @@ export const POST__ADMIN_LOGIN = async (data) => {
 
 export const POST__REGISTER = async (data) => {
   try {
-    const response = await PublicAxiosInstance.post(`auth/register`, data);
+    const response = await PublicAxiosInstance.post(`auth/signup`, data);
     return response.data;
   } catch (error) {
     throw error;

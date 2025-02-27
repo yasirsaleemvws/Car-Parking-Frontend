@@ -5,7 +5,7 @@ export const CONSTANTS = {
     EVENT_SPONSOR: "event_sponsor",
   },
 
-  BACKEND_URL_PUBLIC: `https://the-sponsor-backend.vercel.app/the-sponsor-apis/v1/`,
+  BACKEND_URL_PUBLIC: `http://207.180.210.136:81/api/`,
 
 };
 
