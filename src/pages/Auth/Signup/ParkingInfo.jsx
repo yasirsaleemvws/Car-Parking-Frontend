@@ -85,7 +85,7 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
       ))}
 
       <button type="button" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition" onClick={() => handleNext("parking")}>
-        Next
+        Register 
       </button>
     </form>
   );

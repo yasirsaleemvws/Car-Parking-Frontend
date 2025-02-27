@@ -54,7 +54,20 @@ const Signup = () => {
         let newErrors = {};
         let isValid = true;
 
-        if (step === "parking") {
+        if (step === "basicInfo") {
+            Object.keys(formData.basicInfo).forEach((field) => {
+                if (!formData.basicInfo[field]) {
+                    newErrors[field] = `${field.replace(/([A-Z])/g, " $1")} is required`;
+                    isValid = false;
+                }
+            });
+
+            // Password match validation
+            if (formData.basicInfo.password !== formData.basicInfo.confirmPassword) {
+                newErrors.confirmPassword = "Passwords do not match";
+                isValid = false;
+            }
+        } else if (step === "parking") {
             formData.parkingInfo.forEach((area, index) => {
                 let areaErrors = {};
                 Object.keys(area).forEach((field) => {
@@ -81,6 +94,7 @@ const Signup = () => {
 
         return isValid;
     };
+
 
     const handleNext = async (step, event) => {
         if (validateStep(step)) {
