@@ -28,6 +28,8 @@ import Dashboard from "../pages/admin/dashbaord/Dashboard";
 import Companies from "../pages/admin/companies/Companies";
 import ChangePassword from "../pages/admin/change-password/ChangePassword";
 import AdminGuard from "./AdminGuard";
+import ForgetPassword from "../pages/Auth/forget-password/ForgetPassword";
+import ResetPassword from "../pages/Auth/reset-password/ResetPassword";
 
 const AppRoutes = () => {
   return (
@@ -37,6 +39,8 @@ const AppRoutes = () => {
           <Route>
             <Route path={APP_ROUTES?.HOME} element={<Navigate to={APP_ROUTES.LOGIN} />} />
             <Route path={APP_ROUTES?.LOGIN} element={<Login />} />
+            <Route path={APP_ROUTES?.FORGET_PASSWORD} element={<ForgetPassword />} />
+            <Route path={APP_ROUTES?.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={APP_ROUTES?.SIGN_UP} element={<Signup />} />
             <Route path={ADMIN_ROUTES.LOGIN} element={<AdminLogin />} />
           </Route>

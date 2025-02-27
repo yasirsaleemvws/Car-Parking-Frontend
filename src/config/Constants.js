@@ -14,6 +14,8 @@ export const APP_ROUTES = {
   HOME: '/',
   LOGIN: "/login",
   SIGN_UP: "/sign-up",
+  FORGET_PASSWORD: "/forget-password",
+  RESET_PASSWORD: "/reset-password/:id",
   PARKING: "/parking",
   PARKING_OVERVIEW: "/parking-overview",
   PARKING_ANALYTICS: "/parking-analytics",

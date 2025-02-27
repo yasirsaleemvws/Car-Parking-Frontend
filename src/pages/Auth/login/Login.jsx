@@ -65,7 +65,7 @@ const Login = () => {
                 <input type="checkbox" className="mr-2" />
                 Remember for 30 days
               </label>
-              <a href="#" className="text-purple-600 hover:underline">Forgot password?</a>
+              <Link to={APP_ROUTES?.FORGET_PASSWORD} className="text-purple-600 hover:underline">Forgot password?</Link>
             </div>
 
             <button

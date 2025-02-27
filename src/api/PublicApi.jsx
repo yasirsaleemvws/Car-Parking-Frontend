@@ -27,3 +27,21 @@ export const POST__REGISTER = async (data) => {
     throw error;
   }
 };
+
+export const POST__FORGET_PASSWORD = async (data) => {
+  try {
+    const response = await PublicAxiosInstance.post(`auth/forgot-password`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const POST__RESET_PASSWORD = async (data) => {
+  try {
+    const response = await PublicAxiosInstance.post(`auth/forgot-password`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
