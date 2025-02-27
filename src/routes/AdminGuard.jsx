@@ -1,11 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-// import { useUser } from "../Context/UserContext";
 import { APP_ROUTES } from "../config/Constants";
-import { useAxiosInterceptors } from "../config/axios";
 
 const AdminGuard = ({ children }) => {
-  useAxiosInterceptors();
 
   // const { user } = useUser();
   const token = localStorage.getItem("token");

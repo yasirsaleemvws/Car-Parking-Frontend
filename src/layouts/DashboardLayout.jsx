@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import Siderbar from "./Siderbar/Sidebar";
 import Header from "./Header/Header";
+import { useAxiosInterceptors } from "../config/axios";
 
 
 function DashboardLayout() {
+  useAxiosInterceptors();
   const [collapsed, setCollapsed] = useState(true);
 
   return (
