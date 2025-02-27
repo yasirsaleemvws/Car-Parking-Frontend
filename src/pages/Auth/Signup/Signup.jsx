@@ -4,10 +4,12 @@ import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
 import { useUser } from "../../../Context/UserContext";
 import { APP_ROUTES } from "../../../config/Constants";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const { registerMutation } = useUser()
     const [activeTab, setActiveTab] = useState("basic");
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         basicInfo: { companyName: "", email: "", regNumber: "", businessType: "" },
@@ -107,7 +109,7 @@ const Signup = () => {
                         navigate(APP_ROUTES.LOGIN);
                     }
                 } catch (error) {
-                    console.error("Login failed:", error);
+                    console.error("Registration failed:", error);
                 }
             }
         }
@@ -137,7 +139,7 @@ const Signup = () => {
 
                             {activeTab === "basic" && <BasicInfo formData={formData} handleChange={handleChange} errors={errors.basicInfo} handleNext={handleNext} />}
                             {activeTab === "address" && <Address formData={formData} handleChange={handleChange} errors={errors.address} handleNext={handleNext} />}
-                            {activeTab === "parking" && <ParkingInfo formData={formData} handleChange={handleChange} errors={errors.parking} handleNext={handleNext} />}
+                            {activeTab === "parking" && <ParkingInfo formData={formData} handleChange={handleChange} errors={errors.parking} handleNext={handleNext} loading={registerMutation.isLoading} />}
                         </div>
 
                         <div className="hidden md:flex items-center justify-center mb-6">

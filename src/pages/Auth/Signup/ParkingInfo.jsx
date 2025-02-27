@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function ParkingInfo({ formData, errors, handleChange, handleNext }) {
+export default function ParkingInfo({ formData, errors, handleChange, handleNext, loading }) {
   const [parkingAreas, setParkingAreas] = useState([{ areaName: "", length: "", width: "", capacity: "", cameras: "" }]);
 
   const handleAddMore = () => {
@@ -85,7 +85,7 @@ export default function ParkingInfo({ formData, errors, handleChange, handleNext
       ))}
 
       <button type="button" className="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition" onClick={() => handleNext("parking")}>
-        Register 
+        {loading ? "Register..." : "Register"}
       </button>
     </form>
   );

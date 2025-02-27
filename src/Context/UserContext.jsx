@@ -17,7 +17,8 @@ export const UserProvider = ({ children }) => {
     {
       onSuccess: (data) => {
         setUser(data?.data);
-        localStorage.setItem("user", JSON.stringify(data?.data));
+        localStorage.setItem("token", JSON.stringify(data?.token));
+        localStorage.setItem("user", JSON.stringify(data?.user));
         queryClient.invalidateQueries("user");
         toast.success("Login Successfully");
       },
@@ -62,7 +63,7 @@ export const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    localStorage.clear();
     queryClient.invalidateQueries("user");
     toast.info("Logged out successfully.");
   };
