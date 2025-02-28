@@ -27,7 +27,7 @@ export default function AdminLogin() {
         {
             onSuccess: (data) => {
                 localStorage.setItem("userInfo", JSON.stringify(data?.data));
-                toast.success("Login Successfully");
+                toast.success(data.message);
                 navigate(ADMIN_ROUTES.DASHBOARD);
             },
             onError: (error) => {

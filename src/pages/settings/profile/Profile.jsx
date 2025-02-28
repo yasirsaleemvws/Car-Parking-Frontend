@@ -9,8 +9,8 @@ export default function Profile() {
 
     // API Mutation
     const mutation = useMutation(POST_PROFILE, {
-        onSuccess: () => {
-            toast.success('Profile updated successfully!');
+        onSuccess: (data) => {
+            toast.success(data.message);
         },
         onError: (error) => {
             toast.error(error?.message);

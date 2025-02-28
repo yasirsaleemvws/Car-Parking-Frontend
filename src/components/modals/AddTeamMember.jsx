@@ -26,8 +26,8 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
         },
         {
             retry: false,
-            onSuccess: () => {
-                toast.success("Team member added successfully!");
+            onSuccess: (data) => {
+                toast.success(data.message);
                 formik.resetForm();
                 onSave();
                 onClose();

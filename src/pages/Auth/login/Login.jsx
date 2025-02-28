@@ -4,7 +4,7 @@ import { APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { POST__LOGIN } from "../../../api/PublicApi";
 import { toast } from "react-toastify";
 
@@ -14,7 +14,6 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: yupResolver(schema),
@@ -28,9 +27,7 @@ const Login = () => {
     {
       onSuccess: (data) => {
         localStorage.setItem("userInfo", JSON.stringify(data?.data));
-        console.log(data?.data);
-        queryClient.invalidateQueries("user");
-        toast.success("Login Successfully");
+        toast.success(data.message);
         navigate(APP_ROUTES.PARKING);
       },
       onError: (error) => {

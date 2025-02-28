@@ -19,8 +19,8 @@ const validationSchema = Yup.object({
 export default function Password() {
   // React Query Mutation
   const mutation = useMutation(POST_PASSWORD, {
-    onSuccess: () => {
-      toast.success('Password updated successfully!');
+    onSuccess: (data) => {
+      toast.success(data.message);
     },
     onError: (error) => {
       toast.error(error?.message);

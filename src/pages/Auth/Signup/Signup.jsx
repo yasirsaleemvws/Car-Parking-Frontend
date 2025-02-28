@@ -27,7 +27,7 @@ const Signup = () => {
         },
         {
             onSuccess: (data) => {
-                toast.success("Account created successfully!");
+                toast.success(data.message);
                 navigate(APP_ROUTES.LOGIN);
             },
             onError: (error) => {
