@@ -29,7 +29,7 @@ export default function Team() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("");
+  const [sort, setSort] = useState(false);
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
@@ -37,12 +37,10 @@ export default function Team() {
   });
 
   const { data, isLoading } = useQuery([
-    "parkingData", pagination.current,
-  ], () => GET_TEAM_MEMBERS(pagination.current, pagination.pageSize, search, sort), {
+    "parkingData", pagination.current, setSearch, sort, search
+  ], () => GET_TEAM_MEMBERS(pagination.current, pagination.pageSize, search, sort ? "asc" : "desc"), {
     keepPreviousData: true,
   });
-
-  console.log("Team Members Data :: ", data);
 
 
   const columns = [
@@ -141,7 +139,7 @@ export default function Team() {
       </div>
 
       <div className="bg-white shadow-md rounded-lg">
-        <CustomFilters title={'All Team Members'} />
+        <CustomFilters title={'All Team Members'} setSearch={setSearch} sort={sort} setSort={setSort} />
         <CustomTable data={data?.data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 

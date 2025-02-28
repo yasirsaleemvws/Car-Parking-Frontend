@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaChevronDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoCloudDownloadOutline, IoFilter, IoSwapVertical } from "react-icons/io5";
 import { RiSwap2Line } from "react-icons/ri";
 
 
-export default function CustomFilters({title}) {
+export default function CustomFilters({ title, setSearch, sort, setSort }) {
+    const [input, setInput] = useState('')
     return (
         <div className="flex flex-col md:flex-row md:items-center justify-between p-4">
             <h2 className="text-lg font-semibold">{title}</h2>
@@ -18,13 +19,15 @@ export default function CustomFilters({title}) {
                     <input
                         type="text"
                         placeholder="Search..."
+                        value={input}
+                        onChange={() => setInput(e.target.value)}
                         className="pl-10 pr-4 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                 </div>
-                <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
+                <button className="p-2 border rounded-md hover:bg-gray-200 text-xl" onClick={() => setSearch(input)}>
                     <IoFilter />
                 </button>
-                <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
+                <button className="p-2 border rounded-md hover:bg-gray-200 text-xl" onClick={() => setSort(!sort)}>
                     <RiSwap2Line />
                 </button>
                 <button className="p-2 border rounded-md hover:bg-gray-200 text-xl">
