@@ -5,12 +5,11 @@ import { useAxiosInterceptors } from "../config/axios";
 
 const UserGuard = ({ children }) => {
   useAxiosInterceptors();
-
-  const user = localStorage.getItem("userInfo");
-  const token = JSON.parse(user)?.token;
-  // if (!token) {
-  //   return <Navigate to={APP_ROUTES?.LOGIN} />;
-  // }
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const token = userInfo?.token;
+  if (!token) {
+    return <Navigate to={APP_ROUTES?.LOGIN} />;
+  }
 
   return children;
 };

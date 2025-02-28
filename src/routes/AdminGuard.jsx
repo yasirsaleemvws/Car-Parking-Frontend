@@ -3,11 +3,10 @@ import { Navigate } from "react-router-dom";
 import { APP_ROUTES } from "../config/Constants";
 
 const AdminGuard = ({ children }) => {
-
-  // const { user } = useUser();
-  const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
-  if (!token || !role) {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const token = userInfo?.token;
+  const role = userInfo?.user.role;
+  if (!token || role != 'admin') {
     return <Navigate to={APP_ROUTES?.LOGIN} />;
   }
 

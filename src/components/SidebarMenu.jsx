@@ -121,7 +121,7 @@ export default function SidebarMenu() {
                         <span className="ml-3">Team</span>
                     </Menu.Item>
 
-                    <Menu.Item key="0" className='m-0 !absolute bottom-2' style={{ paddingLeft: "21px" }} onClick={() => { navigate(APP_ROUTES?.SETTINGS); }} >
+                    <Menu.Item key="0" className='m-0 !absolute bottom-2 bg-white' style={{ paddingLeft: "21px" }} onClick={() => { navigate(APP_ROUTES?.SETTINGS); }} >
                         <IoSettingsSharp className='text-xl' />
                         <span className="ml-3">Setting</span>
                     </Menu.Item>
