@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
 import CustomTable from "../../components/CustomTable";
-import { GET__PARKING_LIST } from "../../api/PrivateApi";
+import { GET_TEAM_MEMBERS } from "../../api/PrivateApi";
 
 const renderActionsDropdown = (item) => {
   const actionMenu = (
@@ -29,17 +29,19 @@ const renderActionsDropdown = (item) => {
 export default function Team() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
     total: 10,
   });
 
-  // const { data, isLoading } = useQuery([
-  //   "parkingData", pagination.current,
-  // ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
-  //   keepPreviousData: true,
-  // });
+  const { data, isLoading } = useQuery([
+    "parkingData", pagination.current,
+  ], () => GET_TEAM_MEMBERS(pagination.current, pagination.pageSize, search, sort), {
+    keepPreviousData: true,
+  });
 
   const columns = [
     {
@@ -142,7 +144,7 @@ export default function Team() {
 
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'All Team Members'} />
-        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={false} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddTeamMemberModal

@@ -62,3 +62,21 @@ export const GET_PROFILE_INFO = async () => {
         throw new Error(error?.response?.data?.message);
     }
 };
+
+export const GET_TEAM_MEMBERS = async (page, limit, search, sort) => {
+    try {
+        const response = await PrivateAxiosInstance.get(`companies/fetch-team-members?page=${page}&limit=${limit}&search=${search}&sortOrder=${sort}`);
+        return response.data;
+    } catch (error) {
+        throw new Error(error?.response?.data?.message);
+    }
+};
+
+export const POST_TEAM_MEMBER = async (data) => {
+    try {
+        const response = await PrivateAxiosInstance.post(`companies/add-team-member`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error(error?.response?.data?.message);
+    }
+};
