@@ -6,6 +6,7 @@ import { Dropdown, Menu, Tag } from 'antd';
 import { IoMdMore } from 'react-icons/io';
 import CustomTable from "../../components/CustomTable";
 import { GET_TEAM_MEMBERS } from "../../api/PrivateApi";
+import { useUser } from '../../Context/UserContext';
 
 const renderActionsDropdown = (item) => {
   const actionMenu = (
@@ -31,6 +32,7 @@ export default function Team() {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const { user } = useUser()
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,

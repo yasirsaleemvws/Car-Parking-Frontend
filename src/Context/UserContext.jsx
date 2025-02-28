@@ -18,6 +18,7 @@ export const UserProvider = ({ children }) => {
       onSuccess: (data) => {
         setUser(data?.data);
         localStorage.setItem("userInfo", JSON.stringify(data?.data));
+        console.log(data?.data);
         queryClient.invalidateQueries("user");
         toast.success("Login Successfully");
       },

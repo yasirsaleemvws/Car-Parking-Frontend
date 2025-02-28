@@ -6,8 +6,8 @@ import { useAxiosInterceptors } from "../config/axios";
 
 
 function DashboardLayout() {
-  useAxiosInterceptors();
   const [collapsed, setCollapsed] = useState(true);
+  useAxiosInterceptors();
 
   return (
     <Layout>

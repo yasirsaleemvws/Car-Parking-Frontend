@@ -9,7 +9,7 @@ import { IoMdMore } from 'react-icons/io';
 import { Dropdown, Menu, Tag } from 'antd';
 import { useQuery } from 'react-query';
 import CustomTable from "../../components/CustomTable";
-import { GET__PARKING_LIST } from "../../api/PrivateApi";
+import { POST_TEAM_MEMBER } from "../../api/PrivateApi";
 
 
 const renderActionsDropdown = (item) => {
@@ -41,7 +41,7 @@ export default function Finance() {
 
   const { data, isLoading } = useQuery([
     "parkingData", pagination.current,
-  ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
+  ], () => POST_TEAM_MEMBER(pagination.current, pagination.pageSize), {
     keepPreviousData: true,
   });
 

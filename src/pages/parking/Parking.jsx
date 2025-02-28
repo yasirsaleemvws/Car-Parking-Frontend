@@ -4,7 +4,7 @@ import CustomFilters from "../../components/CustomFilters";
 import { table_data } from "../../config/Constants";
 import { Menu, Dropdown, Tag } from "antd";
 import CustomTable from "../../components/CustomTable";
-import { GET__PARKING_LIST } from "../../api/PrivateApi";
+import { POST_TEAM_MEMBER } from "../../api/PrivateApi";
 import { IoMdMore } from "react-icons/io";
 
 const renderActionsDropdown = (item) => {
@@ -34,7 +34,7 @@ export default function Parking() {
 
   const { data, isLoading } = useQuery([
     "parkingData", pagination.current,
-  ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
+  ], () => POST_TEAM_MEMBER(pagination.current, pagination.pageSize), {
     keepPreviousData: true,
   });
 

@@ -8,9 +8,9 @@ const UserGuard = ({ children }) => {
 
   const user = localStorage.getItem("userInfo");
   const token = JSON.parse(user)?.token;
-  if (!token) {
-    return <Navigate to={APP_ROUTES?.LOGIN} />;
-  }
+  // if (!token) {
+  //   return <Navigate to={APP_ROUTES?.LOGIN} />;
+  // }
 
   return children;
 };

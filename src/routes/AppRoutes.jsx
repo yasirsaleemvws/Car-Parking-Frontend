@@ -30,8 +30,10 @@ import ChangePassword from "../pages/admin/change-password/ChangePassword";
 import AdminGuard from "./AdminGuard";
 import ForgetPassword from "../pages/Auth/forget-password/ForgetPassword";
 import ResetPassword from "../pages/Auth/reset-password/ResetPassword";
+import { useAxiosInterceptors } from "../config/axios";
 
 const AppRoutes = () => {
+
   return (
     <>
       <Router>

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { APP_ROUTES, CONSTANTS } from "./Constants";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const PublicAxiosInstance = axios.create({
   baseURL: CONSTANTS?.BACKEND_URL_PUBLIC,
@@ -17,6 +16,8 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
   axiosInstance.interceptors.request.use(
     (config) => {
       if (user ? user.token : '') {
+        console.log("user :: ", user?.token);
+
         config.headers["Authorization"] = `Bearer ${user?.token}`;
       }
       return config;
@@ -41,10 +42,8 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
 };
 
 export const useAxiosInterceptors = () => {
-  const navigate = useLocation();
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("userInfo"));
+  setupInterceptor(PrivateAxiosInstance, navigate, user);
 
-  useEffect(() => {
-    setupInterceptor(PrivateAxiosInstance, navigate, user);
-  }, [navigate]);
 };

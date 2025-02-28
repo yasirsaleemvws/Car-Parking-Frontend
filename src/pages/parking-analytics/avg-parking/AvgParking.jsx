@@ -43,7 +43,7 @@ export default function AvgParking() {
 
   const { data, isLoading } = useQuery([
     "parkingData", pagination.current,
-  ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
+  ], () => POST_TEAM_MEMBER(pagination.current, pagination.pageSize), {
     keepPreviousData: true,
   });
 
