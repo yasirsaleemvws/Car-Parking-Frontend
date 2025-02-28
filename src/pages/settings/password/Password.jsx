@@ -3,6 +3,7 @@ import { useMutation } from 'react-query'; // Fixed import path
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { POST_PASSWORD } from '../../../api/PrivateApi';
+import { toast } from 'react-toastify';
 
 // Validation Schema
 const validationSchema = Yup.object({
@@ -19,10 +20,10 @@ export default function Password() {
   // React Query Mutation
   const mutation = useMutation(POST_PASSWORD, {
     onSuccess: () => {
-      alert('Password updated successfully!');
+      toast.success('Password updated successfully!');
     },
     onError: (error) => {
-      alert('An error occurred: ' + error.message);
+      toast.error(error?.message);
     },
   });
 

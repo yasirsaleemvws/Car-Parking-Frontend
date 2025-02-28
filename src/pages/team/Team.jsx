@@ -24,7 +24,6 @@ const renderActionsDropdown = (item) => {
   );
 };
 
-
 export default function Team() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -36,55 +35,39 @@ export default function Team() {
     total: 10,
   });
 
-  const { data, isLoading } = useQuery([
-    "parkingData", pagination.current, setSearch, sort, search
-  ], () => GET_TEAM_MEMBERS(pagination.current, pagination.pageSize, search, sort ? "asc" : "desc"), {
-    keepPreviousData: true,
-  });
-
+  const { data, isLoading } = useQuery(
+    ["parkingData", pagination.current, sort, search],
+    () => GET_TEAM_MEMBERS(pagination.current, pagination.pageSize, search, sort ? "asc" : "desc"),
+    { keepPreviousData: true }
+  );
 
   const columns = [
-    {
-      title: "First Name",
-      dataIndex: "firstName",
-    },
-    {
-      title: "Last Name",
-      dataIndex: "lastName",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-    },
-    {
-      title: "Role",
-      dataIndex: "role",
-    },
+    { title: "First Name", dataIndex: "firstName" },
+    { title: "Last Name", dataIndex: "lastName" },
+    { title: "Email", dataIndex: "email" },
+    { title: "Role", dataIndex: "role" },
     {
       title: "Status",
       dataIndex: "isActive",
-      render: (value) => {
-        return (
-          <Tag color={value == true ? "green" : "yellow"}>
-            {value == true ? "Active" : "Inactive"}
-          </Tag>
-        );
-      },
+      render: (value) => (
+        <Tag color={value ? "green" : "yellow"}>
+          {value ? "Active" : "Inactive"}
+        </Tag>
+      ),
     },
     {
       title: "Created At",
       dataIndex: "createdAt",
-      render: (date) => new Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }).format(new Date(date)),
+      render: (date) =>
+        new Intl.DateTimeFormat("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }).format(new Date(date)),
     },
     {
       title: "Action",
-      render: (_, record) => (
-        <div>{renderActionsDropdown(record)}</div>
-      ),
+      render: (_, record) => <div>{renderActionsDropdown(record)}</div>,
     },
   ];
 
@@ -102,44 +85,25 @@ export default function Team() {
     // Handle the saved data (e.g., make an API call)
   };
 
-
-  const renderColumn = {
-    date: (value) => (
-      <span>
-        {value} <br />
-        <span className="block text-gray-500 text-sm">Formatted Date</span>
-      </span>
-    ),
-    membership: (value) => <span className="text-indigo-600 font-medium">{value}</span>,
-    duration: (value) => (
-      <div className="flex items-center space-x-2">
-        <div className="w-16 h-2 bg-purple-500 rounded"></div>
-        <span className="text-sm">{value}</span>
-      </div>
-    ),
-  };
-
-
   return (
     <>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Team Management</h1>
-        {
-          userInfo?.user.role == "user" ? (
-            <></>
-          ) : (
-            <button className="bg-white text-gray-600  py-2 pl-4 pr-8 border border-gray-400 rounded flex items-center" onClick={showModal}>
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
-              </svg>
-              Add Team Member
-            </button>
-          )
-        }
+        {userInfo?.user.role !== "user" && (
+          <button
+            className="bg-white text-gray-600 py-2 pl-4 pr-8 border border-gray-400 rounded flex items-center"
+            onClick={showModal}
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+            Add Team Member
+          </button>
+        )}
       </div>
 
       <div className="bg-white shadow-md rounded-lg">
-        <CustomFilters title={'All Team Members'} setSearch={setSearch} sort={sort} setSort={setSort} />
+        <CustomFilters title="All Team Members" setSearch={setSearch} sort={sort} setSort={setSort} />
         <CustomTable data={data?.data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
@@ -150,5 +114,5 @@ export default function Team() {
         user={userInfo?.user}
       />
     </>
-  )
+  );
 }

@@ -34,7 +34,7 @@ const ResetPassword = () => {
       navigate(APP_ROUTES.LOGIN);
     },
     onError: (error) => {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.message);
     },
   }
   );

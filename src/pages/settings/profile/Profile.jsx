@@ -10,10 +10,10 @@ export default function Profile() {
     // API Mutation
     const mutation = useMutation(POST_PROFILE, {
         onSuccess: () => {
-            alert('Profile updated successfully!');
+            toast.success('Profile updated successfully!');
         },
         onError: (error) => {
-            alert('An error occurred: ' + error.message);
+            toast.error(error?.message);
         },
     });
 

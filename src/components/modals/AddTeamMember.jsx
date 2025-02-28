@@ -33,7 +33,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
                 onClose();
             },
             onError: (error) => {
-                toast.error(error.response?.data?.message || "Failed to add team member");
+                toast.error(error?.message);
             }
         }
     );
@@ -42,7 +42,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
     // Formik for Form Handling
     const formik = useFormik({
         initialValues: {
-            memberName: "",
+            name: "",
             email: "",
             password: "",
             role: "",

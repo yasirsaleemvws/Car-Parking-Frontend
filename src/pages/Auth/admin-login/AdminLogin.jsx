@@ -31,7 +31,7 @@ export default function AdminLogin() {
                 navigate(ADMIN_ROUTES.DASHBOARD);
             },
             onError: (error) => {
-                toast.error("Login failed. Please check your credentials.");
+                toast.error(error?.message);
             },
         }
     );

@@ -27,7 +27,7 @@ export default function CompanyProfile() {
             console.log("Response Data:", data);
         },
         onError: (error) => {
-            console.error("Error saving profile:", error);
+            toast.error(error?.message);
         },
     });
 

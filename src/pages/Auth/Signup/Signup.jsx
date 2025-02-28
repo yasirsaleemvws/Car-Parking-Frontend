@@ -31,7 +31,7 @@ const Signup = () => {
                 navigate(APP_ROUTES.LOGIN);
             },
             onError: (error) => {
-                toast.error("Registration failed. Try again.");
+                toast.error(error?.message);
             },
         }
     );

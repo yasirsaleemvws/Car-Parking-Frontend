@@ -27,7 +27,7 @@ const ForgetPassword = () => {
       toast.success(data.message);
     },
     onError: (error) => {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.message);
     },
   }
   );

@@ -34,7 +34,7 @@ const Login = () => {
         navigate(APP_ROUTES.PARKING);
       },
       onError: (error) => {
-        toast.error("Login failed. Please check your credentials.");
+        toast.error(error?.message);
       },
     }
   );
