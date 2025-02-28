@@ -3,7 +3,7 @@ import { Layout, Drawer } from "antd";
 import "antd/dist/reset.css";
 import logo from "/images/logo.png";
 import { useNavigate } from "react-router-dom";
-import CustomMenu from "./CustomMenu";
+import SidebarMenu from "../../components/SidebarMenu";
 
 const { Sider } = Layout;
 
@@ -18,7 +18,7 @@ const Siderbar = ({ collapsed, setCollapsed }) => {
             <img className="h-[55px]" src={logo} alt="logo" onClick={() => Navigate("/login")} />
             <h2 className="font-semibold text-xl ml-2">Car Parking</h2>
           </div>
-          <CustomMenu />
+          <SidebarMenu />
         </div>
       </Sider>
 
@@ -29,7 +29,7 @@ const Siderbar = ({ collapsed, setCollapsed }) => {
         open={!collapsed}
         styles={{ padding: 0 }}
       >
-        <CustomMenu />
+        <SidebarMenu />
       </Drawer>
     </>
   );

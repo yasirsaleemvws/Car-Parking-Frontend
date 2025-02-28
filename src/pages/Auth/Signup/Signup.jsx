@@ -97,7 +97,6 @@ const Signup = () => {
         return isValid;
     };
 
-
     const handleNext = async (step, event) => {
         if (validateStep(step)) {
             if (step === "basicInfo") setActiveTab("address");

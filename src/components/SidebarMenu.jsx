@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Menu } from "antd";
-import { ADMIN_ROUTES, APP_ROUTES } from "../../config/Constants";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { RiTeamFill, RiDashboardFill } from "react-icons/ri";
 import { FaChartPie, FaKey } from "react-icons/fa";
@@ -10,9 +9,10 @@ import { ImStackoverflow } from "react-icons/im";
 import { FaSquareParking } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
 import { PiBuildingOfficeBold } from "react-icons/pi";
+import { ADMIN_ROUTES, APP_ROUTES } from '../config/Constants';
 
 
-export default function CustomMenu() {
+export default function SidebarMenu() {
     const [selected, setSelected] = useState();
     const navigate = useNavigate();
     const location = useLocation();
