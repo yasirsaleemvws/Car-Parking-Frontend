@@ -4,7 +4,8 @@ import { APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useUser } from "../../../Context/UserContext";
+import { useMutation } from "react-query";
+import { POST__RESET_PASSWORD } from "../../../api/PublicApi";
 
 const schema = yup.object().shape({
   password: yup.string()
@@ -16,7 +17,6 @@ const schema = yup.object().shape({
 });
 
 const ResetPassword = () => {
-  const { resetMutation } = useUser()
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: yupResolver(schema),
@@ -24,20 +24,28 @@ const ResetPassword = () => {
   const { id } = useParams();
 
 
+  const resetMutation = useMutation(
+    async (data) => {
+      const response = await POST__RESET_PASSWORD(data);
+      return response;
+    }, {
+    onSuccess: (data) => {
+      toast.success(data.message);
+      navigate(APP_ROUTES.LOGIN);
+    },
+    onError: (error) => {
+      toast.error(error?.response?.data?.message);
+    },
+  }
+  );
+
 
   const onSubmit = async (data) => {
-    try {
-      const params = {
-        token: id,
-        password: data.password
-      }
-      const response = await resetMutation.mutateAsync(params);
-      if (response.success) {
-        navigate(APP_ROUTES.LOGIN);
-      }
-    } catch (error) {
-      console.error("Login failed:", error);
+    const params = {
+      token: id,
+      password: data.password
     }
+    resetMutation.mutateAsync(params);
   };
 
   return (

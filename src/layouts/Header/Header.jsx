@@ -4,15 +4,11 @@ import { MenuOutlined } from "@ant-design/icons";
 import notif from "/images/icons/notif.png";
 import Profil from "/images/icons/default-profile.png";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useUser } from "../../Context/UserContext";
 import { APP_ROUTES } from "../../config/Constants";
-
-
 
 
 export default function Header({ collapsed, setCollapsed }) {
     const [notifications, setNotifications] = useState([]);
-    const { logout } = useUser();
     const Navigate = useNavigate();
 
     const notificationMenu = (
@@ -41,7 +37,7 @@ export default function Header({ collapsed, setCollapsed }) {
                 <Link
                     className="text-sm font-montserrat font-normal py-[7px] px-5"
                     onClick={async () => {
-                        await logout();
+                        localStorage.clear();
                         Navigate(APP_ROUTES?.LOGIN);
                     }}
                 >

@@ -4,7 +4,9 @@ import { APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useUser } from "../../../Context/UserContext";
+import { useMutation, useQueryClient } from "react-query";
+import { POST__LOGIN } from "../../../api/PublicApi";
+import { toast } from "react-toastify";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email format").required("Email is required"),
@@ -12,22 +14,33 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const { loginMutation } = useUser()
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const loginMutation = useMutation(
+    async (data) => {
+      const response = await POST__LOGIN(data);
+      return response;
+    },
+    {
+      onSuccess: (data) => {
+        localStorage.setItem("userInfo", JSON.stringify(data?.data));
+        console.log(data?.data);
+        queryClient.invalidateQueries("user");
+        toast.success("Login Successfully");
+        navigate(APP_ROUTES.PARKING);
+      },
+      onError: (error) => {
+        toast.error("Login failed. Please check your credentials.");
+      },
+    }
+  );
 
   const onSubmit = async (data) => {
-    try {
-      const response = await loginMutation.mutateAsync(data);
-      if (response.success) {
-        navigate(APP_ROUTES.PARKING);
-      }
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
+    loginMutation.mutateAsync(data);
   };
 
   return (

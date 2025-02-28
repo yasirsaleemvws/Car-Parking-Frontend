@@ -4,30 +4,36 @@ import { APP_ROUTES } from "../../../config/Constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useUser } from "../../../Context/UserContext";
 import { toast } from "react-toastify";
+import { POST__FORGET_PASSWORD } from "../../../api/PublicApi";
+import { useMutation } from "react-query";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email format").required("Email is required"),
 });
 
 const ForgetPassword = () => {
-  const { forgetMutation } = useUser()
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const forgetMutation = useMutation(
+    async (data) => {
+      const response = await POST__FORGET_PASSWORD(data);
+      return response;
+    }, {
+    onSuccess: (data) => {
+      toast.success(data.message);
+    },
+    onError: (error) => {
+      toast.error(error?.response?.data?.message);
+    },
+  }
+  );
 
   const onSubmit = async (data) => {
-    try {
-      const response = await forgetMutation.mutateAsync(data);
-      if (response.success) {
-        toast.success(response.message)
-      }
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
+    forgetMutation.mutateAsync(data);
   };
 
   return (

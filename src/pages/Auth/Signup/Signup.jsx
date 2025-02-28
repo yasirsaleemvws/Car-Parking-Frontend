@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import BasicInfo from "./BasicInfo";
 import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
-import { useUser } from "../../../Context/UserContext";
 import { APP_ROUTES } from "../../../config/Constants";
 import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
+import { POST__REGISTER } from "../../../api/PublicApi";
+import { toast } from "react-toastify";
 
 const Signup = () => {
-    const { registerMutation } = useUser()
     const [activeTab, setActiveTab] = useState("basic");
     const navigate = useNavigate();
 
@@ -19,6 +20,21 @@ const Signup = () => {
 
     const [errors, setErrors] = useState({});
 
+    const registerMutation = useMutation(
+        async (data) => {
+            const response = await POST__REGISTER(data);
+            return response;
+        },
+        {
+            onSuccess: (data) => {
+                toast.success("Account created successfully!");
+                navigate(APP_ROUTES.LOGIN);
+            },
+            onError: (error) => {
+                toast.error("Registration failed. Try again.");
+            },
+        }
+    );
 
     const validateField = (step, field, value) => {
         let errorMsg = "";
@@ -102,14 +118,7 @@ const Signup = () => {
             if (step === "basicInfo") setActiveTab("address");
             if (step === "address") setActiveTab("parking");
             if (step === "parking") {
-                try {
-                    const response = await registerMutation.mutateAsync(formData);
-                    if (response.success) {
-                        navigate(APP_ROUTES.LOGIN);
-                    }
-                } catch (error) {
-                    console.error("Registration failed:", error);
-                }
+                registerMutation.mutateAsync(formData);
             }
         }
     };

@@ -1,10 +1,11 @@
 import React from 'react'
-import { useUser } from '../../../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { ADMIN_ROUTES } from '../../../config/Constants';
+import { POST__ADMIN_LOGIN } from '../../../api/PublicApi';
+import { useMutation } from 'react-query';
 
 const schema = yup.object().shape({
     email: yup.string().email("Invalid email format").required("Email is required"),
@@ -12,22 +13,31 @@ const schema = yup.object().shape({
 });
 
 export default function AdminLogin() {
-    const { adminLoginMutation } = useUser()
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, } = useForm({
         resolver: yupResolver(schema),
     });
 
 
-    const onSubmit = async (data) => {
-        try {
-            const response = await adminLoginMutation.mutateAsync(data);
-            if (response.success) {
+    const adminLoginMutation = useMutation(
+        async (data) => {
+            const response = await POST__ADMIN_LOGIN(data);
+            return response;
+        },
+        {
+            onSuccess: (data) => {
+                localStorage.setItem("userInfo", JSON.stringify(data?.data));
+                toast.success("Login Successfully");
                 navigate(ADMIN_ROUTES.DASHBOARD);
-            }
-        } catch (error) {
-            console.error("Login failed:", error);
+            },
+            onError: (error) => {
+                toast.error("Login failed. Please check your credentials.");
+            },
         }
+    );
+
+    const onSubmit = async (data) => {
+        adminLoginMutation.mutateAsync(data);
     };
 
     return (
