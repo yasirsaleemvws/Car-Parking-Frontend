@@ -9,11 +9,11 @@ export default function BasicInfo({ formData, handleChange, errors, handleNext }
         <input
           type="text"
           className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none border-gray-300"
-          value={formData.basicInfo.companyName}
-          onChange={(e) => handleChange("basicInfo", "companyName", e.target.value)}
+          value={formData.basicInfo.name}
+          onChange={(e) => handleChange("basicInfo", "name", e.target.value)}
           placeholder="Enter Company Name"
         />
-        {errors?.companyName && <p className="text-red-600">{errors.companyName}</p>}
+        {errors?.name && <p className="text-red-600">{errors.name}</p>}
       </div>
 
       {/* Email */}

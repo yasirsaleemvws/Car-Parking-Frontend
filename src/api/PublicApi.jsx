@@ -12,7 +12,7 @@ export const POST__LOGIN = async (data) => {
 
 export const POST__ADMIN_LOGIN = async (data) => {
   try {
-    const response = await PublicAxiosInstance.post(`auth/admin/login`, data);
+    const response = await PublicAxiosInstance.post(`admin/login`, data);
     return response.data;
   } catch (error) {
     throw error;

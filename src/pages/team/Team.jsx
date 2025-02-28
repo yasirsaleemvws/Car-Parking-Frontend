@@ -11,9 +11,8 @@ import { useUser } from '../../Context/UserContext';
 const renderActionsDropdown = (item) => {
   const actionMenu = (
     <Menu className="min-w-[120px]">
-      <Menu.Item key="test1" className="border-b border-gray-300"> Test </Menu.Item>
-      <Menu.Item key="test2" className="border-b border-gray-300"> Test </Menu.Item>
-      <Menu.Item key="test3"> Test </Menu.Item>
+      <Menu.Item key="deactivate" className="border-b border-gray-300"> Deactivate </Menu.Item>
+      <Menu.Item key="activate" className="border-b border-gray-300"> Activate </Menu.Item>
     </Menu>
   );
 
@@ -45,46 +44,45 @@ export default function Team() {
     keepPreviousData: true,
   });
 
+  console.log("Team Members Data :: ", data);
+  
+
   const columns = [
     {
-      title: "Date",
-      dataIndex: "date",
-      render: (date) => new Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }).format(new Date(date)),
+      title: "First Name",
+      dataIndex: "firstName",
     },
     {
-      title: "Membership",
-      dataIndex: "membership",
+      title: "Last Name",
+      dataIndex: "lastName",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+    },
+    {
+      title: "Role",
+      dataIndex: "role",
+    },
+    {
+      title: "Status",
+      dataIndex: "isActive",
       render: (value) => {
         return (
-          <Tag color="green">
-            {value}
+          <Tag color={value == true ? "green" : "yellow"}>
+            {value == true ? "Active" : "Inactive"}
           </Tag>
         );
       },
     },
     {
-      title: "Vehicle Number",
-      dataIndex: "plateNumber",
-    },
-    {
-      title: "Parking Area",
-      dataIndex: "parkingArea",
-    },
-    {
-      title: "Check In",
-      dataIndex: "checkIn",
-    },
-    {
-      title: "Check Out",
-      dataIndex: "checkOut",
-    },
-    {
-      title: "Duration",
-      dataIndex: "duration",
+      title: "Created At",
+      dataIndex: "createdAt",
+      render: (date) => new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }).format(new Date(date)),
     },
     {
       title: "Action",
@@ -146,7 +144,7 @@ export default function Team() {
 
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'All Team Members'} />
-        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={data?.data} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
       </div>
 
       <AddTeamMemberModal

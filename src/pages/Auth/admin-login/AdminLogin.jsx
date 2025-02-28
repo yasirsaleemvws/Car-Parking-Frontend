@@ -20,10 +20,6 @@ export default function AdminLogin() {
 
 
     const onSubmit = async (data) => {
-        localStorage.setItem('role', "Admin")
-        localStorage.setItem('token', "test Token")
-        navigate(ADMIN_ROUTES.DASHBOARD);
-        return
         try {
             const response = await adminLoginMutation.mutateAsync(data);
             if (response.success) {

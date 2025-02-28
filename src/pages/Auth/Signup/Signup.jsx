@@ -4,7 +4,7 @@ import Address from "./Address";
 import ParkingInfo from "./ParkingInfo";
 import { useUser } from "../../../Context/UserContext";
 import { APP_ROUTES } from "../../../config/Constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const { registerMutation } = useUser()
@@ -12,7 +12,7 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        basicInfo: { companyName: "", email: "", regNumber: "", businessType: "" },
+        basicInfo: { name: "", email: "", regNumber: "", businessType: "" },
         address: { country: "", city: "", state: "", zip: "", address: "", street: "", apartment: "" },
         parkingInfo: [],
     });
@@ -140,6 +140,9 @@ const Signup = () => {
                             {activeTab === "basic" && <BasicInfo formData={formData} handleChange={handleChange} errors={errors.basicInfo} handleNext={handleNext} />}
                             {activeTab === "address" && <Address formData={formData} handleChange={handleChange} errors={errors.address} handleNext={handleNext} />}
                             {activeTab === "parking" && <ParkingInfo formData={formData} handleChange={handleChange} errors={errors.parking} handleNext={handleNext} loading={registerMutation.isLoading} />}
+                            <p className="text-center text-gray-600 text-sm mt-4">
+                                Go back to <Link to={APP_ROUTES?.LOGIN} className="text-purple-600 hover:underline">Login</Link>
+                            </p>
                         </div>
 
                         <div className="hidden md:flex items-center justify-center mb-6">

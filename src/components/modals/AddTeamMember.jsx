@@ -13,7 +13,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
 
     // Validation Schema using Yup
     const validationSchema = Yup.object().shape({
-        memberName: Yup.string().required("Member name is required"),
+        name: Yup.string().required("First name is required"),
         email: Yup.string().email("Invalid email").required("Email is required"),
         password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
         role: Yup.string().required("Please select a role"),
@@ -25,6 +25,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
             return await POST_TEAM_MEMBER(formData);
         },
         {
+            retry: false,
             onSuccess: () => {
                 toast.success("Team member added successfully!");
                 formik.resetForm();
@@ -67,19 +68,19 @@ export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
                 </div>
 
                 <form onSubmit={formik.handleSubmit}>
-                    {/* Member Name */}
+                    {/* Name */}
                     <div className="mb-4">
-                        <label className="text-gray-700">Member Name <span className='text-red-600'>*</span></label>
+                        <label className="text-gray-700">First Name <span className='text-red-600'>*</span></label>
                         <Input
-                            name="memberName"
+                            name="name"
                             placeholder="Enter Member Name"
                             className="w-full px-3 py-2 rounded-md text-gray-700 border border-gray-600"
-                            value={formik.values.memberName}
+                            value={formik.values.name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        {formik.touched.memberName && formik.errors.memberName && (
-                            <div className="text-red-500 text-sm">{formik.errors.memberName}</div>
+                        {formik.touched.name && formik.errors.name && (
+                            <div className="text-red-500 text-sm">{formik.errors.name}</div>
                         )}
                     </div>
 

@@ -16,8 +16,6 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
   axiosInstance.interceptors.request.use(
     (config) => {
       if (user ? user.token : '') {
-        console.log("user :: ", user?.token);
-
         config.headers["Authorization"] = `Bearer ${user?.token}`;
       }
       return config;
@@ -32,8 +30,8 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
     },
     (error) => {
       if (error.response?.status === 401) {
-        localStorage.clear();
-        navigate(APP_ROUTES?.LOGIN);
+        // localStorage.clear();
+        // navigate(APP_ROUTES?.LOGIN);
       }
       return Promise.reject(error);
     }

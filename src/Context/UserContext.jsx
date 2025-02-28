@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useQueryClient, useMutation } from "react-query";
-import { POST__FORGET_PASSWORD, POST__LOGIN, POST__REGISTER, POST__RESET_PASSWORD } from "../api/PublicApi";
+import { POST__ADMIN_LOGIN, POST__FORGET_PASSWORD, POST__LOGIN, POST__REGISTER, POST__RESET_PASSWORD } from "../api/PublicApi";
 import { toast } from "react-toastify";
 
 const UserContext = createContext();
@@ -30,13 +30,14 @@ export const UserProvider = ({ children }) => {
 
   const adminLoginMutation = useMutation(
     async (data) => {
-      const response = await POST__LOGIN(data);
+      const response = await POST__ADMIN_LOGIN(data);
       return response;
     },
     {
       onSuccess: (data) => {
         setUser(data?.data);
-        localStorage.setItem("user", JSON.stringify(data?.data));
+        localStorage.setItem("userInfo", JSON.stringify(data?.data));
+        console.log(data?.data);
         queryClient.invalidateQueries("user");
         toast.success("Login Successfully");
       },
