@@ -2,7 +2,7 @@ import React from 'react';
 import { useMutation } from 'react-query'; // Fixed import path
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { UPDATE_PASSWORD } from '../../../api/PrivateApi';
+import { POST_PASSWORD } from '../../../api/PrivateApi';
 
 // Validation Schema
 const validationSchema = Yup.object({
@@ -17,7 +17,7 @@ const validationSchema = Yup.object({
 
 export default function Password() {
   // React Query Mutation
-  const mutation = useMutation(UPDATE_PASSWORD, {
+  const mutation = useMutation(POST_PASSWORD, {
     onSuccess: () => {
       alert('Password updated successfully!');
     },

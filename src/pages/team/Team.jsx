@@ -28,17 +28,18 @@ const renderActionsDropdown = (item) => {
 
 export default function Team() {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
     total: 10,
   });
 
-  const { data, isLoading } = useQuery([
-    "parkingData", pagination.current,
-  ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
-    keepPreviousData: true,
-  });
+  // const { data, isLoading } = useQuery([
+  //   "parkingData", pagination.current,
+  // ], () => GET__PARKING_LIST(pagination.current, pagination.pageSize), {
+  //   keepPreviousData: true,
+  // });
 
   const columns = [
     {
@@ -125,23 +126,30 @@ export default function Team() {
     <>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Team Management</h1>
-        <button className="bg-white text-gray-600  py-2 pl-4 pr-8 border border-gray-400 rounded flex items-center" onClick={showModal}>
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
-          </svg>
-          Add Team Member
-        </button>
+        {
+          userInfo?.user.role == "user" ? (
+            <></>
+          ) : (
+            <button className="bg-white text-gray-600  py-2 pl-4 pr-8 border border-gray-400 rounded flex items-center" onClick={showModal}>
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
+              </svg>
+              Add Team Member
+            </button>
+          )
+        }
       </div>
 
       <div className="bg-white shadow-md rounded-lg">
         <CustomFilters title={'All Team Members'} />
-        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={isLoading} />
+        <CustomTable data={[]} columns={columns} pagination={pagination} setPagination={setPagination} loading={false} />
       </div>
 
       <AddTeamMemberModal
         visible={isModalVisible}
         onClose={handleModalClose}
         onSave={handleSave}
+        user={userInfo?.user}
       />
     </>
   )

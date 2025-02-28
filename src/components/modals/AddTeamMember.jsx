@@ -2,8 +2,10 @@ import React from 'react'
 import { Modal, Input, Button, Select, Form } from "antd";
 
 const { Option } = Select;
-export default function AddTeamMemberModal({ visible, onClose, onSave }) {
+export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
     const [form] = Form.useForm();
+    const availableRoles = user?.role === "company" ? ["Manager", "Member"] : ["Member"];
+
 
     const handleSave = () => {
         form.validateFields()
@@ -31,7 +33,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave }) {
 
                 <Form form={form} layout="vertical">
                     <Form.Item
-                        name="parkingAreaName"
+                        name="memberName"
                         label={<span className="text-gray-700">Member Name <span className='text-red-600'>*</span></span>}
                         rules={[{ message: "Please enter the parking area name" }]}
                     >
@@ -39,7 +41,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave }) {
                     </Form.Item>
 
                     <Form.Item
-                        name="parkingAreaName"
+                        name="email"
                         label={<span className="text-gray-700">Email <span className='text-red-600'>*</span></span>}
                         rules={[{ message: "Please enter the parking area name" }]}
                     >
@@ -47,7 +49,7 @@ export default function AddTeamMemberModal({ visible, onClose, onSave }) {
                     </Form.Item>
 
                     <Form.Item
-                        name="parkingAreaName"
+                        name="password"
                         label={<span className="text-gray-700">Password <span className='text-red-600'>*</span></span>}
                         rules={[{ message: "Please enter the parking area name" }]}
                     >
@@ -55,14 +57,14 @@ export default function AddTeamMemberModal({ visible, onClose, onSave }) {
                     </Form.Item>
 
                     <Form.Item
-                        name="parkingAreaName"
+                        name="role"
                         label={<span className="text-gray-700">Select Role <span className='text-red-600'>*</span></span>}
                         rules={[{ message: "Please enter the parking area name" }]}
                     >
-                        <Select className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600 h-[40px]" >
-                            <Option>Admin</Option>
-                            <Option>Manager</Option>
-                            <Option>Member</Option>
+                        <Select className="w-full px-3 py-2 rounded-md  text-gray-700 border border-gray-600 h-[40px]" placeholder="Select Role">
+                            {availableRoles.map(role => (
+                                <Option key={role} value={role}>{role}</Option>
+                            ))}
                         </Select>
                     </Form.Item>
 

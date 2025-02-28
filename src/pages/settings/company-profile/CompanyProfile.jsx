@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
-import axios from "axios";
-import { UPDATE_COMPANY_PROFILE } from "../../../api/PrivateApi";
+import { POST_COMPANY_PROFILE } from "../../../api/PrivateApi";
 
 export default function CompanyProfile() {
     const [fileName, setFileName] = useState("");
@@ -17,7 +16,7 @@ export default function CompanyProfile() {
             formData.append("companyLogo", values.companyLogo);
         }
 
-        const response = await UPDATE_COMPANY_PROFILE(formData);
+        const response = await POST_COMPANY_PROFILE(formData);
         return response.data;
     };
 

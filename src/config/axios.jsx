@@ -17,7 +17,6 @@ const setupInterceptor = (axiosInstance, navigate, user) => {
   axiosInstance.interceptors.request.use(
     (config) => {
       if (user ? user.token : '') {
-        console.log("Token ::::::::::::::::: ", user?.token);
         config.headers["Authorization"] = `Bearer ${user?.token}`;
       }
       return config;

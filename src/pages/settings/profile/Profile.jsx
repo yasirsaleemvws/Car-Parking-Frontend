@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from 'react-query';
-import { UPDATE_PROFILE } from '../../../api/PrivateApi';
+import { POST_PROFILE } from '../../../api/PrivateApi';
 
 export default function Profile() {
     const [selectedFile, setSelectedFile] = useState(null);
 
     // API Mutation
-    const mutation = useMutation(UPDATE_PROFILE, {
+    const mutation = useMutation(POST_PROFILE, {
         onSuccess: () => {
             alert('Profile updated successfully!');
         },
