@@ -42,8 +42,7 @@ export default function Team() {
   );
 
   const columns = [
-    { title: "First Name", dataIndex: "firstName" },
-    { title: "Last Name", dataIndex: "lastName" },
+    { title: "Name", dataIndex: "name" },
     { title: "Email", dataIndex: "email" },
     { title: "Role", dataIndex: "role" },
     {

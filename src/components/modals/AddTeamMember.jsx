@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const { Option } = Select;
 
 export default function AddTeamMemberModal({ visible, onClose, onSave, user }) {
-    const availableRoles = user?.role === "company" ? ["Manager", "Member"] : ["Member"];
+    const availableRoles = user?.role === "company" ? ["manager", "member"] : ["member"];
 
     // Validation Schema using Yup
     const validationSchema = Yup.object().shape({
