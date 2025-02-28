@@ -3,8 +3,7 @@ name: Deploy Car-Parking-Frontend
 on:
   push:
     branches:
-      - main 
-
+      - main  
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,18 +12,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions-key
+          chmod 600 ~/.ssh/github-actions-key
+          ssh-keyscan -H SERVER_IP >> ~/.ssh/known_hosts
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no root@SERVER_IP << 'EOF'
+          ssh -i ~/.ssh/github-actions-key root@SERVER_IP << 'EOF'
             cd /var/www/html/Car-Parking-Frontend
-            git pull origin main  
+            git pull origin main
             npm install
-            pm2 stop car-parking-frontend || true  
+            pm2 stop car-parking-frontend || true
             PORT=4000 pm2 start "npm run dev" --name car-parking-frontend --watch --time
             pm2 save
             pm2 list
